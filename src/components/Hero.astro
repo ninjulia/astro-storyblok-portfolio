@@ -1,4 +1,5 @@
 ---
+import { Image, getImage } from 'astro:assets';
 const { title, subtitle, intro, img, alt } = Astro.props;
 ---
 
@@ -18,9 +19,11 @@ const { title, subtitle, intro, img, alt } = Astro.props;
 			)
 		}
 	</div>
-	<img
+	<Image
 		src={img}
 		alt={alt}
+		inferSize
+		loading="eager"
 	/>
 </section>
 <style lang="scss">

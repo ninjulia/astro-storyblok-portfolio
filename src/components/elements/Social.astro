@@ -8,8 +8,8 @@ const { platform, username } = Astro.props;
 	class="social-link"
 	rel="noopener"
 	title={platform}
-	tabindex="0"
-	target="_blank">
+	target="_blank"
+	aria-label={platform}>
 	<Icon
 		name=`feather:${platform}`
 		width={24}

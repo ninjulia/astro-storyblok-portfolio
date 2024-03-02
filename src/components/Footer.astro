@@ -1,6 +1,7 @@
 ---
 const today = new Date();
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { Image, getImage } from 'astro:assets';
 import Social from './elements/Social.astro';
 
 const platform = ['facebook', 'twitter', 'github', 'youtube', 'instagram', 'linkedin', 'dribbble'];
@@ -9,12 +10,14 @@ const username = '';
 
 <footer id="site-footer">
 	<div class="wrapper d-flex wrap justify-content-space-between gap-s pt-2xl px-s pb-l">
-		<img
+		<Image
 			src="/logo.svg"
 			alt="Stevee Rogers Graphic Design"
 			class="logo"
+			width={239}
+			height={49}
 		/>
-		<div class="social-links d-flex justify-content-space-between align-items-center gap-m">
+		<div class="social-links d-flex wrap justify-content-space-between align-items-center gap-l">
 			{
 				platform &&
 					platform.map((site) => (

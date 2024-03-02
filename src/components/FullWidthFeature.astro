@@ -1,13 +1,15 @@
 ---
+import { Image, getImage } from 'astro:assets';
 const { title, image, description } = Astro.props;
 ---
 
 <article class="container">
 	<figure class="portfolio-display full-width">
 		<div class="full-width-image">
-			<img
+			<Image
 				src={image.url}
 				alt={image.alt}
+				inferSize
 			/>
 		</div>
 		<figcaption class="portfolio-display-content surface-1">

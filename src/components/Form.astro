@@ -1,10 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { Image, getImage } from 'astro:assets';
 import InputField from '../components/elements/InputField.astro';
 import TextField from '../components/elements/TextField.astro';
 ---
 
-<!-- TODO: route form post submission https://docs.netlify.com/forms/setup/ -->
 <section
 	id="contact"
 	class="wrapper img-bg text-left px-2xl py-l m-auto surface-3 align-content-start">
@@ -13,11 +13,9 @@ import TextField from '../components/elements/TextField.astro';
 			novalidate
 			name="contactForm"
 			method="POST"
-			action="/#contact"
-			data-netlify="true"
 			netlify-honeypot="bot-field"
-			data-netlify="true"
 			data-netlify-recaptcha="true"
+			data-netlify="true"
 			id="contactForm">
 			<h2 class="accent mb-m text-center">Contact Stevee</h2>
 			<p>Required fields are followed by <span aria-label="required">*</span>.</p>
@@ -44,55 +42,12 @@ import TextField from '../components/elements/TextField.astro';
 				minlength="2"
 				placeholder="Your message"
 			/>
-			<!-- <div>
-				<label for="email">
-					<span
-						class="input-title accent text-left"
-						aria-label="required"
-						>Enter your email *</span
-					>
-					<input
-						type="email"
-						name="email"
-						id="email"
-						required="true"
-						minlength="8"
-						class="py-xs px-s"
-						placeholder="Your email"
-					/>
-					<span
-						aria-hidden="true"
-						class="error ps-xs pt-xs m-0"
-						aria-live="polite"
-					></span>
-				</label>
-			</div> -->
-			<!-- <div>
-				<label for="msg">
-					<span
-						class="input-title accent text-left"
-						aria-label="required"
-						>Enter your message *</span
-					>
-					<textarea
-						id="msg"
-						name="message"
-						minlength="2"
-						required="true"
-						placeholder="Your message"
-					></textarea>
-					<span
-						aria-hidden="true"
-						class="error ps-xs pt-xs m-0"
-						aria-live="polite"
-					></span>
-				</label>
-			</div> -->
 			<div class="hidden">
 				<label>
 					Don't fill this out if you're human: <input name="bot-field" />
 				</label>
 			</div>
+			<div data-netlify-recaptcha="true"></div>
 			<div>
 				<input
 					type="submit"
@@ -103,9 +58,10 @@ import TextField from '../components/elements/TextField.astro';
 		</form>
 	</div>
 	<!-- TODO: set this up as a variable within main template -->
-	<img
-		src="https://images.unsplash.com/photo-1497048679117-1a29644559e3"
+	<Image
+		src="https://images.unsplash.com/photo-1497048679117-1a29644559e3/"
 		alt=""
+		inferSize={true}
 	/>
 </section>
 

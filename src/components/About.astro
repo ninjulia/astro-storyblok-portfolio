@@ -1,15 +1,21 @@
 ---
+import { Image, getImage } from 'astro:assets';
+import avatar from '../images/avatar.png';
 import { SITE_TITLE } from '../consts';
 ---
 
 <section
 	id="about"
-	class="wrapper d-flex wrap gap-l justify-content-flex-start py-2xl px-xl surface-1">
-	<img
-		src="/avatar.png"
-		class="about-photo mb-l align-self-flex-start mb-l border-radius-2xs"
-		alt={SITE_TITLE}
-	/>
+	class="wrapper d-flex wrap gap-l py-2xl px-xl surface-1">
+	<div class="about-photo mb-l">
+		<Image
+			class="border-radius-2xs"
+			src={avatar}
+			width={320}
+			height={320}
+			alt={SITE_TITLE}
+		/>
+	</div>
 	<div class="about-copy mx-2xs">
 		<h2 class="accent">About {SITE_TITLE}</h2>
 		<p class="prose-1">Boba margaritae a Taiwan in nineties ortae sunt, sed exactus inventor.</p>
@@ -25,21 +31,25 @@ import { SITE_TITLE } from '../consts';
 	</div>
 </section>
 <style lang="scss">
+	section {
+		--main-min-width: 45ch;
+		--sidebar-size: 250px;
+		--gap: clamp(2.25rem, 2.181rem + 0.3448vi, 2.5rem);
+	}
 	.about-photo {
-		aspect-ratio: 1;
 		width: min(320px, 100%);
-		@media (min-width: 576px) {
-			width: min(320px, 30%);
+		flex-grow: 1;
+		flex-basis: var(--sidebar-size);
+
+		img {
+			aspect-ratio: 1;
+			object-fit: cover;
+			object-position: top center;
 		}
-		flex-grow: 0;
-		flex-shrink: 2;
-		flex-basis: auto;
 	}
 
 	.about-copy {
-		width: min(60ch, 100%);
-		flex-grow: 1;
-		flex-shrink: 1;
-		flex-basis: 0;
+		flex-grow: 999;
+		flex-basis: calc(((var(--main-min-width) - (100% - var(--sidebar-size) - var(--gap))) * 9999));
 	}
 </style>

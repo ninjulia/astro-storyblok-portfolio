@@ -28,7 +28,7 @@
 	.social-links {
 		--flex-basis: ((100% - ($space-s + 239px)) * 999);
 		flex: 1 1 var(--flex-basis);
-		width: max-content;
+		width: min(max-content, 420px);
 		a {
 			margin-bottom: 0;
 			padding-bottom: 0;
@@ -54,6 +54,9 @@
 				@include headlines;
 				text-decoration: none;
 				color: var(--brand);
+				&:is(:hover, :focus) {
+					text-decoration: underline;
+				}
 				@media screen and (width < 576px) {
 					padding-block: $space-s;
 				}
