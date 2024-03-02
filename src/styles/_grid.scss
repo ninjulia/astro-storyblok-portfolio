@@ -1,0 +1,47 @@
+//* Grid Layouts
+/* @link https://utopia.fyi/grid/calculator?c=320,18,1.2,1480,20,1.2,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+$grid-max-width: 77.5rem;
+$grid-gutter: $space-s-l, clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem);
+$grid-columns: 12;
+
+.u-container {
+	max-width: $grid-max-width;
+	padding-inline: $grid-gutter;
+	margin-inline: auto;
+}
+
+//* Always 12 columns at any size
+.u-grid {
+	display: grid;
+	gap: $grid-gutter;
+	grid-template-columns: repeat(12, 1fr);
+}
+.k-grid {
+	--min-column-size: 200px;
+	--column-count: 2;
+	--gap: 2rem;
+
+	--breakpoint: calc(var(--min-column-size) * var(--column-count) + (var(--gap) * (var(--column-count) -1)));
+	--column-size-calc: calc((100% / var(--column-count)) - var(--gap));
+
+	display: grid;
+	gap: var(--gap);
+
+	grid-template-columns: repeat(
+		auto-fit,
+		minmax(min(max(var(--column-size-calc)), (100% - var(--breakpoint) * -999)), 1fr)
+	);
+}
+
+@for $i from 1 through 12 {
+	.col-start-#{$i} {
+		grid-column-start: $i;
+	}
+	.col-end-#{$i} {
+		grid-column-end: $i;
+	}
+	.col-span-#{$i} {
+		grid-column-start: span $i;
+	}
+}

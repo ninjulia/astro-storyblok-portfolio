@@ -1,0 +1,210 @@
+//TODO: better leverage mixin, globalize :focus styles
+//* Style text inputs
+@mixin text-inputs {
+	display: block;
+	padding: $space-xs $space-s;
+	font-size: $step-0;
+	color: var(--text-emphasis);
+	background-color: var(--background);
+	border-width: 1px;
+	border-style: solid;
+	border-color: var(--border-color);
+	font-weight: 700;
+	width: 100%;
+
+	&::placeholder {
+		color: var(--text-subtle);
+		font-weight: 400;
+	}
+	&:focus-within:not(:disabled) {
+		@include focus-ring;
+	}
+	&:disabled {
+		color: var(--border-color-subtle);
+		border-color: var(--border-color-subtle);
+		background-color: initial;
+	}
+	&:required {
+		//* "Light" reminder
+		//https://css-tricks.com/snippets/css/form-validation-styling-on-input-focus/
+		&:not(:placeholder-shown):invalid,
+		&:not(:focus)[aria-invalid='true'] {
+			border-color: var(--color-surface-negative);
+		}
+	}
+}
+
+//* Form validation
+form {
+	padding: $space-l;
+	display: flex;
+	flex-direction: column;
+	gap: $space-2xs;
+	width: min(90ch, 90%);
+	color: var(--color-light);
+	margin: 0 auto;
+
+	> div {
+		// margin-block-end: $space-l;
+		position: relative;
+
+		&:has(input:not([type='radio'], [type='checkbox'], [type='submit']), textarea, select) {
+			//* style text input labels differently from radio/checkboxes
+			label {
+				@include headlines;
+				display: block;
+				margin-block-end: $space-xs;
+			}
+
+			input,
+			textarea {
+				@include text-inputs;
+			}
+		}
+	}
+}
+
+//* for custom CSS ONLY select styling
+//* with much help from https://moderncss.dev/custom-select-styles-with-pure-css/
+.form-field {
+	cursor: pointer;
+	@include text-inputs;
+
+	display: grid;
+	grid-template-areas: 'stack';
+	align-items: center;
+
+	select {
+		appearance: none;
+		background-color: transparent;
+		border: none;
+		outline: none;
+		grid-area: stack;
+		width: 100%;
+
+		option {
+			max-width: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+	//TODO: Add js to better rotate icon on open, widen click target area
+	//TODO: style up dropdown while you're there
+	&:has(select:not([multiple]))::after {
+		content: '';
+		width: 44px;
+		height: 44px;
+		background-color: var(--text-emphasis);
+		mask-repeat: no-repeat;
+		mask-position: center;
+		mask-image: url('/icons/carrot-open.svg');
+		grid-area: stack;
+		justify-self: end;
+	}
+
+	&:focus-within:not(:disabled) {
+		@include focus-ring;
+	}
+	&:has(select:disabled) {
+		color: var(--border-color-subtle);
+		border-color: var(--border-color-subtle);
+		background-color: initial;
+	}
+}
+
+@mixin controls($border-radius, $content, $size) {
+	//* Use Font-Based Sizes
+	appearance: none;
+	width: $step-1;
+	height: $step-1;
+	border: 1px solid var(--border-color);
+	border-radius: $border-radius;
+	display: grid;
+	grid-template-areas: 'stack';
+	justify-content: center;
+	align-items: center;
+
+	&::before {
+		content: $content;
+		color: var(--color-light);
+		font-size: $size;
+		grid-area: stack;
+		line-height: 0;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		visibility: hidden;
+	}
+
+	&:disabled {
+		color: var(--border-color-subtle);
+		border-color: var(--border-color-subtle);
+		background-color: initial;
+		& ~ label {
+			color: var(--border-color-subtle);
+		}
+	}
+
+	&:checked {
+		background-color: var(--brand);
+
+		&::before {
+			visibility: visible;
+		}
+
+		&:hover {
+			background-color: var(--brand-shade);
+		}
+		&:disabled {
+			background-color: var(--border-color-subtle);
+		}
+	}
+	&:focus-within:not(:disabled) {
+		@include focus-ring;
+	}
+}
+
+input[type='checkbox'] {
+	@include controls(2px, '✔', $step-0);
+}
+
+input[type='radio'] {
+	@include controls(999px, '⬤', $step--2);
+}
+
+div:has(input[type='checkbox'], input[type='radio']) {
+	display: flex;
+	flex-direction: row;
+	gap: $space-s;
+	align-items: baseline;
+
+	&:not(:last-of-type) {
+		margin-bottom: $space-s;
+	}
+}
+
+fieldset {
+	//* Accounts for Legend in padding-block-start
+	padding: calc($space-xs + $step-0 + $space-xs) $space-s $space-xs $space-s;
+
+	border: none;
+	margin-block-end: $space-l;
+	outline: none;
+	position: relative;
+
+	legend {
+		@include headlines;
+		position: absolute;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+	}
+}
+
+//* Rebuild Styles
+.input-title {
+	@include headlines;
+	@extend .display-5;
+	display: block;
+	margin-block-end: $space-xs;
+}

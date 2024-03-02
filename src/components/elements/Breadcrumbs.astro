@@ -1,0 +1,37 @@
+---
+const { current } = Astro.props;
+---
+
+<section
+	id="breadcrumbs"
+	class="container pt-l px-s pb-m">
+	<nav>
+		<ul class="m-0 p-0 d-flex flex-row gap-s">
+			<li class="breadcrumb">
+				<a
+					href="/"
+					title="home"
+					>Home</a
+				>
+			</li>
+			<li class="breadcrumb">
+				<a
+					href="/work/"
+					title="/work/">
+					Work
+				</a>
+			</li>
+			<li class="breadcrumb">{current}</li>
+		</ul>
+	</nav>
+</section>
+<style lang="scss">
+	.breadcrumb {
+		margin-bottom: 0;
+		text-transform: capitalize;
+		a::after {
+			content: ' ›› ';
+			font-size: 1em;
+		}
+	}
+</style>

@@ -1,0 +1,30 @@
+//* Generate Alert Styles
+
+@mixin generate-alerts($name, $color) {
+	.#{$name}.alert {
+		background-color: var(--color-surface-#{$name});
+		color: initial;
+		border-inline-start: 4px solid $color;
+		padding: $space-s;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: $space-s;
+		&::before {
+			aspect-ratio: 1;
+			background-color: $color;
+			mask: url('/icons/#{$name}.svg');
+			content: '';
+			height: $space-m;
+		}
+		a {
+			--link-color: $color;
+			--link-color-hover: darken($color, 75%);
+		}
+	}
+}
+
+@include generate-alerts(info, var(--color-on-surface-info));
+@include generate-alerts(positive, var(--color-on-surface-positive));
+@include generate-alerts(caution, var(--color-on-surface-caution));
+@include generate-alerts(negative, var(--color-on-surface-negative));

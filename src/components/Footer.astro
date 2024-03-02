@@ -1,0 +1,49 @@
+---
+const today = new Date();
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Social from './elements/Social.astro';
+
+const platform = ['facebook', 'twitter', 'github', 'youtube', 'instagram', 'linkedin', 'dribbble'];
+const username = '';
+---
+
+<footer id="site-footer">
+	<div class="wrapper d-flex wrap justify-content-space-between gap-s pt-2xl px-s pb-l">
+		<img
+			src="/logo.svg"
+			alt="Stevee Rogers Graphic Design"
+			class="logo"
+		/>
+		<div class="social-links d-flex justify-content-space-between align-items-center gap-m">
+			{
+				platform &&
+					platform.map((site) => (
+						<Social
+							platform={site}
+							username={username}
+						/>
+					))
+			}
+		</div>
+		<nav class="u-grid">
+			<ul class="nav-links m-0 p-0">
+				<li class="nav-item"><a href=`${Astro.url.origin}/#work`>Work</a></li>
+				<li class="nav-item"><a href=`${Astro.url.origin}/#about`>About</a></li>
+				<li class="nav-item">
+					<a href=`${Astro.url.origin}/#contact`>Contact</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="colophon">
+			<p>&copy; {today.getFullYear()} {SITE_TITLE} {SITE_DESCRIPTION}. All Rights Reserved.</p>
+			<p>
+				Template example for <a href="https://github.com/astro-storyblok-portfolio"
+					>Astro + Storyblok Portfolio Starter Template</a
+				>. Built by <a href="https://github.com/ninjulia">Julia.</a>
+			</p>
+		</div>
+	</div>
+</footer>
+<script>
+	import '../scripts/nav.js';
+</script>

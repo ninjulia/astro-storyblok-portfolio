@@ -1,0 +1,32 @@
+---
+const { label, id, required, minlength, placeholder } = Astro.props;
+---
+
+<div>
+	<label for={id}>
+		{
+			required ? (
+				<span
+					class="input-title accent text-left"
+					aria-label="required">
+					{label} *
+				</span>
+			) : (
+				<span class="input-title accent text-left">{label}</span>
+			)
+		}
+
+		<textarea
+			name={id}
+			id={id}
+			{required}
+			minlength={minlength}
+			placeholder={placeholder}
+		></textarea>
+		<span
+			aria-hidden="true"
+			class="error ps-xs pt-xs m-0"
+			aria-live="polite"
+		></span>
+	</label>
+</div>

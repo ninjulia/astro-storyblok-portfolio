@@ -1,0 +1,31 @@
+{
+	"name": "astro-storyblok-portfolio",
+	"type": "commonjs",
+	"version": "0.0.1",
+	"scripts": {
+		"color-tokens": "a11y-color-tokens --outputDirPath='src/styles' --colorTokensPath='_theme/color-tokens.js'",
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/mdx": "^2.1.1",
+		"@astrojs/rss": "^4.0.5",
+		"@astrojs/sitemap": "^3.1.1",
+		"astro": "^4.4.4",
+		"sass": "^1.71.1"
+	},
+	"devDependencies": {
+		"@iconify-json/feather": "^1.1.8",
+		"a11y-color-tokens": "^0.7.0",
+		"astro-icon": "^1.1.0",
+		"lightningcss": "^1.24.0",
+		"npm-run-all": "^4.1.5"
+	},
+	"browserslist": [
+		"> 0.2%",
+		"not dead"
+	]
+}

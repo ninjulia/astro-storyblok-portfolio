@@ -1,0 +1,85 @@
+//* Links
+
+a:not([class]) {
+	cursor: pointer;
+	&:link {
+		text-decoration: underline;
+		text-underline-offset: $space-3xs;
+		padding: $space-3xs;
+	}
+}
+
+a.standalone {
+	text-decoration: none;
+	display: inline-flex;
+	flex-direction: row;
+	gap: $space-xs;
+	align-items: center;
+
+	&::before {
+		aspect-ratio: 1;
+		content: '';
+		height: $space-m;
+		mask-image: url('/icons/arrow.svg');
+	}
+}
+
+//* on Dark Backgrounds
+// @mixin link-dark($color, $bg) {
+// 	$lighter-text: lighten($color, 70%);
+// 	&:link {
+// 		color: $color;
+// 	}
+// 	&:visited {
+// 		color: $lighter-text;
+// 		&:hover {
+// 			color: $color;
+// 			text-decoration-color: $color;
+// 		}
+// 	}
+// 	&:hover {
+// 		color: $lighter-text;
+// 		text-decoration-color: $lighter-text;
+// 	}
+// 	&:focus {
+// 		color: $color;
+// 		text-decoration-color: $lighter-text;
+// 		outline-color: $lighter-text;
+// 	}
+// 	&.standalone {
+// 		&::before {
+// 			background-color: $brand;
+// 		}
+// 	}
+// }
+
+// //*on Light Backgrounds
+// @mixin link-light($color, $bg) {
+// 	$darker-text: darken($color, 90%);
+// 	$lighter-text: lighten($color, 20%);
+// 	&:link {
+// 		color: $color;
+// 	}
+// 	&:visited {
+// 		color: $darker-text;
+// 		&:hover {
+// 			color: $lighter-text;
+// 			text-decoration-color: $lighter-text;
+// 		}
+// 	}
+// 	&:hover {
+// 		color: $darker-text;
+// 		text-decoration-color: $darker-text;
+// 	}
+// 	&:focus {
+// 		color: $color;
+// 		text-decoration-color: $darker-text;
+// 		outline-color: $darker-text;
+// 	}
+// 	&.standalone {
+// 		color: $color;
+// 		&::before {
+// 			background-color: $brand;
+// 		}
+// 	}
+// }

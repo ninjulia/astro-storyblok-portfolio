@@ -1,0 +1,102 @@
+//* Site Footer Styles
+@use '../../../_theme/color-tokens' as *;
+#site-footer {
+	// width: min(100%, 1440px);
+	//	display: flex;
+	width: 100%;
+	.wrapper {
+		@media screen and (max-width: 767px) {
+			//flex-direction: column;
+			gap: $space-s;
+			gap: $space-l;
+			padding: $space-2xl $space-l $space-l $space-l;
+		}
+		@media screen and (min-width: 768px) {
+			padding: $space-2xl $space-m $space-l;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			gap: $space-l;
+		}
+	}
+
+	.logo {
+		filter: opacity(50%);
+		width: min(239px, 80%);
+	}
+
+	.social-links {
+		--flex-basis: ((100% - ($space-s + 239px)) * 999);
+		flex: 1 1 var(--flex-basis);
+		width: max-content;
+		a {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+
+	.nav-links {
+		@media screen and (width < 576px) {
+			margin-inline-end: $space-s;
+		}
+		@media screen and (width >= 576px) {
+			display: flex;
+			flex-direction: row;
+			gap: $space-xl;
+		}
+		.nav-item {
+			margin: 0;
+			padding: 0;
+			@media screen and (width < 576px) {
+				margin-inline-end: $space-xl;
+			}
+			a {
+				@include headlines;
+				text-decoration: none;
+				color: var(--brand);
+				@media screen and (width < 576px) {
+					padding-block: $space-s;
+				}
+			}
+		}
+	}
+
+	.colophon {
+		p,
+		a:link {
+			color: var(--brand-light-shade);
+			font-size: $step--1;
+		}
+	}
+}
+
+$social-media-outlets: ('facebook', 'instagram', 'linkedin', 'twitter', 'youtube');
+@each $site in $social-media-outlets {
+	#site-footer a[href*='#{$site}'] {
+		width: $step-1;
+		height: $step-1;
+		text-decoration: none;
+		// mask-image: url('/icons/#{$site}.svg');
+		// mask-position: center center;
+		// mask-origin: stroke-box;
+		// mask-size: contain;
+		// mask-repeat: no-repeat;
+		//background-color: var(--color-light-tint);
+		color: var(--color-light-tint);
+		fill: currentColor;
+		&:visited {
+			// background-color: var(--color-light-tint);
+		}
+		&:hover {
+			//background-color: darken($brand-light-shade, 20%);
+		}
+		&:focus-visible {
+			//TODO: set images in html so focus-ring shows
+			//background-color: darken($brand-light, 20%);
+			@include focus-ring;
+		}
+		&:active {
+			background-color: var(--color-on-dark);
+		}
+	}
+}

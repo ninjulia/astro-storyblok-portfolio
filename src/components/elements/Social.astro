@@ -1,0 +1,17 @@
+---
+import { Icon } from 'astro-icon/components';
+const { platform, username } = Astro.props;
+---
+
+<a
+	href={`https://www.${platform}.com/${username}`}
+	class="social-link"
+	rel="noopener"
+	title={platform}
+	tabindex="0"
+	target="_blank">
+	<Icon
+		name=`feather:${platform}`
+		width={24}
+	/>
+</a>

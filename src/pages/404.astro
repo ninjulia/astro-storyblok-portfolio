@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = 'PAGE NOT FOUND';
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<section class="py-2xl px-xl">
+		<h1 class="accent">404</h1>
+		<h2 class="accent">Page Not Found</h2>
+		<p class="mb-xl">We couldn't find the page you were looking for.</p>
+		<!-- TODO: style 'arrow' buttons -->
+		<a
+			href="/"
+			class="btn standard"
+			>Go to the homepage</a
+		>
+	</section>
+</BaseLayout>

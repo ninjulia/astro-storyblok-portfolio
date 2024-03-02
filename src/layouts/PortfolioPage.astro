@@ -1,0 +1,43 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/elements/Breadcrumbs.astro';
+import StandardFeature from '../components/StandardFeature.astro';
+import FullWidthFeature from '../components/FullWidthFeature.astro';
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+	<Hero
+		title={frontmatter.title}
+		img={frontmatter.image.url}
+		alt={frontmatter.image.alt}
+	/>
+	<Breadcrumbs current={frontmatter.slug} />
+	<section class="py-2xl px-xl">
+		<slot />
+	</section>
+	<section>
+		{
+			frontmatter.features &&
+				frontmatter.features.map((feature) => (
+					<StandardFeature
+						title={feature.title}
+						description={feature.description}
+						image={feature.image}
+					/>
+				))
+		}
+
+		{
+			frontmatter.fullWidth &&
+				frontmatter.fullWidth.map((feature) => (
+					<FullWidthFeature
+						title={feature.title}
+						description={feature.description}
+						image={feature.image}
+					/>
+				))
+		}
+	</section>
+</BaseLayout>

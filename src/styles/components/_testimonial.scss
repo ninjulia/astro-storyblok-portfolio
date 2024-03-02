@@ -1,0 +1,40 @@
+//* Testimonial Styling
+
+.testimonial {
+	display: grid;
+	place-content: center;
+
+	p {
+		max-width: 70ch;
+		position: relative;
+		isolation: isolate;
+
+		&::before {
+			@media (min-width: 768px) {
+				@include blockquote-quotes('“', $step-5, end, 0.25em);
+				top: 0;
+				left: calc($step-3 * -1);
+			}
+		}
+		&::after {
+			@media (min-width: 768px) {
+				@include blockquote-quotes('”', $step-5, start, 0.25em);
+				bottom: $step--2;
+			}
+		}
+		&::before,
+		&::after {
+			@media (min-width: 768px) {
+				position: absolute;
+				line-height: 0;
+			}
+		}
+	}
+
+	cite {
+		width: 100%;
+
+		text-align: end !important;
+		color: var(--brand);
+	}
+}

@@ -1,0 +1,45 @@
+---
+import { SITE_TITLE } from '../consts';
+---
+
+<section
+	id="about"
+	class="wrapper d-flex wrap gap-l justify-content-flex-start py-2xl px-xl surface-1">
+	<img
+		src="/avatar.png"
+		class="about-photo mb-l align-self-flex-start mb-l border-radius-2xs"
+		alt={SITE_TITLE}
+	/>
+	<div class="about-copy mx-2xs">
+		<h2 class="accent">About {SITE_TITLE}</h2>
+		<p class="prose-1">Boba margaritae a Taiwan in nineties ortae sunt, sed exactus inventor.</p>
+		<p>
+			Boba e radice amyli plantae cassavae fit, earumque praeparatio eas involvit ferventes et dulcorationes ad
+			ruminandum proprium assequendum. Processus artificii perfecti bobae margaritarum arte et subtilitate requirit,
+			conferens ad artificia et artificia dilecto potus associato.
+		</p>
+		<p>
+			Taichung chun shui tanq et tainan hanlin utrumque fictum boba affirmant. Scisne pleraque lac tea in ilha formosa,
+			etiam quae Taiwan nota, sunt lacticiniis liberum quod lacticiniis non lacticiniis loco lactis adhibetur.
+		</p>
+	</div>
+</section>
+<style lang="scss">
+	.about-photo {
+		aspect-ratio: 1;
+		width: min(320px, 100%);
+		@media (min-width: 576px) {
+			width: min(320px, 30%);
+		}
+		flex-grow: 0;
+		flex-shrink: 2;
+		flex-basis: auto;
+	}
+
+	.about-copy {
+		width: min(60ch, 100%);
+		flex-grow: 1;
+		flex-shrink: 1;
+		flex-basis: 0;
+	}
+</style>
