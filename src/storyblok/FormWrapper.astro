@@ -1,0 +1,26 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+const { blok } = Astro.props;
+---
+
+<div class="flex justify-center p-12">
+	<form
+		name="contact"
+		method="POST"
+		data-netlify="true"
+		action={`/${blok.navigationSuccess.cached_url}`}
+		class="flex flex-col w-[400px]"
+		{...storyblokEditable(blok)}>
+		{
+			blok.forms?.map((blok) => {
+				return <StoryblokComponent blok={blok} />;
+			})
+		}
+		<button
+			type="submit"
+			class="w-full rounded-[8px] bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out bg-[#00b3b0] hover:bg-[#009f9c] hover:shadow-lg focus:bg-[#009f9c] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#009f9c] active:shadow-lg"
+			>Send</button
+		>
+	</form>
+</div>

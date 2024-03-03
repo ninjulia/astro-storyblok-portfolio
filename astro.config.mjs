@@ -32,6 +32,10 @@ export default defineConfig({
 				StandardFeature: 'storyblok/StandardFeature',
 				Testimonial: 'storyblok/Testimonial',
 				Overview: 'storyblok/Overview',
+				FormWrapper: 'storyblok/FormWrapper',
+				FormInput: 'storyblok/FormInput',
+				FormTextarea: 'storyblok/FormTextarea',
+				FormCheckbox: 'storyblok/FormCheckbox',
 			},
 			apiOptions: {
 				region: 'us',
