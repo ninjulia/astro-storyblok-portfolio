@@ -1,26 +1,67 @@
 ---
+import { Icon } from 'astro-icon/components';
+import { Image, getImage } from 'astro:assets';
 import { storyblokEditable } from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 const { blok } = Astro.props;
 ---
 
-<div class="flex justify-center p-12">
-	<form
-		name="contact"
-		method="POST"
-		data-netlify="true"
-		action={`/${blok.navigationSuccess.cached_url}`}
-		class="flex flex-col w-[400px]"
-		{...storyblokEditable(blok)}>
-		{
-			blok.forms?.map((blok) => {
-				return <StoryblokComponent blok={blok} />;
-			})
-		}
-		<button
-			type="submit"
-			class="w-full rounded-[8px] bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out bg-[#00b3b0] hover:bg-[#009f9c] hover:shadow-lg focus:bg-[#009f9c] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#009f9c] active:shadow-lg"
-			>Send</button
-		>
-	</form>
-</div>
+<section
+	id="contact"
+	class="wrapper img-bg text-left px-2xl py-l m-auto surface-3 align-content-start">
+	<div class="content">
+		<form
+			name="contactForm"
+			method="POST"
+			netlify-honeypot="bot-field"
+			data-netlify-recaptcha="true"
+			data-netlify="true"
+			action={`/${blok.navigationSuccess.cached_url}`}
+			id="contactForm"
+			{...storyblokEditable(blok)}>
+			<h2 class="accent mb-m text-center">Contact Stevee</h2>
+			<p>Required fields are followed by <span aria-label="required">*</span>.</p>
+			{
+				blok.forms?.map((blok) => {
+					return <StoryblokComponent blok={blok} />;
+				})
+			}
+			<div class="hidden">
+				<label>
+					Don't fill this out if you're human: <input name="bot-field" />
+				</label>
+			</div>
+			<div data-netlify-recaptcha="true"></div>
+			<button
+				type="submit"
+				class="btn standard align-self-center m-auto"
+				>Send</button
+			>
+		</form>
+	</div>
+	<Image
+		src="https://images.unsplash.com/photo-1497048679117-1a29644559e3/"
+		alt=""
+		inferSize={true}
+	/>
+</section>
+<style>
+	dialog {
+		border: none;
+	}
+	dialog button {
+		background-color: transparent;
+		border: none;
+		padding: 0;
+	}
+	.hidden {
+		visibility: hidden;
+		padding: 0;
+		margin: 0;
+		height: 1px;
+		width: 1px;
+	}
+</style>
+<script>
+	import '../scripts/form.js';
+</script>

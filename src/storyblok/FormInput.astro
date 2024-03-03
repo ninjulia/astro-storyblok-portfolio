@@ -3,15 +3,85 @@ import { storyblokEditable } from '@storyblok/astro';
 const { blok } = Astro.props;
 ---
 
-<div
-	class="form-group mb-6"
-	{...storyblokEditable(blok)}>
-	<input
-		type={blok.type}
-		name={blok.name}
-		class="form-control m-0 block w-full rounded-[8px] border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-base font-normal text-primary transition ease-in-out focus:border-primary focus:bg-white focus:text-primary focus:outline-none"
-		id={blok.name}
-		placeholder={`${blok.placeholder} ${blok.required ? '' : '(optional)'}`}
-		required={blok.required}
-	/>
+<div {...storyblokEditable(blok)}>
+	<label for={blok._uid}>
+		{
+			blok.required ? (
+				<span
+					class="input-title accent text-left"
+					aria-label="required">
+					{blok.label} *
+				</span>
+			) : (
+				<span class="input-title accent text-left">{blok.label}</span>
+			)
+		}
+		<input
+			type={blok.type}
+			name={blok.name}
+			id={blok._uid}
+			required={blok.required}
+			minlength={Number(blok.min_size) ? `{Number(blok.min_size)}` : ``}
+			maxlength={Number(blok.max_size) ? `{Number(blok.max_size)}` : ``}
+			class="py-xs px-s"
+			placeholder={blok.placeholder}
+		/>
+		<span
+			aria-hidden="true"
+			class="error ps-xs pt-xs m-0"
+			aria-live="polite"
+		></span></label
+	>
 </div>
+<style>
+	label:has(input:not([type='checkbox'], [type='radio'])) {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto calc(26px + 15px);
+		grid-template-areas: 'title' 'input' 'error';
+		position: relative;
+	}
+	label input {
+		grid-area: input;
+		z-index: 2;
+	}
+	.error[aria-hidden='true'] {
+		margin: 0;
+		text-transform: capitalize;
+		grid-area: error;
+		z-index: 1;
+	}
+
+	.error[aria-hidden='false'] {
+		max-height: 200px;
+		font-size: inherit;
+		height: auto;
+	}
+
+	label:has(input:not([type='checkbox'], [type='radio']))::after {
+		content: '';
+		width: 1.5em;
+		height: 1.5em;
+		mask-repeat: no-repeat;
+		mask-origin: fill-box;
+		mask-position: center;
+		mask-size: contain;
+		transform: translateX(-50%);
+		grid-area: input;
+		justify-self: end;
+		align-self: center;
+		z-index: 3;
+	}
+
+	label:has(input:not(:focus):not(:placeholder-shown):valid)::after,
+	label:has(input:not(:focus)[aria-invalid='false'])::after {
+		mask-image: url('/icons/success.svg');
+		background-color: var(--color-surface-positive);
+	}
+
+	label:has(input:not(:focus):not(:placeholder-shown):invalid)::after,
+	label:has(input:not(:focus)[aria-invalid='true'])::after {
+		mask-image: url('/icons/failure.svg');
+		background-color: var(--color-surface-negative);
+	}
+</style>
