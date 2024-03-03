@@ -20,7 +20,7 @@ const content = renderRichText(blok.content);
 			<h3 class="display-3">{blok.title}</h3>
 			<Fragment set:html={content} />
 			{
-				blok.url && (
+				blok.link_text !== '' && (
 					<a
 						class="btn standard m-0 align-self-start"
 						href={blok.url}>

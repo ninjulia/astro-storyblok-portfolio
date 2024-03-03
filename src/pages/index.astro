@@ -1,45 +1,12 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import StandardFeature from '../components/StandardFeature.astro';
-import About from '../components/About.astro';
-import Testimonial from '../components/Testimonial.astro';
-import Form from '../components/Form.astro';
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-const allWork = await Astro.glob('../pages/work/*.mdx');
-const heroIntro =
-	'Boba etiam ut bulla tea est potus dilectus singulari compositione saporum et textuum, quae in Taiwan annis 1980 orta sunt. Boba refert ad pilas masticas tapiocas in fundo potus inventas, quae typice lacte tea nigro sapiuntur. Boba phaenomenon culturale factum est.';
-const image = {
-	url: 'https://images.unsplash.com/3/doctype-hi-res.jpg',
-	alt: '',
-};
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get('cdn/stories/home', {
+	version: import.meta.env.DEV ? 'draft' : 'published',
+});
+const content = data.story.content;
 ---
 
-<BaseLayout pageTitle="">
-	<Hero
-		title={SITE_TITLE}
-		subtitle={SITE_DESCRIPTION}
-		intro={heroIntro}
-		img={image.url}
-		alt={image.alt}
-	/>
-	<section
-		id="work"
-		class="container">
-		{
-			allWork.map((work) => (
-				<StandardFeature
-					title={work.frontmatter.title}
-					image={work.frontmatter.image}
-					description={work.frontmatter.description}
-					link={work.url}
-					cta={work.frontmatter.cta}
-				/>
-			))
-		}
-	</section>
-	<About id="about" />
-	<Testimonial />
-	<Form id="contact" />
-</BaseLayout>
+<StoryblokComponent blok={content} />

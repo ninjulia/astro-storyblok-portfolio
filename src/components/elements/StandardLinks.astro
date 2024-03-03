@@ -23,7 +23,7 @@ let standardLinks = headerMenu.filter((menu) => !menu.link.cached_url.match(rege
 					<a
 						class="nav-link"
 						href={`/${menu.link.rel}`}>
-						{menu.link.display_name}
+						{menu.link.title}
 					</a>
 				) : (
 					<a

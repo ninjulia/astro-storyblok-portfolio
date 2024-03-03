@@ -1,5 +1,4 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
 import { useStoryblokApi } from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 
@@ -29,6 +28,4 @@ const { data } = await sbApi.get(`cdn/stories/work/${slug}`, {
 const story = data.story;
 ---
 
-<BaseLayout>
-	<StoryblokComponent blok={story.content} />
-</BaseLayout>
+<StoryblokComponent blok={story.content} />
