@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import StoryBlokMenu from '../../components/elements/StoryBlokMenu.astro';
 import { useStoryblokApi } from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 
@@ -31,6 +30,5 @@ const story = data.story;
 ---
 
 <BaseLayout>
-	<StoryBlokMenu />
 	<StoryblokComponent blok={story.content} />
 </BaseLayout>
