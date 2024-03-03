@@ -1,0 +1,40 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import { Image, getImage } from 'astro:assets';
+const { blok } = Astro.props;
+const content = renderRichText(blok.content);
+---
+
+<section
+	id="hero"
+	class="wrapper img-bg">
+	<div
+		class="content p-2xl text-center"
+		{...storyblokEditable(blok)}>
+		<h1 class="accent">{blok.title}</h1>
+		{blok.subtitle && <h2 class="accent">{blok.subtitle}</h2>}
+		{
+			blok.content && (
+				<p class="prose-1 text-light m-auto reading-length">
+					<Fragment set:html={content} />
+				</p>
+			)
+		}
+	</div>
+	<Image
+		src={blok.image.filename}
+		alt={blok.image.alt}
+		inferSize
+		loading="eager"
+	/>
+</section>
+<style lang="scss">
+	#hero {
+		@media (width > 992px) {
+			aspect-ratio: 16/5;
+		}
+		p {
+			color: var(--color-light);
+		}
+	}
+</style>

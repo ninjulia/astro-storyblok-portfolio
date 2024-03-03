@@ -1,0 +1,15 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+const { blok } = Astro.props;
+const content = renderRichText(blok.quote);
+---
+
+<section>
+	<blockquote class="testimonial wrapper surface-2 p-xl">
+		<Fragment
+			set:html={content}
+			class="italic prose-2"
+		/>
+		<cite class="prose-1 text-end">&mdash; {blok.attribution}</cite>
+	</blockquote>
+</section>

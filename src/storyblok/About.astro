@@ -1,0 +1,49 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import { Image, getImage } from 'astro:assets';
+const { blok } = Astro.props;
+const content = renderRichText(blok.content);
+---
+
+<section
+	id="about"
+	class="wrapper d-flex wrap gap-l py-2xl px-xl surface-1">
+	<article {...storyblokEditable(blok)}>
+		<div class="about-photo mb-l">
+			<Image
+				class="border-radius-2xs"
+				src={blok.image.filename}
+				inferSize
+				alt={blok.image.alt}
+			/>
+		</div>
+		<div class="about-copy mx-2xs">
+			<h2 class="accent">{blok.title}</h2>
+			<p class="prose-1">{blok.bold_text}</p>
+			<Fragment set:html={content} />
+		</div>
+	</article>
+	<style lang="scss">
+		section {
+			--main-min-width: 45ch;
+			--sidebar-size: 250px;
+			--gap: clamp(2.25rem, 2.181rem + 0.3448vi, 2.5rem);
+		}
+		.about-photo {
+			width: min(320px, 100%);
+			flex-grow: 1;
+			flex-basis: var(--sidebar-size);
+
+			img {
+				aspect-ratio: 1;
+				object-fit: cover;
+				object-position: top center;
+			}
+		}
+
+		.about-copy {
+			flex-grow: 999;
+			flex-basis: calc(((var(--main-min-width) - (100% - var(--sidebar-size) - var(--gap))) * 9999));
+		}
+	</style>
+</section>
