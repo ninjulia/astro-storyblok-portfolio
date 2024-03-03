@@ -26,7 +26,7 @@ export default defineConfig({
 				blogPostList: 'storyblok/BlogPostList',
 				page: 'storyblok/Page',
 				About: 'storyblok/About',
-				FullWidthFeature: 'storyblok/FullWidthFeature',
+				// FullWidthFeature: 'storyblok/FullWidthFeature',
 				Hero: 'storyblok/Hero',
 				StandardFeature: 'storyblok/StandardFeature',
 				Testimonial: 'storyblok/Testimonial',
