@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StoryBlokMenu from '../../components/elements/StoryBlokMenu.astro';
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+export async function getStaticPaths() {
+	const sbApi = useStoryblokApi();
+
+	const { data } = await sbApi.get('cdn/stories', {
+		content_type: 'page',
+		version: import.meta.env.DEV ? 'draft' : 'published',
+	});
+
+	const stories = Object.values(data.stories);
+
+	return stories.map((story) => {
+		return {
+			params: { slug: story.slug },
+		};
+	});
+}
+
+const sbApi = useStoryblokApi();
+const { slug } = Astro.params;
+const { data } = await sbApi.get(`cdn/stories/work/${slug}`, {
+	version: import.meta.env.DEV ? 'draft' : 'published',
+});
+
+const story = data.story;
+---
+
+<BaseLayout>
+	<StoryBlokMenu />
+	<StoryblokComponent blok={story.content} />
+</BaseLayout>
