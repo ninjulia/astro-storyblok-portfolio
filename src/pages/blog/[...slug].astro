@@ -28,11 +28,4 @@ const { data } = await sbApi.get(`cdn/stories/blog/${slug}`, {
 const story = data.story;
 ---
 
-<html lang="en">
-	<head>
-		<title>Storyblok & Astro</title>
-	</head>
-	<body>
-		<StoryblokComponent blok={story.content} />
-	</body>
-</html>
+<StoryblokComponent blok={story.content} />
