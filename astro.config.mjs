@@ -10,6 +10,7 @@ const env = loadEnv('', process.cwd(), 'STORYBLOK');
 
 // https://astro.build/config
 export default defineConfig({
+	image: { domains: ['https://a-us.storyblok.com/'] },
 	site: 'https://astro-storyblock-portfolio-template.netlify.app',
 	output: env.VITE_ENVIRONMENT === 'preview' ? 'server' : 'static',
 	adapter: env.VITE_ENVIRONMENT === 'preview' ? netlify() : undefined,
