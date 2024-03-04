@@ -9,6 +9,7 @@ const { pageTitle } = Astro.props;
 <!doctype html>
 <html lang="en">
 	<head>
+		<!--TODO: incorporate name from storyblok --> 
 		{Astro.url.pathname === '/' ?
 			<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} /> :
 			<BaseHead title=`${pageTitle} | ${SITE_TITLE}` description={SITE_DESCRIPTION} /> 
@@ -16,11 +17,7 @@ const { pageTitle } = Astro.props;
 	</head>
 	<body>
 		<Header />
-		<!-- <main
-			class="wrapper"
-			id="main-content"> -->
 			<slot />
-		<!-- </main> -->
 		<Footer />
 	</body>
 </html>

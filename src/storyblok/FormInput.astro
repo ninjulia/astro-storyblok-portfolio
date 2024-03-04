@@ -21,8 +21,8 @@ const { blok } = Astro.props;
 			name={blok.name}
 			id={blok._uid}
 			required={blok.required}
-			minlength={Number(blok.min_size) ? `{Number(blok.min_size)}` : ``}
-			maxlength={Number(blok.max_size) ? `{Number(blok.max_size)}` : ``}
+			minlength={blok.min_size ? Number(blok.min_size) : ''}
+			maxlength={blok.max_size ? Number(blok.max_size) : ''}
 			class="py-xs px-s"
 			placeholder={blok.placeholder}
 		/>

@@ -11,6 +11,7 @@ const { blok } = Astro.props;
 	class="wrapper img-bg text-left px-2xl py-l m-auto surface-3 align-content-start">
 	<div class="content">
 		<form
+			novalidate
 			name="contactForm"
 			method="POST"
 			netlify-honeypot="bot-field"
@@ -45,6 +46,19 @@ const { blok } = Astro.props;
 		inferSize={true}
 	/>
 </section>
+<dialog class="p-l">
+	<button
+		autofocus
+		class="mb-l">
+		<span class="sr-only"> Close</span>
+		<Icon
+			name=`feather:x-square`
+			width={44}
+			height={44}
+		/>
+	</button>
+	<p>Your message has been sent!</p>
+</dialog>
 <style>
 	dialog {
 		border: none;

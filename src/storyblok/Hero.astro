@@ -15,9 +15,10 @@ const { blok } = Astro.props;
 	</div>
 	<Image
 		src={blok.image.filename}
-		alt={blok.image.alt}
+		alt=""
 		inferSize
 		loading="eager"
+		decoding="auto"
 	/>
 </section>
 <style lang="scss">

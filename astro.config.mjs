@@ -4,7 +4,6 @@ import icon from 'astro-icon';
 import sitemap from '@astrojs/sitemap';
 import storyblok from '@storyblok/astro';
 import { loadEnv } from 'vite';
-import basicSsl from '@vitejs/plugin-basic-ssl';
 import netlify from '@astrojs/netlify';
 const env = loadEnv('', process.cwd(), 'STORYBLOK');
 
@@ -46,10 +45,4 @@ export default defineConfig({
 			},
 		}),
 	],
-	vite: {
-		plugins: [basicSsl()],
-		server: {
-			https: true,
-		},
-	},
 });

@@ -3,15 +3,19 @@ import { storyblokEditable } from '@storyblok/astro';
 const { blok } = Astro.props;
 ---
 
-<div
-	class="form-group mb-6 flex"
-	{...storyblokEditable(blok)}>
+<div {...storyblokEditable(blok)}>
 	<input
 		type="checkbox"
-		name={blok.name}
-		class="mr-4"
-		id={blok.name}
+		name={blok.label}
+		id={blok._uid}
 		required={blok.required}
 	/>
-	<label for={blok.name}>{blok.label}</label>
+	<label for={blok._uid}>
+		{blok.required ? <span aria-label="required">{blok.label} *</span> : <span>{blok.label}</span>}</label
+	>
+	<span
+		aria-hidden="true"
+		class="error ps-xs pt-xs m-0"
+		aria-live="polite"
+	></span>
 </div>
