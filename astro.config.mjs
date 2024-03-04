@@ -5,45 +5,50 @@ import sitemap from '@astrojs/sitemap';
 import storyblok from '@storyblok/astro';
 import { loadEnv } from 'vite';
 import basicSsl from '@vitejs/plugin-basic-ssl';
-import netlify from "@astrojs/netlify";
+import netlify from '@astrojs/netlify';
 const env = loadEnv('', process.cwd(), 'STORYBLOK');
-
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://astro-storyblock-portfolio-template.netlify.app',
-  integrations: [mdx(), sitemap(), icon({
-    include: {
-      feather: ['*']
-    }
-  }), storyblok({
-    accessToken: env.STORYBLOK_TOKEN,
-    components: {
-      blogPost: 'storyblok/BlogPost',
-      blogPostList: 'storyblok/BlogPostList',
-      page: 'storyblok/Page',
-      Config: 'storyblok/Config',
-      About: 'storyblok/About',
-      FullWidthFeature: 'storyblok/FullWidthFeature',
-      Hero: 'storyblok/Hero',
-      StandardFeature: 'storyblok/StandardFeature',
-      Testimonial: 'storyblok/Testimonial',
-      Overview: 'storyblok/Overview',
-      FormWrapper: 'storyblok/FormWrapper',
-      FormInput: 'storyblok/FormInput',
-      FormTextarea: 'storyblok/FormTextarea',
-      FormCheckbox: 'storyblok/FormCheckbox'
-    },
-    apiOptions: {
-      region: 'us'
-    }
-  })],
-  vite: {
-    plugins: [basicSsl()],
-    server: {
-      https: true
-    }
-  },
-  output: "server",
-  adapter: netlify()
+	site: 'https://astro-storyblock-portfolio-template.netlify.app',
+	output: env.VITE_ENVIRONMENT === 'preview' ? 'server' : 'static',
+	adapter: env.VITE_ENVIRONMENT === 'preview' ? netlify() : undefined,
+	integrations: [
+		mdx(),
+		sitemap(),
+		icon({
+			include: {
+				feather: ['*'],
+			},
+		}),
+		storyblok({
+			accessToken: env.STORYBLOK_TOKEN,
+			bridge: env.VITE_ENVIRONMENT === 'preview' ? true : false,
+			components: {
+				blogPost: 'storyblok/BlogPost',
+				blogPostList: 'storyblok/BlogPostList',
+				page: 'storyblok/Page',
+				Config: 'storyblok/Config',
+				About: 'storyblok/About',
+				FullWidthFeature: 'storyblok/FullWidthFeature',
+				Hero: 'storyblok/Hero',
+				StandardFeature: 'storyblok/StandardFeature',
+				Testimonial: 'storyblok/Testimonial',
+				Overview: 'storyblok/Overview',
+				FormWrapper: 'storyblok/FormWrapper',
+				FormInput: 'storyblok/FormInput',
+				FormTextarea: 'storyblok/FormTextarea',
+				FormCheckbox: 'storyblok/FormCheckbox',
+			},
+			apiOptions: {
+				region: 'us',
+			},
+		}),
+	],
+	vite: {
+		plugins: [basicSsl()],
+		server: {
+			https: true,
+		},
+	},
 });
