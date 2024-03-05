@@ -22,7 +22,7 @@ let standardLinks = headerMenu.filter((menu) => !menu.link.cached_url.match(rege
 				{menu.link.anchor ? (
 					<a
 						class="nav-link"
-						href={`/${menu.link.rel}`}>
+						href={`/#${menu.link.anchor}`}>
 						{menu.link.title}
 					</a>
 				) : (

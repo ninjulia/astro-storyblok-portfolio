@@ -1,0 +1,21 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+const { blok } = Astro.props;
+---
+
+<div {...storyblokEditable(blok)}>
+	<input
+		type="checkbox"
+		name={blok.label}
+		id={blok._uid}
+		required={blok.required}
+	/>
+	<label for={blok._uid}>
+		{blok.required ? <span aria-label="required">{blok.label} *</span> : <span>{blok.label}</span>}</label
+	>
+	<span
+		aria-hidden="true"
+		class="error ps-xs pt-xs m-0"
+		aria-live="polite"
+	></span>
+</div>
