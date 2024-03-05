@@ -13,13 +13,17 @@ const { blok } = Astro.props;
 		{blok.subtitle && <h2 class="accent">{blok.subtitle}</h2>}
 		{blok.content && <p class="prose-1 text-light m-auto reading-length">{blok.content}</p>}
 	</div>
-	<Image
-		src={blok.image.filename}
-		alt=""
-		inferSize
-		loading="eager"
-		decoding="auto"
-	/>
+	{
+		blok.image && (
+			<Image
+				src={blok.image.filename}
+				alt=""
+				inferSize
+				loading="eager"
+				decoding="auto"
+			/>
+		)
+	}
 </section>
 <style lang="scss">
 	#hero {
