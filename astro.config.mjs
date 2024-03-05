@@ -10,10 +10,10 @@ const env = loadEnv('', process.cwd(), 'STORYBLOK');
 
 // https://astro.build/config
 export default defineConfig({
-	image: { domains: ['https://a-us.storyblok.com/'] },
+	//image: { domains: ['https://a-us.storyblok.com/'] },
 	site: 'https://astro-storyblock-portfolio-template.netlify.app',
-	output: env.VITE_ENVIRONMENT === 'preview' ? 'server' : 'static',
-	adapter: env.VITE_ENVIRONMENT === 'preview' ? netlify() : undefined,
+	output: 'server',
+	adapter: netlify(),
 	integrations: [
 		mdx(),
 		sitemap(),
@@ -24,7 +24,8 @@ export default defineConfig({
 		}),
 		storyblok({
 			accessToken: env.STORYBLOK_TOKEN,
-			bridge: env.VITE_ENVIRONMENT === 'preview' ? true : false,
+			// bridge: env.VITE_ENVIRONMENT === 'preview' ? true : false,
+			bridge: true,
 			components: {
 				blogPost: 'storyblok/BlogPost',
 				blogPostList: 'storyblok/BlogPostList',
