@@ -5,7 +5,7 @@ const { blok } = Astro.props;
 
 <div {...storyblokEditable(blok)}>
 	<input
-		type="checkbox"
+		type="radio"
 		name={blok.label}
 		id={blok._uid}
 		required={blok.required}
