@@ -25,12 +25,12 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <link
 	rel="icon"
 	sizes="32x32"
-	href={process.env.NODE_ENV === 'production' ? '/favicon.ico' : '/favicon-dev.ico'}
+	href={process.env.VITE_ENVIRONMENT === 'production' ? '/favicon.ico' : '/favicon-dev.ico'}
 />
 <link
 	rel="icon"
 	type="image/svg+xml"
-	href={process.env.NODE_ENV === 'production' ? '/icon.svg' : '/icon-dev.svg'}
+	href={process.env.VITE_ENVIRONMENT === 'production' ? '/icon.svg' : '/icon-dev.svg'}
 />
 <link
 	rel="apple-touch-icon"
