@@ -6,63 +6,75 @@ const { blok } = Astro.props;
 
 <div {...storyblokEditable(blok)}>
 	<fieldset>
-		<legend>{blok.legend}</legend>
+		{
+			blok.required ? (
+				<legend
+					aria-label="required"
+					class="accent input-title">
+					{blok.legend}*
+				</legend>
+			) : (
+				<legend class="accent input-title">{blok.legend}</legend>
+			)
+		}
+
 		{
 			blok.inputs?.map((blok) => {
 				return <StoryblokComponent blok={blok} />;
 			})
 		}
+		<div
+			class="error d-flex flex-row align-items-center justify-content-space-between"
+			aria-hidden="true">
+			<span
+				class="p-0 m-0"
+				aria-live="polite"
+			></span>
+		</div>
 	</fieldset>
 </div>
 <style>
-	label:has(input:not([type='checkbox'], [type='radio'])) {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-rows: auto auto calc(26px + 15px);
-		grid-template-areas: 'title' 'input' 'error';
+	fieldset {
+		display: block;
+		width: 100%;
 		position: relative;
 	}
-	label input {
-		grid-area: input;
-		z-index: 2;
+
+	.error {
+		gap: clamp(1.125rem, 1.0905rem + 0.1724vi, 1.25rem);
+		align-items: center;
+		transition: max-height 0.3s ease-in-out;
 	}
+
 	.error[aria-hidden='true'] {
-		margin: 0;
-		text-transform: capitalize;
-		grid-area: error;
-		z-index: 1;
+		max-height: 0;
 	}
 
 	.error[aria-hidden='false'] {
 		max-height: 200px;
-		font-size: inherit;
 		height: auto;
 	}
 
-	label:has(input:not([type='checkbox'], [type='radio']))::after {
+	fieldset:has(.error[aria-hidden='false']) {
+		outline: 2px solid var(--color-surface-negative);
+		outline-offset: 12px;
+	}
+
+	.error span {
+		text-transform: capitalize;
+	}
+
+	.error::before {
 		content: '';
-		width: 1.5em;
-		height: 1.5em;
 		mask-repeat: no-repeat;
 		mask-origin: fill-box;
 		mask-position: center;
 		mask-size: contain;
-		transform: translateX(-50%);
-		grid-area: input;
-		justify-self: end;
-		align-self: center;
-		z-index: 3;
-	}
-
-	label:has(input:not(:focus):not(:placeholder-shown):valid)::after,
-	label:has(input:not(:focus)[aria-invalid='false'])::after {
-		mask-image: url('/icons/success.svg');
-		background-color: var(--color-surface-positive);
-	}
-
-	label:has(input:not(:focus):not(:placeholder-shown):invalid)::after,
-	label:has(input:not(:focus)[aria-invalid='true'])::after {
 		mask-image: url('/icons/failure.svg');
 		background-color: var(--color-surface-negative);
+		width: calc(2px + 1.5rem);
+		height: calc(2px + 1.5rem);
+		width: clamp(1.35rem, 1.3086rem + 0.2069vi, 1.5rem);
+		height: clamp(1.35rem, 1.3086rem + 0.2069vi, 1.5rem);
 	}
 </style>
