@@ -6,16 +6,12 @@ const { blok } = Astro.props;
 <div {...storyblokEditable(blok)}>
 	<input
 		type="radio"
-		name={blok.label}
+		name={blok.legend}
+		value={blok.option}
 		id={blok._uid}
-		required={blok.required}
+		class="m-0"
 	/>
 	<label for={blok._uid}>
-		{blok.required ? <span aria-label="required">{blok.label} *</span> : <span>{blok.label}</span>}</label
-	>
-	<span
-		aria-hidden="true"
-		class="error ps-xs pt-xs m-0"
-		aria-live="polite"
-	></span>
+		{blok.option}
+	</label>
 </div>
