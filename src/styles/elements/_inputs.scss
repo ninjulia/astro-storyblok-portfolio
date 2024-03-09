@@ -231,7 +231,7 @@ div:has(fieldset),
 
 fieldset {
 	//* Accounts for Legend in padding-block-start
-	padding-block-start: calc($space-xs + $step--1 + $space-xs);
+	padding-block: calc($space-xs + $step--1 + $space-xs);
 	padding-inline: $space-xs;
 	border: none;
 	outline: none;
@@ -254,6 +254,9 @@ fieldset {
 	.error {
 		gap: $step-0;
 		transition: max-height 0.3s ease-in-out;
+		position: absolute;
+		bottom: 0;
+
 		&[aria-hidden='false']::before {
 			mask-image: url('/icons/failure.svg');
 			background-color: var(--color-surface-negative);
