@@ -6,9 +6,9 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 
 const { blok } = Astro.props;
 let requiredFields = blok.forms.filter((item) => item.required === true);
+//action={`/${blok.navigationSuccess.cached_url}`}
 const formId = blok._uid;
-// const formAction = blok.navigationSuccess.cached_url;
-// action={formAction === '' ? '#' : formAction}
+const formAction = blok.navigationSuccess.cached_url;
 ---
 
 <section
@@ -22,7 +22,7 @@ const formId = blok._uid;
 			netlify-honeypot="bot-field"
 			data-netlify-recaptcha="true"
 			data-netlify="true"
-			action={`/${blok.navigationSuccess.cached_url}`}
+			action={formAction === '' ? '#' : formAction}
 			id={blok._uid}
 			class="p-l d-flex flex-column gap-2xs m-auto my-0"
 			{...storyblokEditable(blok)}>
@@ -44,7 +44,10 @@ const formId = blok._uid;
 					Don't fill this out if you're human: <input name="bot-field" />
 				</label>
 			</div>
-			<div data-netlify-recaptcha="true"></div>
+			<div id="rptch">
+				<div data-netlify-recaptcha="true"></div>
+			</div>
+
 			<button
 				type="submit"
 				class="btn standard align-self-center m-auto"

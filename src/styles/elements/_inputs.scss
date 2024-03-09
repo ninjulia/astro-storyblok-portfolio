@@ -225,7 +225,7 @@ div:has(input[type='checkbox'], input[type='radio']) {
 }
 
 div:has(fieldset),
-.g-recaptcha {
+#rptch {
 	margin-block-end: calc($space-xs + $step--1 + $space-xs);
 }
 
@@ -306,7 +306,38 @@ label:has(input:not([type='radio'], [type='checkbox'], [type='submit']), textare
 }
 
 //* Style Netlify recaptcha
-.g-recaptcha {
-	display: flex;
+#rptch {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto calc($space-xs + $step--1 + $space-xs);
+	grid-template-areas: 'input' 'error';
 	justify-content: center;
+	align-items: center;
+	justify-items: center;
+	position: relative;
+
+	div {
+		grid-area: input;
+	}
+
+	.error {
+		gap: $step-0;
+		transition: max-height 0.3s ease-in-out;
+		position: absolute;
+		bottom: 0;
+
+		&[aria-hidden='false']::before {
+			mask-image: url('/icons/failure.svg');
+			background-color: var(--color-surface-negative);
+			width: $step-1;
+			height: $step-1;
+			@include error-icon('radio');
+		}
+	}
+
+	&:has(.error[aria-hidden='false']) .g-recaptcha {
+		//* match focus ring offsets
+		outline: 2px solid var(--color-surface-negative);
+		outline-offset: 3px;
+	}
 }
