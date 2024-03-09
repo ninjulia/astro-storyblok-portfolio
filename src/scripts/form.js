@@ -10,10 +10,10 @@ recaptcha.addEventListener('input', handleRecaptcha);
 
 function handleRecaptcha() {
 	let errorDisplay = recaptcha.querySelector('.error');
-	if (recaptcha.getAttribute('aria-checked') === false) {
+	if (grecaptcha.getResponse() === '') {
 		errorDisplay.setAttribute('aria-hidden', false);
 		errorDisplay.textContent = 'Please complete the reCAPTCHA.';
-	} else {
+	} else if (grecaptcha.getResponse() !== '') {
 		errorDisplay.setAttribute('aria-hidden', true);
 		errorDisplay.textContent = '';
 	}
@@ -26,10 +26,6 @@ inputFields.forEach((input) =>
 		handleValidation(input);
 	})
 );
-
-// function addListener(input) {
-// 	return (e) => handleValidation(input);
-// }
 
 function handleValidation(input) {
 	let errorDisplay;
