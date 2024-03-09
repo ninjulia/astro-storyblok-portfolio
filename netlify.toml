@@ -1,3 +1,13 @@
-[images]
-  remote_images = ["https://a-us.storyblok.com/*",]
+[build]
+command = "npm run build"
+publish = "dist"
 
+[dev]
+command = "npm run dev"
+
+[images]
+remote_images = ["https://a-us.storyblok.com/*"]
+
+[context.previews]
+[headers.values]
+X-Robots-Tag = ["noindex"]

@@ -2,6 +2,8 @@
 import { storyblokEditable } from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 const { blok } = Astro.props;
+const name = blok.legend;
+const required = blok.required;
 ---
 
 <div {...storyblokEditable(blok)}>
@@ -20,61 +22,19 @@ const { blok } = Astro.props;
 
 		{
 			blok.inputs?.map((blok) => {
-				return <StoryblokComponent blok={blok} />;
+				return (
+					<StoryblokComponent
+						blok={blok}
+						name={name}
+						required={required}
+					/>
+				);
 			})
 		}
-		<div
-			class="error d-flex flex-row align-items-center justify-content-space-between"
-			aria-hidden="true">
-			<span
-				class="p-0 m-0"
-				aria-live="polite"
-			></span>
-		</div>
+		<span
+			aria-hidden="true"
+			class="error mt-s mb-0 d-flex flex-row align-items-center"
+			aria-live="polite"
+		></span>
 	</fieldset>
 </div>
-<style>
-	fieldset {
-		display: block;
-		width: 100%;
-		position: relative;
-	}
-
-	.error {
-		gap: clamp(1.125rem, 1.0905rem + 0.1724vi, 1.25rem);
-		align-items: center;
-		transition: max-height 0.3s ease-in-out;
-	}
-
-	.error[aria-hidden='true'] {
-		max-height: 0;
-	}
-
-	.error[aria-hidden='false'] {
-		max-height: 200px;
-		height: auto;
-	}
-
-	fieldset:has(.error[aria-hidden='false']) {
-		outline: 2px solid var(--color-surface-negative);
-		outline-offset: 12px;
-	}
-
-	.error span {
-		text-transform: capitalize;
-	}
-
-	.error::before {
-		content: '';
-		mask-repeat: no-repeat;
-		mask-origin: fill-box;
-		mask-position: center;
-		mask-size: contain;
-		mask-image: url('/icons/failure.svg');
-		background-color: var(--color-surface-negative);
-		width: calc(2px + 1.5rem);
-		height: calc(2px + 1.5rem);
-		width: clamp(1.35rem, 1.3086rem + 0.2069vi, 1.5rem);
-		height: clamp(1.35rem, 1.3086rem + 0.2069vi, 1.5rem);
-	}
-</style>

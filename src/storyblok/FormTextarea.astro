@@ -22,10 +22,11 @@ const { blok } = Astro.props;
 			placeholder={blok.placeholder}
 			required={blok.required}
 			rows={Number(blok.rows)}
+			autocorrect="on"
 		></textarea>
 		<span
 			aria-hidden="true"
-			class="error ps-xs pt-xs m-0"
+			class="error ps-xs mt-xs"
 			aria-live="polite"
 		></span>
 	</label>

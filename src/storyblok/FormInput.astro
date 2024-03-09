@@ -1,6 +1,14 @@
 ---
 import { storyblokEditable } from '@storyblok/astro';
 const { blok } = Astro.props;
+let autoComplete;
+if (blok.type === 'number' || blok.type === 'password') {
+	autoComplete = 'off';
+} else if (blok.type === 'text') {
+	autoComplete = 'on';
+} else {
+	autoComplete = blok.type;
+}
 ---
 
 <div {...storyblokEditable(blok)}>
@@ -16,16 +24,34 @@ const { blok } = Astro.props;
 				<span class="input-title accent text-left">{blok.label}</span>
 			)
 		}
-		<input
-			type={blok.type}
-			name={blok.name}
-			id={blok._uid}
-			required={blok.required}
-			minlength={blok.min_size ? Number(blok.min_size) : ''}
-			maxlength={blok.max_size ? Number(blok.max_size) : ''}
-			class="py-xs px-s"
-			placeholder={blok.placeholder}
-		/>
+		{
+			blok.type === 'tel' ? (
+				<input
+					type={blok.type}
+					id={blok._uid}
+					required={blok.required}
+					minlength={blok.min_size ? Number(blok.min_size) : ''}
+					maxlength={blok.max_size ? Number(blok.max_size) : ''}
+					class="py-xs px-s"
+					placeholder={blok.placeholder}
+					autocomplete={autoComplete}
+					name={blok.name}
+				/>
+			) : (
+				<input
+					type={blok.type}
+					id={blok._uid}
+					required={blok.required}
+					minlength={blok.min_size ? Number(blok.min_size) : ''}
+					maxlength={blok.max_size ? Number(blok.max_size) : ''}
+					class="py-xs px-s"
+					placeholder={blok.placeholder}
+					autocomplete={autoComplete}
+					autocorrect={blok.type === 'text' ? 'on' : 'off'}
+					name={blok.name}
+				/>
+			)
+		}
 		<span
 			aria-hidden="true"
 			class="error ps-xs pt-xs m-0"
@@ -33,55 +59,3 @@ const { blok } = Astro.props;
 		></span></label
 	>
 </div>
-<style>
-	label:has(input:not([type='checkbox'], [type='radio'])) {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-rows: auto auto calc(26px + 15px);
-		grid-template-areas: 'title' 'input' 'error';
-		position: relative;
-	}
-	label input {
-		grid-area: input;
-		z-index: 2;
-	}
-	.error[aria-hidden='true'] {
-		margin: 0;
-		text-transform: capitalize;
-		grid-area: error;
-		z-index: 1;
-	}
-
-	.error[aria-hidden='false'] {
-		max-height: 200px;
-		font-size: inherit;
-		height: auto;
-	}
-
-	label:has(input:not([type='checkbox'], [type='radio']))::after {
-		content: '';
-		width: 1.5em;
-		height: 1.5em;
-		mask-repeat: no-repeat;
-		mask-origin: fill-box;
-		mask-position: center;
-		mask-size: contain;
-		transform: translateX(-50%);
-		grid-area: input;
-		justify-self: end;
-		align-self: center;
-		z-index: 3;
-	}
-
-	label:has(input:not(:focus):not(:placeholder-shown):valid)::after,
-	label:has(input:not(:focus)[aria-invalid='false'])::after {
-		mask-image: url('/icons/success.svg');
-		background-color: var(--color-surface-positive);
-	}
-
-	label:has(input:not(:focus):not(:placeholder-shown):invalid)::after,
-	label:has(input:not(:focus)[aria-invalid='true'])::after {
-		mask-image: url('/icons/failure.svg');
-		background-color: var(--color-surface-negative);
-	}
-</style>
