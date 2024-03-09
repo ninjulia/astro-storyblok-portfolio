@@ -32,10 +32,13 @@ function handleValidation(input) {
 }
 
 form.addEventListener('submit', (e) => {
+	e.preventDefault();
 	let errorList = inputFields.filter((input) => !input.validity.valid);
+	let checkThese = form.elements.filter((input) => input.id !== null).filter((input) => input.value === null);
 	if (errorList.length > 0) {
 		errorList.forEach((input) => handleValidation(input));
-		e.preventDefault();
+	} else if (checkThese.length > 0) {
+		checkThese.forEach((input) => handleValidation(input));
 	} else {
 		handleFormSubmit(e);
 	}
