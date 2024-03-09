@@ -1,7 +1,7 @@
 const form = document.querySelector('form');
 
 // set up error message for recaptcha
-const recaptcha = document.querySelector('#rptch');
+const recaptcha = document.querySelector('.g-recaptcha').parentElement;
 let recaptchaError = document.createElement('span');
 recaptchaError.className = 'error mt-s mb-0 d-flex flex-row align-items-center';
 recaptchaError.setAttribute('aria-hidden', true);
@@ -54,11 +54,8 @@ function handleValidation(input) {
 
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
-	let recaptchaStatus = document.getElementById('recaptcha-anchor').getAttribute('aria-checked');
-	console.log(recaptchaStatus);
-
 	let errorList = inputFields.filter((input) => !input.validity.valid);
-	if (errorList.length > 0 || recaptchaStatus !== true) {
+	if (errorList.length > 0 || grecaptcha.getResponse() === '') {
 		errorList.forEach((input) => handleValidation(input));
 		handleRecaptcha();
 	} else {

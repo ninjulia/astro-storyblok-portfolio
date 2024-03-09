@@ -225,7 +225,7 @@ div:has(input[type='checkbox'], input[type='radio']) {
 }
 
 div:has(fieldset),
-#rptch {
+div:has(.g-recaptcha) {
 	margin-block-end: calc($space-xs + $step--1 + $space-xs);
 }
 
@@ -306,7 +306,7 @@ label:has(input:not([type='radio'], [type='checkbox'], [type='submit']), textare
 }
 
 //* Style Netlify recaptcha
-#rptch {
+div:has(.g-recaptcha) {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: auto auto calc($space-xs + $step--1 + $space-xs);
@@ -316,7 +316,7 @@ label:has(input:not([type='radio'], [type='checkbox'], [type='submit']), textare
 	justify-items: center;
 	position: relative;
 
-	div {
+	.g-recaptcha {
 		grid-area: input;
 	}
 
