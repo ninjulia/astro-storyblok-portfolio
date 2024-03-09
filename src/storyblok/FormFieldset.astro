@@ -3,6 +3,7 @@ import { storyblokEditable } from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 const { blok } = Astro.props;
 const name = blok.legend;
+const required = blok.required;
 ---
 
 <div {...storyblokEditable(blok)}>
@@ -25,6 +26,7 @@ const name = blok.legend;
 					<StoryblokComponent
 						blok={blok}
 						name={name}
+						required={required}
 					/>
 				);
 			})

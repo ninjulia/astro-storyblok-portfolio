@@ -1,6 +1,7 @@
 const form = document.querySelector('form');
 
-const inputFields = [...form.querySelectorAll('[required]')];
+// const inputFields = [...form.querySelectorAll('[required]')];
+const inputFields = form.elements;
 inputFields.forEach((input) => input.addEventListener('input', addListener(input)));
 
 const dialog = document.getElementById('form-confirmation');
