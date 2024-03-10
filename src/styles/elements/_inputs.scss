@@ -224,8 +224,7 @@ div:has(input[type='checkbox'], input[type='radio']) {
 	align-items: baseline;
 }
 
-div:has(fieldset),
-div:has(.g-recaptcha) {
+div:has(fieldset) {
 	margin-block-end: calc($space-xs + $step--1 + $space-xs);
 }
 
@@ -254,8 +253,8 @@ fieldset {
 	.error {
 		gap: $step-0;
 		transition: max-height 0.3s ease-in-out;
-		position: absolute;
-		bottom: 0;
+		// position: absolute;
+		// bottom: 0;
 
 		&[aria-hidden='false']::before {
 			mask-image: url('/icons/failure.svg');
@@ -323,8 +322,8 @@ div:has(.g-recaptcha) {
 	.error {
 		gap: $step-0;
 		transition: max-height 0.3s ease-in-out;
-		position: absolute;
-		bottom: 0;
+		// position: absolute;
+		// bottom: 0;
 
 		&[aria-hidden='false']::before {
 			mask-image: url('/icons/failure.svg');

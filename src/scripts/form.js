@@ -1,4 +1,5 @@
 const form = document.querySelector('form');
+const dialog = document.querySelector('dialog');
 
 // set up error message for recaptcha
 const recaptcha = document.querySelector('.g-recaptcha').parentElement;
@@ -6,17 +7,15 @@ let recaptchaError = document.createElement('span');
 recaptchaError.className = 'error mt-s mb-0 d-flex flex-row align-items-center';
 recaptchaError.setAttribute('aria-hidden', true);
 recaptcha.appendChild(recaptchaError);
-recaptcha.addEventListener('input', handleRecaptcha);
 
 function handleRecaptcha() {
 	let errorDisplay = recaptcha.querySelector('.error');
 	if (grecaptcha.getResponse() === '') {
 		errorDisplay.setAttribute('aria-hidden', false);
 		errorDisplay.textContent = 'Please complete the reCAPTCHA.';
-	} else if (grecaptcha.getResponse() !== '') {
-		errorDisplay.setAttribute('aria-hidden', true);
-		errorDisplay.textContent = '';
 	}
+	errorDisplay.setAttribute('aria-hidden', true);
+	errorDisplay.textContent = '';
 }
 
 // set up input validation
@@ -61,7 +60,7 @@ form.addEventListener('submit', (e) => {
 
 //handle netlify form submission
 //https://docs.netlify.com/forms/setup/#submit-html-forms-with-ajax
-const dialog = document.getElementById('form-confirmation');
+
 function handleFormSubmit(event) {
 	event.preventDefault();
 
@@ -85,4 +84,11 @@ function handleFormSubmit(event) {
 const closeButton = document.querySelector('dialog button');
 closeButton.addEventListener('click', () => {
 	dialog.close();
+});
+
+// Escape key closes the dialog
+document.addEventListener('keydown', (e) => {
+	if (e.key === 'Escape') {
+		dialog.close();
+	}
 });
