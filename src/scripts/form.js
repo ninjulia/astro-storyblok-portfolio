@@ -1,15 +1,12 @@
 function recaptchaResponse(response) {
-	alert(response);
+	console.log(response);
 }
 function recaptchaExpired(response) {
-	alert(response);
+	console.log(response);
 }
-function recaptchaHasError(response) {
-	alert(response);
-}
+
 window.recaptchaResponse = recaptchaResponse;
 window.recaptchaExpired = recaptchaExpired;
-window.recaptchaHasError = recaptchaHasError;
 
 const form = document.querySelector('form');
 const dialog = document.querySelector('dialog');
@@ -23,7 +20,6 @@ recaptcha.appendChild(recaptchaError);
 
 document.querySelector('.g-recaptcha').setAttribute('data-callback', recaptchaResponse());
 document.querySelector('.g-recaptcha').setAttribute('data-expired-callback', recaptchaExpired());
-document.querySelector('.g-recaptcha').setAttribute('data-error-callback', recaptchaHasError());
 
 function handleRecaptcha() {
 	let errorDisplay = recaptcha.querySelector('.error');
