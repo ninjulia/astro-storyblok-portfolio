@@ -1,9 +1,9 @@
-function recaptchaResponse(response) {
+const recaptchaResponse = (response) => {
 	console.log(response);
-}
-function recaptchaExpired(response) {
+};
+const recaptchaExpired = (response) => {
 	console.log(response);
-}
+};
 
 window.recaptchaResponse = recaptchaResponse;
 window.recaptchaExpired = recaptchaExpired;
@@ -18,18 +18,17 @@ recaptchaError.className = 'error mt-s mb-0 d-flex flex-row align-items-center';
 recaptchaError.setAttribute('aria-hidden', true);
 recaptcha.appendChild(recaptchaError);
 
-document.querySelector('.g-recaptcha').setAttribute('data-callback', recaptchaResponse());
-document.querySelector('.g-recaptcha').setAttribute('data-expired-callback', recaptchaExpired());
+document.querySelector('.g-recaptcha').setAttribute('data-callback', recaptchaResponse);
+document.querySelector('.g-recaptcha').setAttribute('data-expired-callback', recaptchaExpired);
 
 function handleRecaptcha() {
 	let errorDisplay = recaptcha.querySelector('.error');
 	if (grecaptcha.getResponse() === '') {
 		errorDisplay.setAttribute('aria-hidden', false);
 		errorDisplay.textContent = 'Please complete the reCAPTCHA.';
-	} else if (grecaptcha.getResponse() !== '') {
-		errorDisplay.setAttribute('aria-hidden', true);
-		errorDisplay.textContent = '';
 	}
+	errorDisplay.setAttribute('aria-hidden', true);
+	errorDisplay.textContent = '';
 }
 
 // set up input validation
