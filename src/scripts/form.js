@@ -1,13 +1,3 @@
-const recaptchaResponse = (response) => {
-	console.log(response);
-};
-const recaptchaExpired = (response) => {
-	console.log(response);
-};
-
-window.recaptchaResponse = recaptchaResponse;
-window.recaptchaExpired = recaptchaExpired;
-
 const form = document.querySelector('form');
 const dialog = document.querySelector('dialog');
 
@@ -17,9 +7,6 @@ let recaptchaError = document.createElement('span');
 recaptchaError.className = 'error mt-s mb-0 d-flex flex-row align-items-center';
 recaptchaError.setAttribute('aria-hidden', true);
 recaptcha.appendChild(recaptchaError);
-
-document.querySelector('.g-recaptcha').setAttribute('data-callback', recaptchaResponse);
-document.querySelector('.g-recaptcha').setAttribute('data-expired-callback', recaptchaExpired);
 
 function handleRecaptcha() {
 	let errorDisplay = recaptcha.querySelector('.error');
