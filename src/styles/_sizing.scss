@@ -22,6 +22,19 @@ $space-l-xl: clamp(2.25rem, 1.8362rem + 2.069vi, 3.75rem);
 $space-xl-2xl: clamp(3.375rem, 2.9267rem + 2.2414vi, 5rem);
 $space-2xl-3xl: clamp(4.5rem, 3.6724rem + 4.1379vi, 7.5rem);
 
+.pSlide-2xl-3xl {
+	padding-inline: $space-2xl-3xl;
+}
+.pSlide-xl-2xl {
+	padding-inline: $space-xl-2xl;
+}
+.pSlide-l-xl {
+	padding-inline: $space-l-xl;
+}
+.pSlide-m-l {
+	padding-inline: $space-m-l;
+}
+
 //* Custom pairs
 $space-s-l: clamp(1.125rem, 0.7457rem + 1.8966vi, 2.5rem);
 
@@ -122,7 +135,7 @@ $gaps: (
 	}
 }
 
-//* Generate Border Radious
+//* Generate Border Radius
 @each $size, $value in $sizes {
 	.border-radius-#{$size} {
 		border-radius: $value;

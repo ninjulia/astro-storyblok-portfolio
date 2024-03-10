@@ -66,6 +66,8 @@ $font-sizes: (
 }
 
 //* Typography Customizations
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
 @mixin headlines {
 	font-family: 'Bebas Neue', sans-serif;
 	font-weight: 400;
@@ -159,6 +161,12 @@ blockquote {
 		//* Allows space for 'markers', font-based
 		gap: $step-0;
 
+		//* Storyblok wraps each list item in a p tag
+		p {
+			margin: 0;
+			padding: 0;
+		}
+
 		&::marker,
 		&::-webkit-details-marker {
 			visibility: none;
@@ -250,11 +258,11 @@ blockquote:not([class]) {
 	color: var(--brand);
 }
 
-blockquote p::before {
+blockquote p:not(:last-of-type)::before {
 	@include blockquote-quotes('“', 1.25em, end, 0.25em);
 }
 
-blockquote p::after {
+blockquote p:not(:last-of-type)::after {
 	@include blockquote-quotes('”', 1.25em, start, 0.25em);
 }
 

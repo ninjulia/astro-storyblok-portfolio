@@ -8,7 +8,17 @@
 		max-width: 70ch;
 		position: relative;
 		isolation: isolate;
+		word-break: break-all;
 
+		&::before,
+		&::after {
+			display: inline-block;
+
+			@media (min-width: 768px) {
+				position: absolute;
+				line-height: 0;
+			}
+		}
 		&::before {
 			@media (min-width: 768px) {
 				@include blockquote-quotes('“', $step-5, end, 0.25em);
@@ -19,21 +29,14 @@
 		&::after {
 			@media (min-width: 768px) {
 				@include blockquote-quotes('”', $step-5, start, 0.25em);
-				bottom: $step--2;
-			}
-		}
-		&::before,
-		&::after {
-			@media (min-width: 768px) {
-				position: absolute;
-				line-height: 0;
+				bottom: 0;
 			}
 		}
 	}
 
 	cite {
 		width: 100%;
-
+		word-break: break-all;
 		text-align: end !important;
 		color: var(--brand);
 	}

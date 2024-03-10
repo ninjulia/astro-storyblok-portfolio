@@ -29,6 +29,9 @@
 .main-site-nav-logo {
 	text-decoration: none;
 	flex: 1 1 0;
+	a {
+		display: inline-block;
+	}
 }
 
 #main-menu-toggle {

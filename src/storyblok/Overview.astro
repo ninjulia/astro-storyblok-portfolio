@@ -4,7 +4,7 @@ const { blok } = Astro.props;
 const content = renderRichText(blok.content);
 ---
 
-<section class="wrapper py-2xl px-xl">
+<section class="wrapper py-xl pSlide-m-l">
 	<article {...storyblokEditable(blok)}>
 		<div class="about-copy mx-2xs">
 			<h2>{blok.title}</h2>
