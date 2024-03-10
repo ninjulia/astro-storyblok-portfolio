@@ -80,11 +80,20 @@ const formAction = blok.navigationSuccess.cached_url;
 <style>
 	dialog {
 		border: none;
+		isolation: isolate;
+		overflow: hidden;
 	}
 	dialog button {
 		background-color: transparent;
 		border: none;
 		padding: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: translateX(-25%) translateY(25%);
+	}
+	dialog p {
+		transform: translateY(100%);
 	}
 	.hidden {
 		visibility: hidden;
