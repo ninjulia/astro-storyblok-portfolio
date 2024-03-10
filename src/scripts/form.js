@@ -16,10 +16,10 @@ const recaptchaExpired = (response) => {
 	alert(response);
 };
 document.querySelector('.g-recaptcha').setAttribute('data-expired-callback', recaptchaExpired);
-const recaptchaError = (response) => {
+const recaptchaHasError = (response) => {
 	alert(response);
 };
-document.querySelector('.g-recaptcha').setAttribute('data-error-callback', recaptchaError);
+document.querySelector('.g-recaptcha').setAttribute('data-error-callback', recaptchaHasError);
 
 function handleRecaptcha() {
 	let errorDisplay = recaptcha.querySelector('.error');
