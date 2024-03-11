@@ -6,7 +6,7 @@ publish = "dist"
 command = "npm run dev"
 
 [images]
-remote_images = ["https://a-us.storyblok.com/*"]
+    remote_images = ["https://a-us.storyblok.com/*"]
 
 [context.previews]
     [[headers]]

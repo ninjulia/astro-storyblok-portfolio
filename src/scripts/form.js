@@ -13,9 +13,10 @@ function handleRecaptcha() {
 	if (grecaptcha.getResponse() === '') {
 		errorDisplay.setAttribute('aria-hidden', false);
 		errorDisplay.textContent = 'Please complete the reCAPTCHA.';
+	} else if (grecaptcha.getResponse() !== '') {
+		errorDisplay.setAttribute('aria-hidden', true);
+		errorDisplay.textContent = '';
 	}
-	errorDisplay.setAttribute('aria-hidden', true);
-	errorDisplay.textContent = '';
 }
 
 // set up input validation
@@ -92,34 +93,3 @@ document.addEventListener('keydown', (e) => {
 		dialog.close();
 	}
 });
-
-///STYLE THE RECAPTCHA
-let nRecaptcha = document.querySelector('.netlify-recaptcha');
-// let foo = document.querySelector('.g-recaptcha');
-let root = document.querySelector(':root');
-let colorMode = window.getComputedStyle(root).colorScheme;
-// let maxWidth = nRecaptcha.parentElement.offsetWidth;
-let size;
-nRecaptcha.offsetWidth > 304 ? (size = 'normal') : (size = 'compact');
-
-var verifyCallback = function (response) {
-	alert(response);
-};
-var onloadCallback = function () {
-	// Renders the HTML element with id 'example1' as a reCAPTCHA widget.
-	// The id of the reCAPTCHA widget is assigned to 'widgetId1'.
-	// grecaptcha.render('nRecaptcha', {
-	// 	callback: verifyCallback,
-	// 	theme: colorMode,
-	// 	size: 'normal',
-	// });
-	alert('nRecaptcha loaded');
-};
-
-// nRecaptcha.setAttribute('data-theme', colorMode);
-// if (nRecaptcha.offsetWidth > sizing) {
-// 	nRecaptcha.setAttribute('data-size', 'normal');
-// } else {
-// 	nRecaptcha.setAttribute('data-size', 'compact');
-// }
-// nRecaptcha.setAttribute('callback', verifyCallback);
