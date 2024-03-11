@@ -5,10 +5,13 @@ const { blok } = Astro.props;
 const content = renderRichText(blok.content);
 ---
 
-<article {...storyblokEditable(blok)}>
+<article
+	class="standard-feature"
+	{...storyblokEditable(blok)}>
 	<figure class="portfolio-display">
 		<div class="portfolio-display-image">
 			<Image
+				class="standard-feature-image"
 				src={blok.image.filename}
 				alt={blok.image.alt}
 				width="1440"
@@ -33,3 +36,18 @@ const content = renderRichText(blok.content);
 		</figcaption>
 	</figure>
 </article>
+
+<script>
+	//don't lazy load images within initial viewport
+	let image = document.querySelector('.standard-feature-image');
+	let observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				image = entry.target;
+				image.setAttribute('loading', 'eager');
+				image.setAttribute('decoding', 'auto');
+			}
+		});
+	});
+	observer.observe(image);
+</script>

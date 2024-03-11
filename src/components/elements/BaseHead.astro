@@ -120,3 +120,9 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 	property="twitter:image"
 	content={new URL(image, Astro.url)}
 />
+
+<!-- sitemap -->
+<link
+	rel="sitemap"
+	href="/sitemap-index.xml"
+/>
