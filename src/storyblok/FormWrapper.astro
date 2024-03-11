@@ -45,7 +45,10 @@ const formAction = blok.navigationSuccess.cached_url;
 				</label>
 			</div>
 
-			<div data-netlify-recaptcha="true" id="netlify-recaptcha"></div>
+			<div
+				data-netlify-recaptcha="true"
+				id="netlify-recaptcha">
+			</div>
 
 			<button
 				type="submit"
@@ -60,6 +63,9 @@ const formAction = blok.navigationSuccess.cached_url;
 				src={blok.background_image.filename}
 				alt=""
 				inferSize={true}
+				quality={'low'}
+				widths={[300, 1040, 1440, 1770, blok.background_image.width]}
+				sizes={`(min-width: 1520px) 1440px, calc(95vw + 15px)`}
 			/>
 		)
 	}
