@@ -62,7 +62,9 @@ const formAction = blok.navigationSuccess.cached_url;
 			<Image
 				src={blok.background_image.filename}
 				alt=""
-				inferSize={true}
+				width="1440"
+				height="720"
+				densities={[1, 2]}
 				quality={'low'}
 				widths={[300, 1040, 1440, 1770]}
 				sizes={`(min-width: 1520px) 1440px, calc(95vw + 15px)`}

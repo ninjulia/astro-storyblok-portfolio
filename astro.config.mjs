@@ -15,9 +15,15 @@ export default defineConfig({
 		remotePatterns: [
 			{
 				protocol: 'https',
-				hostname: '**.a-us.storyblok.com/*',
+				//hostname: '**.a-us.storyblok.com/*',
 			},
 		],
+		service: {
+			entrypoint: 'astro/assets/services/sharp',
+			config: {
+				quality: 'low',
+			},
+		},
 	},
 	site:
 		process.env.VITE_ENVIRONMENT === 'preview'

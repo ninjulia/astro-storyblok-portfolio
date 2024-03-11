@@ -22,7 +22,9 @@ const { blok } = Astro.props;
 				sizes={`(min-width: 1500px) 1440px, (min-width: 1460px) 80vw, (min-width: 1180px) 100vw, (min-width: 1060px) calc(83vw - 125px), (min-width: 440px) 100vw, (min-width: 340px) 244px, calc(-240vw + 1020px)`}
 				loading="eager"
 				decoding="auto"
-				inferSize={true}
+				width="1440"
+				height="720"
+				densities={[1, 2]}
 				quality={'low'}
 			/>
 		)

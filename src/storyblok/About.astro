@@ -15,7 +15,9 @@ const content = renderRichText(blok.content);
 			<Image
 				src={blok.image.filename}
 				alt={blok.image.alt}
-				inferSize={true}
+				width="334"
+				height="334"
+				densities={[1, 2]}
 				widths={[334, 640]}
 				sizes={`(min-width: 1480px) 167px, (min-width: 1060px) calc(4.5vw + 101px), (min-width: 580px) calc(26.3vw - 15px), (min-width: 460px) 320px, calc(91.43vw - 82px)`}
 			/>
