@@ -31,17 +31,21 @@ let dropdownLinks = headerMenu.filter((menu) => menu.link.cached_url.match(regex
 		<nav
 			id="main-site-nav"
 			class="d-flex justify-content-space-between align-items-center wrap">
-			<a
+			<div class="main-site-nav-logo m-s">
+				<a
 				href="/"
 				title="home page"
-				class="main-site-nav-logo m-s">
+				>
 				<Image
 					src={logo.filename}
 					alt={siteName}
                     inferSize
                     loading="eager"
+					quality={'max'}
 				/>
 			</a>
+			</div>
+			
 			<button
 				class="m-s"
 				id="main-menu-toggle"

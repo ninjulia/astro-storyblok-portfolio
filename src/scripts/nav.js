@@ -40,3 +40,8 @@ let active = dropdownLinks.filter((link) => link.href === currentUrl);
 if (active[0]) {
 	active[0].parentElement.classList.add('active');
 }
+
+//allow space for scroll-margin
+const headerHeight = document.getElementById('site-header').offsetHeight;
+const root = document.querySelector(':root');
+root.style.setProperty('--header-height', `${headerHeight}px`);

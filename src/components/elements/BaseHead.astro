@@ -41,7 +41,11 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 	content={Astro.generator}
 />
 
-<!-- Font preloads -->
+<!-- preloads -->
+<link
+	rel="preconnect"
+	href="https://app.storyblok.com"
+/>
 <link
 	rel="preconnect"
 	href="https://fonts.googleapis.com"
@@ -51,10 +55,11 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 	href="https://fonts.gstatic.com"
 	crossorigin
 />
-<link
+<!--<link
 	href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
 	rel="stylesheet"
-/>
+/> -->
+
 <!-- Canonical URL -->
 <link
 	rel="canonical"
@@ -114,4 +119,10 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta
 	property="twitter:image"
 	content={new URL(image, Astro.url)}
+/>
+
+<!-- sitemap -->
+<link
+	rel="sitemap"
+	href="/sitemap-index.xml"
 />
