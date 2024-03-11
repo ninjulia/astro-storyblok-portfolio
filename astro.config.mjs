@@ -11,8 +11,13 @@ const env = loadEnv('', process.cwd(), 'STORYBLOK');
 // https://astro.build/config
 export default defineConfig({
 	image: {
-		// domains: process.env.VITE_ENVIRONMENT === 'preview' ? '' : ['astro.build'],
-		domains: ['astro.build'],
+		// domains: process.env.VITE_ENVIRONMENT === 'preview' ? [] : ['astro.build'],
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: '**.a-us.storyblok.com/*',
+			},
+		],
 	},
 	site:
 		process.env.VITE_ENVIRONMENT === 'preview'
