@@ -10,10 +10,17 @@ const env = loadEnv('', process.cwd(), 'STORYBLOK');
 
 // https://astro.build/config
 export default defineConfig({
-	site:
-		process.env.VITE_ENVIRONMENT === 'preview'
-			? 'https://previews--astro-storyblock-portfolio-template.netlify.app/'
-			: 'https://astro-storyblock-portfolio-template.netlify.app',
+	image: {
+		remotePatterns:
+			process.env.VITE_ENVIRONMENT === 'preview' ? [] : [{ protocol: 'https', hostname: 'a-us.storyblok.com' }],
+		service: {
+			entrypoint: 'astro/assets/services/sharp',
+			config: {
+				quality: 'low',
+			},
+		},
+	},
+	site: 'https://astro-storyblock-portfolio-template.netlify.app',
 	output: process.env.VITE_ENVIRONMENT === 'preview' ? 'server' : 'static',
 	adapter: process.env.VITE_ENVIRONMENT === 'preview' ? netlify() : undefined,
 	integrations: [
