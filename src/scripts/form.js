@@ -108,11 +108,12 @@ var verifyCallback = function (response) {
 var onloadCallback = function () {
 	// Renders the HTML element with id 'example1' as a reCAPTCHA widget.
 	// The id of the reCAPTCHA widget is assigned to 'widgetId1'.
-	grecaptcha.render('nRecaptcha', {
-		callback: verifyCallback,
-		theme: colorMode,
-		size: 'normal',
-	});
+	// grecaptcha.render('nRecaptcha', {
+	// 	callback: verifyCallback,
+	// 	theme: colorMode,
+	// 	size: 'normal',
+	// });
+	alert('nRecaptcha loaded');
 };
 
 // nRecaptcha.setAttribute('data-theme', colorMode);
