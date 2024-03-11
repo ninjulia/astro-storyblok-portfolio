@@ -94,19 +94,31 @@ document.addEventListener('keydown', (e) => {
 });
 
 ///STYLE THE RECAPTCHA
-var verifyCallback = function (response) {
-	alert(response);
-};
 let nRecaptcha = document.querySelector('.netlify-recaptcha');
 // let foo = document.querySelector('.g-recaptcha');
 let root = document.querySelector(':root');
 let colorMode = window.getComputedStyle(root).colorScheme;
-let sizing = nRecaptcha.parentElement.offsetWidth;
+// let maxWidth = nRecaptcha.parentElement.offsetWidth;
+let size;
+nRecaptcha.offsetWidth > 304 ? (size = 'normal') : (size = 'compact');
 
-nRecaptcha.setAttribute('data-theme', colorMode);
-if (nRecaptcha.offsetWidth > sizing) {
-	nRecaptcha.setAttribute('data-size', 'normal');
-} else {
-	nRecaptcha.setAttribute('data-size', 'compact');
-}
-nRecaptcha.setAttribute('callback', verifyCallback);
+var verifyCallback = function (response) {
+	alert(response);
+};
+var onloadCallback = function () {
+	// Renders the HTML element with id 'example1' as a reCAPTCHA widget.
+	// The id of the reCAPTCHA widget is assigned to 'widgetId1'.
+	grecaptcha.render('nRecaptcha', {
+		callback: verifyCallback,
+		theme: colorMode,
+		size: 'normal',
+	});
+};
+
+// nRecaptcha.setAttribute('data-theme', colorMode);
+// if (nRecaptcha.offsetWidth > sizing) {
+// 	nRecaptcha.setAttribute('data-size', 'normal');
+// } else {
+// 	nRecaptcha.setAttribute('data-size', 'compact');
+// }
+// nRecaptcha.setAttribute('callback', verifyCallback);
