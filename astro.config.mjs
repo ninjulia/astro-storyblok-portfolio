@@ -11,14 +11,8 @@ const env = loadEnv('', process.cwd(), 'STORYBLOK');
 // https://astro.build/config
 export default defineConfig({
 	image: {
-		domains: process.env.VITE_ENVIRONMENT === 'preview' ? [] : ['astro.build'],
-		remotePatterns: [
-			{
-				// protocol: 'https',
-				protocol: process.env.VITE_ENVIRONMENT === 'preview' ? '' : 'https',
-				//hostname: 'https://a-us.storyblok.com/*',
-			},
-		],
+		remotePatterns:
+			process.env.VITE_ENVIRONMENT === 'preview' ? [] : [{ protocol: 'https', hostname: 'a-us.storyblok.com' }],
 		service: {
 			entrypoint: 'astro/assets/services/sharp',
 			config: {
@@ -37,15 +31,6 @@ export default defineConfig({
 				feather: ['*'],
 			},
 		}),
-		// robotsTxt({
-		// 	policy: [
-		// 		{
-		// 			userAgent: '*',
-		// 			// disallow: process.env.VITE_ENVIRONMENT === 'preview' ? '/' : '',
-		// 			disallow: process.env.VITE_ENVIRONMENT === 'preview' ? '/' : '/',
-		// 		},
-		// 	],
-		// }),
 		storyblok({
 			accessToken: process.env.STORYBLOK_TOKEN,
 			useCustomApi: false,
