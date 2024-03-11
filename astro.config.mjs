@@ -14,8 +14,9 @@ export default defineConfig({
 		domains: process.env.VITE_ENVIRONMENT === 'preview' ? [] : ['astro.build'],
 		remotePatterns: [
 			{
-				protocol: 'https',
-				hostname: '**.a-us.storyblok.com/*',
+				// protocol: 'https',
+				protocol: process.env.VITE_ENVIRONMENT === 'preview' ? '' : 'https',
+				//hostname: 'https://a-us.storyblok.com/*',
 			},
 		],
 		service: {
@@ -25,10 +26,7 @@ export default defineConfig({
 			},
 		},
 	},
-	site:
-		process.env.VITE_ENVIRONMENT === 'preview'
-			? 'https://previews--astro-storyblock-portfolio-template.netlify.app/'
-			: 'https://astro-storyblock-portfolio-template.netlify.app',
+	site: 'https://astro-storyblock-portfolio-template.netlify.app',
 	output: process.env.VITE_ENVIRONMENT === 'preview' ? 'server' : 'static',
 	adapter: process.env.VITE_ENVIRONMENT === 'preview' ? netlify() : undefined,
 	integrations: [
@@ -39,14 +37,15 @@ export default defineConfig({
 				feather: ['*'],
 			},
 		}),
-		robotsTxt({
-			policy: [
-				{
-					userAgent: '*',
-					disallow: process.env.PUBLIC_ENV !== 'production' ? '/' : '',
-				},
-			],
-		}),
+		// robotsTxt({
+		// 	policy: [
+		// 		{
+		// 			userAgent: '*',
+		// 			// disallow: process.env.VITE_ENVIRONMENT === 'preview' ? '/' : '',
+		// 			disallow: process.env.VITE_ENVIRONMENT === 'preview' ? '/' : '/',
+		// 		},
+		// 	],
+		// }),
 		storyblok({
 			accessToken: process.env.STORYBLOK_TOKEN,
 			useCustomApi: false,
