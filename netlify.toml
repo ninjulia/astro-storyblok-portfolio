@@ -9,5 +9,7 @@ command = "npm run dev"
 remote_images = ["https://a-us.storyblok.com/*"]
 
 [context.previews]
-[headers.values]
-X-Robots-Tag = ["noindex"]
+    [[headers]]
+        for = "/*"
+        [headers.values]
+            X-Robots-Tag = "noindex"
