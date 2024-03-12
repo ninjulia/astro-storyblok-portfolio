@@ -59,6 +59,9 @@ Create a layout using HTML, CSS, and JS. Additionally:
 - Flexbox
 - Mobile-first workflow
 - Accessibility / Color Contrast
+- Astro
+- Storyblok
+- SCSS
 
 ### What I learned
 
