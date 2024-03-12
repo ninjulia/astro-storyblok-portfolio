@@ -67,7 +67,9 @@ Create a layout using HTML, CSS, and JS. Additionally:
 
 ### Continued development
 
-Astro Page Transitions Use Custom Captcha instead of Netlify's for custom styling Add Javascript slider for Testimonials section
+- Astro Page Transitions
+- Use Custom Captcha instead of Netlify's for custom styling
+- Add Javascript slider for Testimonials section
 
 ## Author
 
