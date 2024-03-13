@@ -5,7 +5,9 @@ const { blok } = Astro.props;
 let portfolios = blok.portfolio_items;
 ---
 
-<section {...storyblokEditable(blok)}>
+<section
+	id="work"
+	{...storyblokEditable(blok)}>
 	{
 		portfolios?.length &&
 			portfolios.map((article) => {
