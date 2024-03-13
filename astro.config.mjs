@@ -52,6 +52,8 @@ export default defineConfig({
 				FormTextarea: 'storyblok/FormTextarea',
 				FormCheckbox: 'storyblok/FormCheckbox',
 				FormRadioButton: 'storyblok/FormRadioButton',
+				WorkRollup: 'storyblok/WorkRollup',
+				Teaser: 'storyblok/Teaser',
 			},
 			apiOptions: {
 				region: 'us',
