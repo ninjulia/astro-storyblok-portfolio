@@ -1,34 +1,66 @@
 ---
 import { storyblokEditable } from '@storyblok/astro';
 import { useStoryblokApi } from '@storyblok/astro';
+import Hero from './Hero.astro';
 
-const storyblokApi = useStoryblokApi();
+// const storyblokApi = useStoryblokApi();
 
-const { data } = await storyblokApi.get('cdn/stories', {
-	version: import.meta.env.DEV ? 'draft' : 'published',
-	content_type: 'blogPost',
-});
+// const { data } = await storyblokApi.get('cdn/stories', {
+// 	version: process.env.VITE_ENVIRONMENT === 'preview' ? 'draft' : 'published',
+// 	content_type: 'blogPost',
+// });
 
-const posts = data.stories.map((story) => {
-	return {
-		title: story.content.title,
-		date: new Date(story.published_at).toLocaleDateString('en-US', { dateStyle: 'full' }),
-		description: story.content.description,
-		slug: story.full_slug,
-	};
-});
+// const posts = data.stories.map((story) => {
+// 	return {
+// 		title: story.content.title,
+// 		date: new Date(story.published_at).toLocaleDateString('en-US', { dateStyle: 'full' }),
+// 		description: story.content.description,
+// 		slug: story.full_slug,
+// 	};
+// });
+
+// const { blok } = Astro.props;
 
 const { blok } = Astro.props;
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get(`cdn/stories`, {
+	version: process.env.VITE_ENVIRONMENT === 'preview' ? 'draft' : 'published',
+	starts_with: 'blog/',
+	is_startpage: 0,
+});
+
+const articles = data.stories;
 ---
 
-<ul {...storyblokEditable(blok)}>
-	{
-		posts.map((post) => (
-			<li>
-				<time>{post.date}</time>
-				<a href={post.slug}>{post.title}</a>
-				<p>{post.description}</p>
-			</li>
-		))
-	}
-</ul>
+<section class="wrapper">
+	<article {...storyblokEditable(blok)}>
+		<div class="about-copy mx-2xs">
+			<ul>
+				<!-- {
+						posts.map((post) => (
+							<li>
+								<time>{post.date}</time>
+								<a href={post.slug}>{post.title}</a>
+								<p>{post.description}</p>
+							</li>
+						))
+					} -->
+				{
+					articles?.length &&
+						articles.map((article) => {
+							article.content.slug = article.slug;
+							return (
+								<li>
+									<time>{article.content.date}</time>
+									<a href={`/blog/${article.content.slug}`}>{article.content.title}</a>
+									<p>{article.content.description}</p>
+									<p>{`/blog/${article.content.slug}`}</p>
+								</li>
+							);
+						})
+				}
+			</ul>
+		</div>
+	</article>
+</section>

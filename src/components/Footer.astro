@@ -2,13 +2,12 @@
 const today = new Date();
 import Social from '../components/elements/Social.astro';
 import StandardLinks from '../components/elements/StandardLinks.astro';
-import { Image, getImage } from 'astro:assets';
 import { useStoryblokApi } from '@storyblok/astro';
 
 const storyblokApi = useStoryblokApi();
 
 const { data } = await storyblokApi.get('cdn/stories/config', {
-	version: import.meta.env.DEV ? 'draft' : 'published',
+	version: process.env.VITE_ENVIRONMENT === 'preview' ? 'draft' : 'published',
 	resolve_links: 'url',
 });
 const logo = data?.story?.content?.logo;
@@ -18,12 +17,10 @@ const siteName = data?.story?.content?.site_name;
 
 <footer id="site-footer">
 	<div class="wrapper d-flex wrap justify-content-space-between gap-s pt-2xl px-s pb-l">
-		<Image
+		<img
 			src={logo.filename}
 			alt={siteName}
-			inferSize
 			class="logo"
-			quality={'max'}
 		/>
 
 		<div class="social-links d-flex wrap justify-content-space-between align-items-center gap-l">
@@ -43,7 +40,9 @@ const siteName = data?.story?.content?.site_name;
 				<StandardLinks />
 			</ul>
 		</nav>
-		<div class="colophon">
+		<div
+			class="colophon"
+			{...storyblokEditable(blok)}>
 			<p>&copy; {today.getFullYear()} {siteName}. All Rights Reserved.</p>
 			<p>
 				Template example for<a href="https://github.com/astro-storyblok-portfolio"
