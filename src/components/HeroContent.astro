@@ -4,6 +4,17 @@ const { props } = Astro.props;
 
 //set BlogPost content to null so it looks cleaner
 props.component === 'blogPost' ? (props.content = null) : (props.content = props.content);
+
+//Set up Breadcrumps
+import Breadcrumbs from '../components/elements/Breadcrumbs.astro';
+import { useStoryblokApi } from '@storyblok/astro';
+const { slug } = Astro.params;
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get(`cdn/stories/${slug === undefined ? 'home' : slug}`, {
+	version: process.env.VITE_ENVIRONMENT === 'preview' ? 'draft' : 'published',
+});
+
+const pageTitle = data.story.name;
 ---
 
 <section
@@ -33,6 +44,9 @@ props.component === 'blogPost' ? (props.content = null) : (props.content = props
 		)
 	}
 </section>
+
+{pageTitle !== 'Home' && <Breadcrumbs current={data.story} />}
+
 <style lang="scss">
 	#hero {
 		@media (width > 992px) {

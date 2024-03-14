@@ -1,5 +1,6 @@
 ---
 const { current } = Astro.props;
+let trail = current.full_slug.split('/').filter((url) => url !== current.slug);
 ---
 
 <section
@@ -14,14 +15,16 @@ const { current } = Astro.props;
 					>Home</a
 				>
 			</li>
-			<li class="breadcrumb">
-				<a
-					href="/#work/"
-					title="/work/">
-					Work
-				</a>
-			</li>
-			<li class="breadcrumb">{current}</li>
+			{
+				trail[0] !== '' &&
+					trail.map((url) => (
+						<li class="breadcrumb">
+							{url === 'work' ? <a href={`/#${url}/`}>{url}</a> : <a href={`/${url}/`}>{url}</a>}
+						</li>
+					))
+			}
+
+			<li class="breadcrumb">{current.name}</li>
 		</ul>
 	</nav>
 </section>
