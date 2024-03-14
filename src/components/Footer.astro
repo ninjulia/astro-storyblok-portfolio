@@ -1,55 +1,48 @@
 ---
 const today = new Date();
+import { SITE_TITLE, LOGO, FOOTER_TEXT } from '../consts';
+import { SOCIALS } from '../socials';
+import { LINKS } from '../menu';
 import Social from '../components/elements/Social.astro';
-import StandardLinks from '../components/elements/StandardLinks.astro';
-import { Image, getImage } from 'astro:assets';
-import { useStoryblokApi } from '@storyblok/astro';
-
-const storyblokApi = useStoryblokApi();
-
-const { data } = await storyblokApi.get('cdn/stories/config', {
-	version: import.meta.env.DEV ? 'draft' : 'published',
-	resolve_links: 'url',
-});
-const logo = data?.story?.content?.logo;
-const socialLinks = data?.story?.content?.social_links;
-const siteName = data?.story?.content?.site_name;
 ---
 
 <footer id="site-footer">
 	<div class="wrapper d-flex wrap justify-content-space-between gap-s pt-2xl px-s pb-l">
-		<Image
-			src={logo.filename}
-			alt={siteName}
-			inferSize
+		<img
+			src={LOGO}
+			alt={SITE_TITLE}
 			class="logo"
-			quality={'max'}
 		/>
 
 		<div class="social-links d-flex wrap justify-content-space-between align-items-center gap-l">
 			{
-				socialLinks.map((site) => (
+				SOCIALS.map((site) => (
 					<Social
-						platform={site.platform}
-						href={site.social_media.url}
+						platform={site.name}
+						href={site.value}
 					/>
 				))
 			}
 		</div>
 		<nav class="u-grid">
 			<ul class="nav-links m-0 p-0">
-				<!-- TODO: make /work/ dynamic -->
-				<li class="nav-item"><a href=`/#work`>Work</a></li>
-				<StandardLinks />
+				{
+					LINKS &&
+						LINKS.map((menu) => (
+							<li class="nav-item">
+								<a
+									class="nav-link"
+									href={`${menu.value}`}>
+									{menu.name}
+								</a>
+							</li>
+						))
+				}
 			</ul>
 		</nav>
 		<div class="colophon">
-			<p>&copy; {today.getFullYear()} {siteName}. All Rights Reserved.</p>
-			<p>
-				Template example for<a href="https://github.com/astro-storyblok-portfolio"
-					>Astro + Storyblok Portfolio Starter Template</a
-				>. Built by <a href="https://github.com/ninjulia">Julia.</a>
-			</p>
+			<p>&copy; {today.getFullYear()} {SITE_TITLE}. All Rights Reserved.</p>
+			<p><Fragment set:html={FOOTER_TEXT} /></p>
 		</div>
 	</div>
 </footer>

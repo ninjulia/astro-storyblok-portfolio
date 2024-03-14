@@ -1,0 +1,9 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+const { blok } = Astro.props;
+let portfolios = blok.portfolio_items;
+---
+
+<Fragment {...storyblokEditable(blok)}>
+	<slot />
+</Fragment>

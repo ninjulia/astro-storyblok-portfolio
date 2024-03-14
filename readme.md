@@ -59,12 +59,15 @@ Create a layout using HTML, CSS, and JS. Additionally:
 - Flexbox
 - Mobile-first workflow
 - Accessibility / Color Contrast
+- Astro
+- Storyblok
+- SCSS
 
 ### What I learned
 
 ### Continued development
 
-Astro Page Transitions Use Custom Captcha instead of Netlify's for custom styling
+Astro Page Transitions Use Custom Captcha instead of Netlify's for custom styling Add Javascript slider for Testimonials section
 
 ## Author
 

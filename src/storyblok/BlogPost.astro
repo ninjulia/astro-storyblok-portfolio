@@ -1,11 +1,23 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroContent from '../components/HeroContent.astro';
 import { storyblokEditable, renderRichText } from '@storyblok/astro';
 const { blok } = Astro.props;
 const content = renderRichText(blok.content);
 ---
 
-<article {...storyblokEditable(blok)}>
-	<h1>{blok.title}</h1>
-	<p>{blok.description}</p>
-	<Fragment set:html={content} />
-</article>
+<BaseLayout pageTitle="">
+	<main
+		class="wrapper"
+		id="main-content">
+		<HeroContent props={blok} />
+		<section
+			class="wrapper py-xl pSlide-m-l"
+			{...storyblokEditable(blok)}>
+			<article>
+				<p>{blok.description}</p>
+				<Fragment set:html={content} />
+			</article>
+		</section>
+	</main>
+</BaseLayout>
