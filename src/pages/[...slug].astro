@@ -7,6 +7,7 @@ export async function getStaticPaths() {
 
 	const { data } = await storyblokApi.get('cdn/links', {
 		version: process.env.VITE_ENVIRONMENT === 'preview' ? 'draft' : 'published',
+		resolve_relations: ['WorkRollup.portfolio_items'],
 	});
 	let links = data.links;
 	links = Object.values(links);

@@ -1,21 +1,17 @@
 ---
-import HeaderLink from '../components/elements/HeaderLink.astro';
-import StandardLinks from '../components/elements/StandardLinks.astro';
-import { Image, getImage } from 'astro:assets';
+import { SITE_TITLE, LOGO } from '../consts';
+import { LINKS } from '../menu';
+import DropdownLink from '../components/elements/DropdownLink.astro';
 import { useStoryblokApi } from '@storyblok/astro';
+let notDropdown = LINKS.filter((menu) => menu.name !== 'Work');
 
 const storyblokApi = useStoryblokApi();
-
-const { data } = await storyblokApi.get('cdn/stories/config', {
-	version: import.meta.env.DEV ? 'draft' : 'published',
-	resolve_links: 'url',
+const { data } = await storyblokApi.get(`cdn/stories`, {
+	version: process.env.VITE_ENVIRONMENT === 'preview' ? 'draft' : 'published',
+	starts_with: 'work/',
 });
-const logo = data?.story?.content?.logo;
-const headerMenu = data?.story?.content?.header_menu;
-const siteName = data?.story?.content?.site_name;
-let regex = '[a-z][/]';
-let dropdownLinks = headerMenu.filter((menu) => menu.link.cached_url.match(regex));
 
+const articles = data.stories;
 ---
 
 <header id="site-header">
@@ -33,19 +29,15 @@ let dropdownLinks = headerMenu.filter((menu) => menu.link.cached_url.match(regex
 			class="d-flex justify-content-space-between align-items-center wrap">
 			<div class="main-site-nav-logo m-s">
 				<a
-				href="/"
-				title="home page"
-				>
-				<Image
-					src={logo.filename}
-					alt={siteName}
-                    inferSize
-                    loading="eager"
-					quality={'max'}
-				/>
-			</a>
+					href="/"
+					title="home page">
+					<img
+						src={LOGO}
+						alt={SITE_TITLE}
+					/>
+				</a>
 			</div>
-			
+
 			<button
 				class="m-s"
 				id="main-menu-toggle"
@@ -99,32 +91,42 @@ let dropdownLinks = headerMenu.filter((menu) => menu.link.cached_url.match(regex
 				class="nav-links m-0 p-0">
 				<!-- show nested links -->
 				{
-					dropdownLinks && (
+					articles && (
 						<li class="nav-item dropdown">
 							<button
 								class="nav-link dropdown-toggle"
 								role="button"
 								data-toggle="dropdown"
 								aria-expanded="false">
-                                <!-- TODO: make /work/ dynamic  -->
 								Work
 							</button>
 							<ul
 								class="dropdown-menu p-xs m-0"
 								aria-hidden="true">
-								{dropdownLinks.map((menu) => (
-									<HeaderLink
+								{articles.map((link) => (
+									<DropdownLink
 										class="dropdown-item"
-										href={`/${menu.link.cached_url}`}>
-										{menu.link.story.name}
-									</HeaderLink>
+										href={`/${link.full_slug}`}>
+										{link.name}
+									</DropdownLink>
 								))}
 							</ul>
 						</li>
 					)
 				}
 				<!-- /show nested links -->
-				<StandardLinks />
+				{
+					notDropdown &&
+						notDropdown.map((menu) => (
+							<li class="nav-item">
+								<a
+									class="nav-link"
+									href={`${menu.value}`}>
+									{menu.name}
+								</a>
+							</li>
+						))
+				}
 			</ul>
 		</nav>
 	</div>

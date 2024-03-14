@@ -1,49 +1,10 @@
 ---
-import Hero from '../components/Hero.astro';
+import HeroContent from '../components/HeroContent.astro';
 import { storyblokEditable, renderRichText } from '@storyblok/astro';
-import { Image, getImage } from 'astro:assets';
 const { blok } = Astro.props;
 ---
 
-<Hero
+<HeroContent
 	props={blok}
 	{...storyblokEditable(blok)}
 />
-<!-- <section
-	id="hero"
-	class="wrapper img-bg"
-	>
-	<div class="content p-l text-center">
-		<h1 class="accent">{blok.title}</h1>
-		{blok.subtitle && <h2 class="accent">{blok.subtitle}</h2>}
-		{blok.content && <p class="prose-1 text-light m-auto reading-length">{blok.content}</p>}
-	</div>
-	{
-		blok.image && (
-			<Image
-				src={blok.image.filename}
-				alt=""
-				widths={[300, 1065, 1440, 2880]}
-				sizes={`(min-width: 1500px) 1440px, (min-width: 1460px) 80vw, (min-width: 1180px) 100vw, (min-width: 1060px) calc(83vw - 125px), (min-width: 440px) 100vw, (min-width: 340px) 244px, calc(-240vw + 1020px)`}
-				loading="eager"
-				decoding="auto"
-				width="300"
-				height="150"
-				densities={[1, 2]}
-				quality={'low'}
-				widths={[300, 1040, 1440, 1770]}
-				sizes={`(min-width: 1520px) 1440px, calc(95vw + 15px)`}
-			/>
-		)
-	}
-</section>
-<style lang="scss">
-	#hero {
-		@media (width > 992px) {
-			aspect-ratio: 16/5;
-		}
-		p {
-			color: var(--color-light);
-		}
-	}
-</style> -->

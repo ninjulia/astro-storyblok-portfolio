@@ -40,11 +40,9 @@
 	flex-direction: column;
 	justify-items: center;
 
-	> * {
-		margin-block: $space-m;
-	}
 	a {
 		align-self: flex-start;
+		margin-block-start: $space-m;
 	}
 }
 
