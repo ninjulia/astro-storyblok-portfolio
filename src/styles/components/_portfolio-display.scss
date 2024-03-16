@@ -43,7 +43,7 @@
 
 article:has(.full-width) {
 	@extend .p-xl;
-	@media (min-width: 768px) {
+	@media (max-width: 768px) {
 		padding: 0;
 	}
 }
