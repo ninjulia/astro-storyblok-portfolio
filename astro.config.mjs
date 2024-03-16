@@ -12,7 +12,14 @@ const env = loadEnv('', process.cwd(), 'STORYBLOK');
 export default defineConfig({
 	image: {
 		remotePatterns:
-			process.env.VITE_ENVIRONMENT === 'preview' ? [] : [{ protocol: 'https', hostname: 'a-us.storyblok.com' }],
+			process.env.VITE_ENVIRONMENT === 'preview'
+				? []
+				: [
+						{
+							protocol: 'https',
+							hostname: 'a-us.storyblok.com',
+						},
+				  ],
 		service: {
 			entrypoint: 'astro/assets/services/sharp',
 			config: {

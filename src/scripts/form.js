@@ -2,22 +2,22 @@ const form = document.querySelector('form');
 const dialog = document.querySelector('dialog');
 
 // set up error message for recaptcha
-const recaptcha = document.querySelector('.g-recaptcha').parentElement;
-let recaptchaError = document.createElement('span');
-recaptchaError.className = 'error mt-s mb-0 d-flex flex-row align-items-center';
-recaptchaError.setAttribute('aria-hidden', true);
-recaptcha.appendChild(recaptchaError);
+// const recaptcha = document.querySelector('.g-recaptcha').parentElement;
+// let recaptchaError = document.createElement('span');
+// recaptchaError.className = 'error mt-s mb-0 d-flex flex-row align-items-center';
+// recaptchaError.setAttribute('aria-hidden', true);
+// recaptcha.appendChild(recaptchaError);
 
-function handleRecaptcha() {
-	let errorDisplay = recaptcha.querySelector('.error');
-	if (grecaptcha.getResponse() === '') {
-		errorDisplay.setAttribute('aria-hidden', false);
-		errorDisplay.textContent = 'Please complete the reCAPTCHA.';
-	} else if (grecaptcha.getResponse() !== '') {
-		errorDisplay.setAttribute('aria-hidden', true);
-		errorDisplay.textContent = '';
-	}
-}
+// function handleRecaptcha() {
+// 	let errorDisplay = recaptcha.querySelector('.error');
+// 	if (grecaptcha.getResponse() === '') {
+// 		errorDisplay.setAttribute('aria-hidden', false);
+// 		errorDisplay.textContent = 'Please complete the reCAPTCHA.';
+// 	} else if (grecaptcha.getResponse() !== '') {
+// 		errorDisplay.setAttribute('aria-hidden', true);
+// 		errorDisplay.textContent = '';
+// 	}
+// }
 
 // set up input validation
 const inputFields = [...form.querySelectorAll('[required]')];
@@ -51,9 +51,10 @@ function handleValidation(input) {
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
 	let errorList = inputFields.filter((input) => !input.validity.valid);
-	if (errorList.length > 0 || grecaptcha.getResponse() === '') {
+	// if (errorList.length > 0 || grecaptcha.getResponse() === '') {
+	if (errorList.length > 0) {
 		errorList.forEach((input) => handleValidation(input));
-		handleRecaptcha();
+		//handleRecaptcha();
 	} else {
 		handleFormSubmit(e);
 	}

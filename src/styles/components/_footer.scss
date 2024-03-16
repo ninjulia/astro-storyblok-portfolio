@@ -73,33 +73,28 @@
 	}
 }
 
-$social-media-outlets: ('facebook', 'instagram', 'linkedin', 'twitter', 'youtube');
-@each $site in $social-media-outlets {
-	#site-footer a[href*='#{$site}'] {
-		width: $step-1;
-		height: $step-1;
-		text-decoration: none;
-		// mask-image: url('/icons/#{$site}.svg');
-		// mask-position: center center;
-		// mask-origin: stroke-box;
-		// mask-size: contain;
-		// mask-repeat: no-repeat;
-		//background-color: var(--color-light-tint);
-		color: var(--color-light-tint);
-		fill: currentColor;
-		&:visited {
-			// background-color: var(--color-light-tint);
-		}
-		&:hover {
-			//background-color: darken($brand-light-shade, 20%);
-		}
-		&:focus-visible {
-			//TODO: set images in html so focus-ring shows
-			//background-color: darken($brand-light, 20%);
-			@include focus-ring;
-		}
-		&:active {
-			background-color: var(--color-on-dark);
-		}
+.social-link {
+	text-decoration: none;
+	color: var(--text);
+	fill: currentColor;
+	@extend .grid-stack;
+	@extend .border-radius-3xs;
+	width: 44px;
+	height: 44px;
+	background-color: var(--background);
+	&:visited {
+		color: var(--text-subtle);
+	}
+	&:hover {
+		background-color: var(--text-subtle);
+		color: var(--text-emphasis);
+	}
+	&:focus-visible {
+		background-color: var(--link-color-hover);
+		@include focus-ring;
+	}
+	&:active {
+		color: var(--background);
+		background-color: var(--text);
 	}
 }

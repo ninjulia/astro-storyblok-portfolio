@@ -1,5 +1,6 @@
 ---
 import '../../styles/style.scss';
+import SiteMap_RSS from './SiteMap_RSS.astro';
 
 interface Props {
 	title: string;
@@ -121,8 +122,5 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 	content={new URL(image, Astro.url)}
 />
 
-<!-- sitemap -->
-<link
-	rel="sitemap"
-	href="/sitemap-index.xml"
-/>
+<!-- include sitemap & RSS on production -->
+{process.env.VITE_ENVIRONMENT === 'production' && <SiteMap_RSS />}

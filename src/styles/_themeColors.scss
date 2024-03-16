@@ -48,14 +48,6 @@
 	--ghost-btn-disabled-txt: var(--color-dark-tint);
 }
 
-// Loop through the provided $base-color-tokens to generate classes
-// @each $color in $base-color-tokens {
-// 	.theme-#{$color} {
-// 		background-color: var(--color-#{$color});
-// 		color: var(--color-on-#{$color});
-// 	}
-// }
-
 //* Light Theme
 @media (prefers-color-scheme: light) {
 	:root {
