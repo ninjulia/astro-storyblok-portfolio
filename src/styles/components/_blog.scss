@@ -1,0 +1,47 @@
+//* Blog Post and Rollup Styling
+.blog-roll {
+	container-type: inline-size;
+	justify-content: space-between;
+	align-items: stretch;
+	row-gap: $space-l;
+	column-gap: $space-m;
+}
+.blog-roll-item {
+	flex-direction: column;
+	flex-grow: 1;
+	flex-shrink: 1;
+	align-items: start;
+
+	span {
+		@include headlines;
+		text-decoration: underline;
+		color: var(--brand);
+	}
+}
+
+.blog-roll-item:nth-child(-n + 3) {
+	@extend .p-s;
+	@extend .border-radius-xs;
+	border: 1px solid var(--border-color);
+	span {
+		@extend .display-3;
+	}
+}
+
+.blog-roll-item:not(:nth-child(-n + 3)) {
+	padding-block-end: $space-l;
+	border-bottom: 1px solid var(--border-color);
+	span {
+		@extend .display-4;
+	}
+}
+
+@container (width > calc(30ch * 3)) {
+	.blog-roll-item:nth-child(-n + 3) {
+		flex-basis: calc(33.33% - ($space-m * 2));
+	}
+	.blog-roll-item:not(:nth-child(-n + 3)) {
+		flex-basis: calc(50% - $space-xl);
+		margin-inline: $space-s;
+	}
+}

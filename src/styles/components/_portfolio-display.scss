@@ -50,8 +50,12 @@
 	@media (min-width: 768px) {
 		flex-direction: column;
 	}
+	.portfolio-display-image {
+		max-width: 100%;
+		flex: 0 0 auto;
+	}
 	img {
-		width: min(1440px, 100vw);
+		width: 100%;
 	}
 }
 
