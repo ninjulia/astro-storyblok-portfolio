@@ -15,7 +15,6 @@ const content = renderRichText(blok.content);
 			class="wrapper py-xl pSlide-m-l"
 			{...storyblokEditable(blok)}>
 			<article>
-				<p>{blok.description}</p>
 				<Fragment set:html={content} />
 			</article>
 		</section>
