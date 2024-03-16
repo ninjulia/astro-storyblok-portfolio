@@ -12,7 +12,7 @@ let portfolios = blok.portfolio_items;
 	{
 		portfolios?.length &&
 			portfolios.map((article) => {
-				article.content.slug = article.slug;
+				article.content.slug = article.full_slug;
 				return <WorkItem article={article.content} />;
 			})
 	}

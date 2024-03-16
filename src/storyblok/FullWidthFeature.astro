@@ -5,11 +5,11 @@ const { blok } = Astro.props;
 const content = renderRichText(blok.content);
 ---
 
-<article class="container">
+<article class="m-auto">
 	<figure
 		class="portfolio-display full-width"
 		{...storyblokEditable(blok)}>
-		<div class="full-width-image">
+		<div class="portfolio-display-image">
 			<Image
 				src={blok.image.filename}
 				alt={blok.image.alt}

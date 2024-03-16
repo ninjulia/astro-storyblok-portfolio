@@ -16,18 +16,21 @@ const articles = data.stories;
 
 <section class="wrapper">
 	<article {...storyblokEditable(blok)}>
-		<div class="about-copy mx-2xs">
-			<ul>
+		<div class="py-xl pSlide-m-l">
+			<ul class="blog-roll d-flex wrap m-0">
 				{
 					articles?.length &&
 						articles.map((article) => {
 							article.content.slug = article.slug;
 							return (
-								<li>
-									<time>{article.content.date}</time>
-									<a href={`/blog/${article.content.slug}`}>{article.content.title}</a>
-									<p>{article.content.description}</p>
-									<p>{`/blog/${article.content.slug}`}</p>
+								<li class="blog-roll-item mb-0">
+									<span class="accent">{article.content.title}</span>
+									<p class="mb-0">{article.content.description}</p>
+									<a
+										class="blog-roll-link"
+										href={`/blog/${article.content.slug}`}>
+										Read More &raquo;
+									</a>
 								</li>
 							);
 						})

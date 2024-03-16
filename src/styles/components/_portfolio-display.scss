@@ -1,10 +1,5 @@
 //* Portfolio Display
 
-// #work {
-// 	max-width: 1440px;
-// 	margin: 0 auto;
-// }
-
 .portfolio-display {
 	margin-block: $space-xs;
 	margin-inline: 0;
@@ -46,12 +41,23 @@
 	}
 }
 
+article:has(.full-width) {
+	@extend .p-xl;
+	@media (max-width: 768px) {
+		padding: 0;
+	}
+}
+
 .full-width {
 	@media (min-width: 768px) {
 		flex-direction: column;
 	}
+	.portfolio-display-image {
+		max-width: 100%;
+		flex: 0 0 auto;
+	}
 	img {
-		width: min(1440px, 100vw);
+		width: 100%;
 	}
 }
 
