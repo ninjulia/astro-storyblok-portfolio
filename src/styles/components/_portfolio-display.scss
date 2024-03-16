@@ -1,10 +1,5 @@
 //* Portfolio Display
 
-// #work {
-// 	max-width: 1440px;
-// 	margin: 0 auto;
-// }
-
 .portfolio-display {
 	margin-block: $space-xs;
 	margin-inline: 0;
@@ -43,6 +38,13 @@
 	a {
 		align-self: flex-start;
 		margin-block-start: $space-m;
+	}
+}
+
+article:has(.full-width) {
+	@extend .p-xl;
+	@media (min-width: 768px) {
+		padding: 0;
 	}
 }
 

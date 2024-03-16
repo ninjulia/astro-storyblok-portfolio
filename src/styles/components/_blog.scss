@@ -14,7 +14,6 @@
 
 	span {
 		@include headlines;
-		text-decoration: underline;
 		color: var(--brand);
 	}
 }
