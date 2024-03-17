@@ -1,31 +1,31 @@
-const form = document.querySelector('form');
-const dialog = document.querySelector('dialog');
+// const form = document.querySelector('form');
+// const dialog = document.querySelector('dialog');
 
 // set up error message for recaptcha
-const recaptcha = document.querySelector('.g-recaptcha').parentElement;
-let recaptchaError = document.createElement('span');
-recaptchaError.className = 'error mt-s mb-0 d-flex flex-row align-items-center';
-recaptchaError.setAttribute('aria-hidden', true);
-recaptcha.appendChild(recaptchaError);
+// const recaptcha = document.querySelector('.g-recaptcha').parentElement;
+// let recaptchaError = document.createElement('span');
+// recaptchaError.className = 'error mt-s mb-0 d-flex flex-row align-items-center';
+// recaptchaError.setAttribute('aria-hidden', true);
+// recaptcha.appendChild(recaptchaError);
 
-function handleRecaptcha() {
-	let errorDisplay = recaptcha.querySelector('.error');
-	if (grecaptcha.getResponse() === '') {
-		errorDisplay.setAttribute('aria-hidden', false);
-		errorDisplay.textContent = 'Please complete the reCAPTCHA.';
-	} else if (grecaptcha.getResponse() !== '') {
-		errorDisplay.setAttribute('aria-hidden', true);
-		errorDisplay.textContent = '';
-	}
-}
+// function handleRecaptcha() {
+// 	let errorDisplay = recaptcha.querySelector('.error');
+// 	if (grecaptcha.getResponse() === '') {
+// 		errorDisplay.setAttribute('aria-hidden', false);
+// 		errorDisplay.textContent = 'Please complete the reCAPTCHA.';
+// 	} else if (grecaptcha.getResponse() !== '') {
+// 		errorDisplay.setAttribute('aria-hidden', true);
+// 		errorDisplay.textContent = '';
+// 	}
+// }
 
 // set up input validation
-const inputFields = [...form.querySelectorAll('[required]')];
-inputFields.forEach((input) =>
-	input.addEventListener('input', (e) => {
-		handleValidation(input);
-	})
-);
+// const inputFields = [...form.querySelectorAll('[required]')];
+// inputFields.forEach((input) =>
+// 	input.addEventListener('input', (e) => {
+// 		handleValidation(input);
+// 	})
+// );
 
 function handleValidation(input) {
 	let errorDisplay;
@@ -48,16 +48,17 @@ function handleValidation(input) {
 	}
 }
 
-form.addEventListener('submit', (e) => {
-	e.preventDefault();
-	let errorList = inputFields.filter((input) => !input.validity.valid);
-	if (errorList.length > 0 || grecaptcha.getResponse() === '') {
-		errorList.forEach((input) => handleValidation(input));
-		handleRecaptcha();
-	} else {
-		handleFormSubmit(e);
-	}
-});
+// form?.addEventListener('submit', (e) => {
+// 	e.preventDefault();
+// 	let errorList = inputFields.filter((input) => !input.validity.valid);
+// 	// if (errorList.length > 0 || grecaptcha.getResponse() === '') {
+// 	if (errorList.length > 0) {
+// 		errorList.forEach((input) => handleValidation(input));
+// 		//handleRecaptcha();
+// 	} else {
+// 		handleFormSubmit(e);
+// 	}
+// });
 
 //handle netlify form submission
 //https://docs.netlify.com/forms/setup/#submit-html-forms-with-ajax
@@ -82,14 +83,15 @@ function handleFormSubmit(event) {
 }
 
 // "Close" button closes the dialog
-const closeButton = document.querySelector('dialog button');
-closeButton.addEventListener('click', () => {
-	dialog.close();
-});
+// document.querySelector('dialog button').addEventListener('click', () => {
+// 	dialog.close();
+// });
 
-// Escape key closes the dialog
-document.addEventListener('keydown', (e) => {
-	if (e.key === 'Escape') {
-		dialog.close();
-	}
-});
+// // Escape key closes the dialog
+// document.addEventListener('keydown', (e) => {
+// 	if (e.key === 'Escape') {
+// 		dialog.close();
+// 	}
+// });
+
+export { handleValidation, handleFormSubmit };

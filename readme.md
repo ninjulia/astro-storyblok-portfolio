@@ -69,7 +69,10 @@ Create a layout using HTML, CSS, and JS. Additionally:
 
 ### Continued development
 
-Astro Page Transitions Use Custom Captcha instead of Netlify's for custom styling Add Javascript slider for Testimonials section
+- Astro Page Transitions
+- Use Custom Captcha instead of Netlify's for custom styling
+- Add Javascript slider for Testimonials section
+- Allow users to specify google fonts choices
 
 ## Author
 
@@ -82,5 +85,6 @@ Below is a list of assets and articles that I leveraged in the production of thi
 - [The A11Y Project Checklist](https://www.a11yproject.com/checklist/)
 - [A CSS Approach to Trap Focus Inside of an Element](https://css-tricks.com/a-css-approach-to-trap-focus-inside-of-an-element/)
 - [Accessible Modal Dialog](https://scottaohara.github.io/accessible_modal_window/)
-- [https://fontawesome.com/](https://fontawesome.com)
+- [utopia.fyi](https://utopia.fyi/)
 - [Google Fonts: Bebas Neue & Heebo](https://fonts.google.com/)
+- icons from Feather
