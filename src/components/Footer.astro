@@ -4,6 +4,8 @@ import { SITE_TITLE, LOGO, FOOTER_TEXT } from '../consts';
 import { SOCIALS } from '../socials';
 import { LINKS } from '../menu';
 import Social from '../components/elements/Social.astro';
+import { Icon } from 'astro-icon/components';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <footer id="site-footer">
@@ -14,7 +16,7 @@ import Social from '../components/elements/Social.astro';
 			class="logo"
 		/>
 
-		<div class="social-links d-flex wrap justify-content-space-between align-items-center gap-l">
+		<div class="social-links d-flex wrap justify-content-space-between align-items-center gap-s">
 			{
 				SOCIALS.map((site) => (
 					<Social
@@ -23,6 +25,17 @@ import Social from '../components/elements/Social.astro';
 					/>
 				))
 			}
+			<a
+				href=`${canonicalURL}rss.xml`
+				class="social-link"
+				title="RSS Feed"
+				target="_blank"
+				aria-label="RSS Feed">
+				<Icon
+					name=`feather:rss`
+					width={44}
+				/>
+			</a>
 		</div>
 		<nav class="u-grid">
 			<ul class="nav-links m-0 p-0">

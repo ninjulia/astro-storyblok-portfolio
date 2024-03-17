@@ -18,24 +18,14 @@ const pageTitle = data.story.name;
 <!doctype html>
 <html lang="en">
 	<head>
-		<!-- TODO: incorporate SITE_TITLE, SITE_DESCRIPTION from storyblok -->
-		{
-			Astro.url.pathname === '/' ? (
-				<BaseHead
-					title={SITE_TITLE}
-					description={SITE_DESCRIPTION}
-				/>
-			) : (
-				<BaseHead
-					title={`${pageTitle} | ${SITE_TITLE}`}
-					description={SITE_DESCRIPTION}
-				/>
-			)
-		}
+		<BaseHead
+			title={Astro.url.pathname === '/' ? `${SITE_TITLE}` : `${pageTitle} | ${SITE_TITLE}`}
+			description={SITE_DESCRIPTION}
+			image={`/open-graph/${data.story.slug}.png`}
+		/>
 	</head>
 	<body>
 		<Header />
-
 		<slot />
 		<Footer />
 	</body>
