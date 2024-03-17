@@ -3,7 +3,8 @@
     publish = "dist"
 
 [dev]
-    command = "npm run dev"
+    [astro]
+        command = "npm run dev"
 
 [images]
     remote_images = ["https://a-us.storyblok.com/*"]

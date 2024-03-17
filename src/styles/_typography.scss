@@ -161,17 +161,16 @@ blockquote {
 		//* Allows space for 'markers', font-based
 		gap: $step-0;
 
-		//* Storyblok wraps each list item in a p tag
-		p {
-			margin: 0;
-			padding: 0;
-		}
-
 		&::marker,
 		&::-webkit-details-marker {
 			visibility: none;
 		}
 	}
+}
+//* Storyblok wraps each list item in a p tag
+ul li:not([class]) p {
+	margin: 0;
+	padding: 0;
 }
 
 //* Style 'Markers'
