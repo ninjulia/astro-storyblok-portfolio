@@ -113,6 +113,45 @@ const formAction = blok.navigationSuccess.cached_url;
 	}
 </style>
 
-<script>
+<!-- <script>
 	import '../scripts/form.js';
+</script> -->
+
+<script>
+	import { handleValidation, handleFormSubmit } from '../scripts/form.js';
+	const form = document.querySelector('form');
+	if (form) {
+		const dialog = document.querySelector('dialog');
+
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			let errorList = [...form.querySelectorAll('[required]')].filter((input) => !input.validity.valid);
+			if (errorList.length > 0) {
+				errorList.forEach((input) => handleValidation(input));
+				//handleRecaptcha();
+			} else {
+				handleFormSubmit(e);
+			}
+
+			// set up input validation
+			const inputFields = [...form.querySelectorAll('[required]')];
+			inputFields.forEach((input) =>
+				input.addEventListener('input', (e) => {
+					handleValidation(input);
+				})
+			);
+		});
+		// "Close" button closes the dialog
+		const closeButton = document.querySelector('dialog button');
+		closeButton?.addEventListener('click', () => {
+			dialog?.close();
+		});
+
+		// Escape key closes the dialog
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') {
+				dialog?.close();
+			}
+		});
+	}
 </script>

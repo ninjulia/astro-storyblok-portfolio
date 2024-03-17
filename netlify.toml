@@ -3,8 +3,8 @@
     publish = "dist"
 
 [dev]
-    [astro]
-        command = "npm run dev"
+    command = "astro dev"
+    targetPort = 4321
 
 [images]
     remote_images = ["https://a-us.storyblok.com/*"]
