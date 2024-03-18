@@ -19,7 +19,7 @@ const dialog = document.querySelector('dialog');
 // 	}
 // }
 
-set up input validation
+// set up input validation
 const inputFields = [...form.querySelectorAll('[required]')];
 inputFields.forEach((input) =>
 	input.addEventListener('input', (e) => {
