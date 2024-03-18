@@ -1,7 +1,8 @@
 ---
-const { article } = Astro.props;
+import { Icon } from 'astro-icon/components';
 import { Image, getImage } from 'astro:assets';
 
+const { article } = Astro.props;
 const content = article.body;
 const refactoredArticle = content.reduce((acc, obj) => {
 	acc[obj.component] = { ...obj, component: undefined };
@@ -35,6 +36,10 @@ const link = refactoredArticle.Teaser.link_text;
 				class="btn standard m-0 align-self-start"
 				href={article.slug}>
 				{link}
+				<Icon
+					name={'feather:chevrons-right'}
+					width={24}
+				/>
 			</a>
 		</figcaption>
 	</figure>
