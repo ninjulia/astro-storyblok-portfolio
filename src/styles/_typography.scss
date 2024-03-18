@@ -24,17 +24,6 @@ $font-sizes: (
 	1: $step-5,
 );
 
-//* create headings h{n=1-6} and define .display-{n} for styling without semantic meaning
-@each $unit, $font-size in $font-sizes {
-	@if $unit < 7 {
-		h#{$unit},
-		.display-#{$unit} {
-			font-size: #{$font-size};
-			margin-block-end: #{$font-size};
-		}
-	}
-}
-
 @each $unit, $font-size in $font-sizes {
 	//* handle "prose" styling
 	@if $unit < 8 and $unit > 3 {
@@ -74,7 +63,23 @@ $font-sizes: (
 	font-style: normal;
 }
 
-:is(h1, h2, h3, h4, h5, h6, dt, th, summary) {
+//* create headings h{n=1-6} and define .display-{n} for styling without semantic meaning
+@each $unit, $font-size in $font-sizes {
+	@if $unit < 7 {
+		h#{$unit},
+		.display-#{$unit} {
+			font-size: #{$font-size};
+			margin-block-end: #{$font-size};
+			@include headlines;
+			line-height: 1.1;
+			letter-spacing: -0.02em;
+		}
+	}
+}
+
+dt,
+th,
+summary {
 	@include headlines;
 	line-height: 1.1;
 	letter-spacing: -0.02em;
