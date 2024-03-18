@@ -22,7 +22,6 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-
 const storyblokApi = useStoryblokApi();
 
 const { data } = await storyblokApi.get(`cdn/stories/${slug === undefined ? 'home' : slug}`, {
@@ -30,7 +29,17 @@ const { data } = await storyblokApi.get(`cdn/stories/${slug === undefined ? 'hom
 	resolve_relations: ['WorkRollup.portfolio_items'],
 });
 
-const story = data.story;
+let story;
+
+if (process.env.VITE_ENVIRONMENT === 'preview') {
+	try {
+		return (story = data.story);
+	} catch (e) {
+		return Astro.redirect('/404');
+	}
+} else {
+	story = data.story;
+}
 ---
 
 <StoryblokComponent blok={story.content} />

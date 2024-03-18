@@ -132,8 +132,7 @@ label:has(textarea) {
 			text-overflow: ellipsis;
 		}
 	}
-	//TODO: Add js to better rotate icon on open, widen click target area
-	//TODO: style up dropdown while you're there
+
 	&:has(select:not([multiple]))::after {
 		content: '';
 		width: 44px;

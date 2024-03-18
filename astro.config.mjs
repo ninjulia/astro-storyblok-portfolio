@@ -6,6 +6,7 @@ import storyblok from '@storyblok/astro';
 import { loadEnv } from 'vite';
 import netlify from '@astrojs/netlify';
 import basicSsl from '@vitejs/plugin-basic-ssl';
+import purgecss from 'astro-purgecss';
 const env = loadEnv('', process.cwd(), 'STORYBLOK');
 
 // https://astro.build/config
@@ -29,7 +30,7 @@ export default defineConfig({
 	},
 	site: 'https://astro-storyblock-portfolio-template.netlify.app',
 	output: process.env.VITE_ENVIRONMENT === 'preview' ? 'server' : 'static',
-	adapter: process.env.VITE_ENVIRONMENT === 'preview' ? netlify() : undefined,
+	adapter: process.env.VITE_ENVIRONMENT === 'preview' ? netlify({ imageCDN: false }) : undefined,
 	integrations: [
 		mdx(),
 		sitemap(),
@@ -43,16 +44,14 @@ export default defineConfig({
 			useCustomApi: false,
 			bridge: process.env.VITE_ENVIRONMENT === 'preview' ? true : false,
 			components: {
-				blogPost: 'storyblok/BlogPost',
-				blogPostList: 'storyblok/BlogPostList',
-				page: 'storyblok/Page',
-				Config: 'storyblok/Config',
+				BlogPost: 'storyblok/BlogPost',
+				BlogPostList: 'storyblok/BlogPostList',
+				Page: 'storyblok/Page',
 				About: 'storyblok/About',
 				FullWidthFeature: 'storyblok/FullWidthFeature',
-				Hero: 'storyblok/Hero',
 				StandardFeature: 'storyblok/StandardFeature',
 				Testimonial: 'storyblok/Testimonial',
-				Overview: 'storyblok/Overview',
+				Content: 'storyblok/Content',
 				FormWrapper: 'storyblok/FormWrapper',
 				FormFieldset: 'storyblok/FormFieldset',
 				FormInput: 'storyblok/FormInput',
@@ -69,6 +68,11 @@ export default defineConfig({
 				clear: 'auto',
 				type: 'memory',
 			},
+		}),
+		purgecss({
+			variables: true,
+			safelist: ['active', 'error', 'mt-s', 'mb-0', 'd-flex', 'flex-row', 'align-items-center'],
+			content: process.env.VITE_ENVIRONMENT === 'preview' ? [process.cwd() + '/src/**/*.astro'] : [],
 		}),
 	],
 	vite: {

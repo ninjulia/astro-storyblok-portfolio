@@ -4,13 +4,6 @@
 //* @link https://utopia.fyi/type/calculator/?c=320,18,1.2,1480,20,1.2,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
 //* base unit 18-20px $step-0
 
-//TODO: restructure vars and $font-sizes map, try below, then refactor @each
-// @for $i from 1 through 4 {
-//     $fontsize: 10px * $i;
-//     .font-#{$i} {
-//         font-size: $fontsize;
-//         }
-// }
 $step--2: clamp(0.7813rem, 0.7573rem + 0.1197vi, 0.8681rem);
 $step--1: clamp(0.9375rem, 0.9088rem + 0.1437vi, 1.0417rem);
 $step-0: clamp(1.125rem, 1.0905rem + 0.1724vi, 1.25rem);
@@ -239,7 +232,6 @@ blockquote:not([class]) {
 	border-inline-start: 3px solid var(--brand);
 	padding-inline: $step-0;
 	footer {
-		//TODO: apply color to (-) via Javascript
 		font-size: 0.75em;
 		cite {
 			font-style: italic;
@@ -248,7 +240,6 @@ blockquote:not([class]) {
 	}
 }
 
-//TODO: apply styles and color via Javascript
 @mixin blockquote-quotes($content, $size, $direction, $ammt) {
 	content: $content;
 	font-weight: bold;

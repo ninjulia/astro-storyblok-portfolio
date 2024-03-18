@@ -45,8 +45,8 @@ const formAction = blok.navigationSuccess.cached_url;
 				</label>
 			</div>
 
-			<!-- TOD0: ADD CUSTOM CAPATCHA
-			<div
+			<!-- TODO: ADD CUSTOM CAPATCHA -->
+			<!--<div
 				data-netlify-recaptcha="true"
 				id="netlify-recaptcha">
 			</div>-->
@@ -65,8 +65,6 @@ const formAction = blok.navigationSuccess.cached_url;
 				alt=""
 				width="300"
 				height="150"
-				densities={[1, 2]}
-				quality={'low'}
 				widths={[300, 1040, 1440, 1770]}
 				sizes={`(min-width: 1520px) 1440px, calc(95vw + 15px)`}
 			/>
@@ -112,10 +110,6 @@ const formAction = blok.navigationSuccess.cached_url;
 		width: 1px;
 	}
 </style>
-
-<!-- <script>
-	import '../scripts/form.js';
-</script> -->
 
 <script>
 	import { handleValidation, handleFormSubmit } from '../scripts/form.js';
