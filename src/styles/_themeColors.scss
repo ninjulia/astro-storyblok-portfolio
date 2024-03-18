@@ -13,7 +13,7 @@
 	--text: var(--color-on-surface-light);
 
 	--brand: var(--color-primary);
-	--brand-light: var(--color-primary-tint);
+	--brand-tint: var(--color-primary-tint);
 	--brand-shade: var(--color-primary-shade);
 
 	--secondary: var(--color-secondary);
@@ -30,22 +30,6 @@
 
 	--border-color: var(--text);
 	--border-color-subtle: var(--text-subtle);
-
-	//ON LIGHT so has to be set in .surface-???
-	--standard-btn-bg: var(--brand);
-	--standard-btn-txt: var(--color-light);
-	--standard-btn-hover-bg: var(--brand-shade);
-	--standard-btn-hover-txt: var(--brand-light);
-	--standard-btn-active-line: var(--brand-shade);
-	--standard-btn-disabled-bg: var(--color-light);
-	--standard-btn-disabled-txt: var(--color-dark);
-
-	--ghost-btn-border: var(--brand);
-	--ghost-btn-txt: var(--brand);
-	--ghost-btn-hover-bg: var(--brand-tint);
-	--ghost-btn-hover-txt: var(--brand-shade);
-	--ghost-btn-active-line: var(--brand-shade);
-	--ghost-btn-disabled-txt: var(--color-dark-tint);
 }
 
 //* Light Theme
@@ -57,7 +41,7 @@
 		--text: var(--color-on-surface-light);
 
 		--brand: var(--color-primary);
-		--brand-light: var(--color-primary-tint);
+		--brand-tint: var(--color-primary-tint);
 		--brand-shade: var(--color-primary-shade);
 
 		--secondary: var(--color-secondary);
@@ -74,6 +58,23 @@
 
 		--border-color: var(--text);
 		--border-color-subtle: var(--text-subtle);
+
+		--standard-btn-bg: var(--brand);
+		--standard-btn-txt: var(--color-light);
+		--standard-btn-hover-bg: var(--brand-shade);
+		--standard-btn-hover-txt: var(--color-light);
+		--standard-btn-focus-bg: var(--brand);
+		--standard-btn-focus-txt: var(--color-light);
+		--standard-btn-active-line: var(--brand-shade);
+		--standard-btn-disabled-bg: var(--color-light);
+		--standard-btn-disabled-txt: var(--color-dark);
+
+		--ghost-btn-border: var(--brand);
+		--ghost-btn-txt: var(--brand);
+		--ghost-btn-hover-bg: var(--brand-tint);
+		--ghost-btn-hover-txt: var(--brand-shade);
+		--ghost-btn-active-line: var(--brand-shade);
+		--ghost-btn-disabled-txt: var(--color-dark-tint);
 	}
 }
 
@@ -86,7 +87,7 @@
 		--text: var(--color-on-surface-dark);
 
 		--brand: var(--color-primary);
-		--brand-light: var(--color-primary-tint);
+		--brand-tint: var(--color-primary-tint);
 		--brand-shade: var(--color-primary-shade);
 
 		--secondary: var(--color-secondary);
@@ -106,18 +107,20 @@
 
 		--standard-btn-bg: var(--color-light);
 		--standard-btn-txt: var(--brand);
-		--standard-btn-hover-bg: var(--brand-light);
+		--standard-btn-hover-bg: var(--brand-tint);
 		--standard-btn-hover-txt: var(--brand-shade);
-		--standard-btn-active-line: var(--brand-light);
+		--standard-btn-focus-bg: var(--brand);
+		--standard-btn-focus-txt: var(--color-on-brand-shade);
+		--standard-btn-active-line: var(--brand);
 		--standard-btn-disabled-bg: var(--color-light);
 		--standard-btn-disabled-txt: var(--color-dark);
 
-		--ghost-btn-border: var(--brand);
-		--ghost-btn-txt: var(--brand);
-		--ghost-btn-hover-bg: var(--brand-light);
-		--ghost-btn-hover-txt: var(--brand-shade);
-		--ghost-btn-active-line: var(--brand-shade);
-		--ghost-btn-disabled-txt: var(--color-dark-shade);
+		--ghost-btn-border: var(--color-light);
+		--ghost-btn-txt: var(--color-light);
+		--ghost-btn-hover-bg: var(--brand-shade);
+		--ghost-btn-hover-txt: var(--color-light);
+		--ghost-btn-active-line: var(--brand-tint);
+		--ghost-btn-disabled-txt: var(--color-dark-tint);
 	}
 }
 

@@ -45,8 +45,8 @@ const formAction = blok.navigationSuccess.cached_url;
 				</label>
 			</div>
 
-			<!-- TODO: ADD CUSTOM CAPATCHA -->
-			<!--<div
+			<!-- TODO: ADD CUSTOM CAPATCHA 
+			<div
 				data-netlify-recaptcha="true"
 				id="netlify-recaptcha">
 			</div>-->
@@ -86,5 +86,44 @@ const formAction = blok.navigationSuccess.cached_url;
 </dialog>
 
 <script>
-	import '../scripts/form.js';
+	//import '../scripts/form.js';
+	import { handleValidation, handleFormSubmit } from '../scripts/form.js';
+
+	const form = document.querySelector('form');
+
+	if (form) {
+		const dialog = document.querySelector('dialog');
+		const inputFields = [...form.querySelectorAll('[required]')];
+		inputFields.forEach((input) =>
+			input.addEventListener('input', (e) => {
+				handleValidation(input);
+			})
+		);
+
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			let errorList = inputFields.filter((input) => !input.validity.valid);
+			// if (errorList.length > 0 || grecaptcha.getResponse() === '') {
+			if (errorList.length > 0) {
+				errorList.forEach((input) => handleValidation(input));
+				//handleRecaptcha();
+			} else {
+				handleFormSubmit(e);
+			}
+		});
+
+		// "Close" button closes the dialog
+		document.querySelector('dialog button').addEventListener('click', () => {
+			dialog.close();
+		});
+
+		// // Escape key closes the dialog
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') {
+				dialog.close();
+			}
+		});
+	} else {
+		console.log('nope');
+	}
 </script>

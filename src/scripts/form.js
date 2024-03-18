@@ -1,5 +1,5 @@
-const form = document.querySelector('form');
-const dialog = document.querySelector('dialog');
+// const form = document.querySelector('form');
+// const dialog = document.querySelector('dialog');
 
 // set up error message for recaptcha
 // const recaptcha = document.querySelector('.g-recaptcha').parentElement;
@@ -20,14 +20,14 @@ const dialog = document.querySelector('dialog');
 // }
 
 // set up input validation
-const inputFields = [...form.querySelectorAll('[required]')];
-inputFields.forEach((input) =>
-	input.addEventListener('input', (e) => {
-		handleValidation(input);
-	})
-);
+// const inputFields = [...form.querySelectorAll('[required]')];
+// inputFields.forEach((input) =>
+// 	input.addEventListener('input', (e) => {
+// 		handleValidation(input);
+// 	})
+// );
 
-function handleValidation(input) {
+export function handleValidation(input) {
 	let errorDisplay;
 	//if input is radio or checkbox, get the element with class 'error' from fieldset parent
 	if (input.type === 'radio' || input.type === 'checkbox') {
@@ -48,22 +48,22 @@ function handleValidation(input) {
 	}
 }
 
-form?.addEventListener('submit', (e) => {
-	e.preventDefault();
-	let errorList = inputFields.filter((input) => !input.validity.valid);
-	// if (errorList.length > 0 || grecaptcha.getResponse() === '') {
-	if (errorList.length > 0) {
-		errorList.forEach((input) => handleValidation(input));
-		//handleRecaptcha();
-	} else {
-		handleFormSubmit(e);
-	}
-});
+// form?.addEventListener('submit', (e) => {
+// 	e.preventDefault();
+// 	let errorList = inputFields.filter((input) => !input.validity.valid);
+// 	// if (errorList.length > 0 || grecaptcha.getResponse() === '') {
+// 	if (errorList.length > 0) {
+// 		errorList.forEach((input) => handleValidation(input));
+// 		//handleRecaptcha();
+// 	} else {
+// 		handleFormSubmit(e);
+// 	}
+// });
 
 //handle netlify form submission
 //https://docs.netlify.com/forms/setup/#submit-html-forms-with-ajax
 
-function handleFormSubmit(event) {
+export function handleFormSubmit(event) {
 	event.preventDefault();
 
 	const myForm = event.target;
@@ -82,16 +82,16 @@ function handleFormSubmit(event) {
 		.catch((error) => alert(error));
 }
 
-// "Close" button closes the dialog
-document.querySelector('dialog button').addEventListener('click', () => {
-	dialog.close();
-});
+// // "Close" button closes the dialog
+// document.querySelector('dialog button').addEventListener('click', () => {
+// 	dialog.close();
+// });
 
-// // Escape key closes the dialog
-document.addEventListener('keydown', (e) => {
-	if (e.key === 'Escape') {
-		dialog.close();
-	}
-});
+// // // Escape key closes the dialog
+// document.addEventListener('keydown', (e) => {
+// 	if (e.key === 'Escape') {
+// 		dialog.close();
+// 	}
+// });
 
 // export { handleValidation, handleFormSubmit };
