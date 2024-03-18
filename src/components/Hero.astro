@@ -12,7 +12,6 @@ const { data } = await storyblokApi.get(`cdn/stories/${slug === undefined ? 'hom
 	version: process.env.VITE_ENVIRONMENT === 'preview' ? 'draft' : 'published',
 });
 const pageTitle = data.story.name;
-console.log(teaser);
 ---
 
 <section
