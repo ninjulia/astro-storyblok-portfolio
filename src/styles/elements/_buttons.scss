@@ -7,7 +7,7 @@ input[type='button'],
 	padding: $space-xs-s $space-s-m;
 	text-align: center;
 	cursor: pointer;
-	transition: background-color 0.3s ease;
+	@include transition(0s, background-color, var(--timing), ease);
 
 	display: flex;
 	flex-direction: row;
@@ -16,6 +16,7 @@ input[type='button'],
 
 	min-width: 44px;
 	max-width: fit-content;
+	text-decoration: none;
 }
 
 //* Used to Generate "Border-Top" Effect on :active states
@@ -191,18 +192,18 @@ input[type='button'],
 	@include headlines;
 	background-color: var(--standard-btn-bg);
 	color: var(--standard-btn-txt);
-	border: none;
+	border: transparent;
+
 	&:disabled {
 		color: var(--standard-btn-disabled-txt);
 		background-color: var(--standard-btn-disabled-bg);
 	}
-	&:hover:not(:disabled) {
+	&:hover:not(:disabled),
+	&:focus-within {
 		background-color: var(--standard-btn-hover-bg);
-		color: var(--standard-btn-txt);
+		color: var(--standard-btn-hover-txt);
 	}
 	&:focus-within {
-		background-color: var(--standard-btn-bg);
-		color: var(--standard-btn-hover-txt);
 		@include focus-ring;
 	}
 	&:active:not(:disabled) {

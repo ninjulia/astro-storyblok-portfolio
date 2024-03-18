@@ -83,3 +83,14 @@ a.standalone {
 // 		}
 // 	}
 // }
+
+// Breadcrumb Link Styling
+.breadcrumb {
+	margin-bottom: 0;
+	text-transform: capitalize;
+	flex: 0 0 auto;
+	a::after {
+		content: ' ›› ';
+		font-size: 1em;
+	}
+}

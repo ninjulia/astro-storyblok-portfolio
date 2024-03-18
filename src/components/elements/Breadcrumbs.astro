@@ -7,7 +7,7 @@ let trail = current.full_slug.split('/').filter((url) => url !== current.slug);
 	id="breadcrumbs"
 	class="container pt-l px-s pb-m">
 	<nav>
-		<ul class="m-0 p-0 d-flex flex-row gap-s">
+		<ul class="m-0 p-0 d-flex flex-row wrap gap-s align-content-center">
 			<li class="breadcrumb">
 				<a
 					href="/"
@@ -19,7 +19,7 @@ let trail = current.full_slug.split('/').filter((url) => url !== current.slug);
 				trail[0] !== '' &&
 					trail.map((url) => (
 						<li class="breadcrumb">
-							{url === 'work' ? <a href={`/#${url}/`}>{url}</a> : <a href={`/${url}/`}>{url}</a>}
+							<a href={url === 'work' ? `{/#${url}/}` : `{/${url}/}`}>{url}</a>
 						</li>
 					))
 			}
@@ -28,13 +28,3 @@ let trail = current.full_slug.split('/').filter((url) => url !== current.slug);
 		</ul>
 	</nav>
 </section>
-<style lang="scss">
-	.breadcrumb {
-		margin-bottom: 0;
-		text-transform: capitalize;
-		a::after {
-			content: ' ›› ';
-			font-size: 1em;
-		}
-	}
-</style>

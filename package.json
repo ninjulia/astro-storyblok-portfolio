@@ -1,7 +1,7 @@
 {
 	"name": "astro-storyblok-portfolio",
 	"type": "commonjs",
-	"version": "0.0.1",
+	"version": "0.0.5",
 	"scripts": {
 		"color-tokens": "a11y-color-tokens --outputDirPath='src/styles' --colorTokensPath='_theme/color-tokens.js'",
 		"dev": "astro dev",

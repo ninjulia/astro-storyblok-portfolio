@@ -1,5 +1,6 @@
 //* Header Styles
 @use '../../../_theme/color-tokens' as *;
+
 #site-header {
 	width: 100%;
 	position: sticky;
@@ -10,7 +11,7 @@
 #skip-links {
 	position: absolute;
 	transform: translateY(-120%);
-	transition: translate 3ms ease-in;
+	@include transition(0s, translate, var(--timing), ease-in);
 
 	&:focus-visible {
 		transform: translateY(0);
@@ -54,13 +55,13 @@
 			stroke: var(--brand);
 			.line {
 				transform-box: stroke-box;
-				transition: stroke-dashoffset 1s;
+				@include transition(0s, stroke-dashoffset, var(--timing), ease-in);
 				&.top {
 					--rotation: 45deg;
 					transform-origin: -2px 6px;
 				}
 				&.middle {
-					transition: opacity 1s;
+					transition: opacity 0.3s;
 				}
 				&.bottom {
 					--rotation: -45deg;
@@ -77,14 +78,13 @@
 
 #main-menu-toggle[aria-expanded='false'] {
 	.menu .line {
-		//transition: y 300ms ease-in 300ms, rotate 300ms ease-in, opacity 0ms 300ms;
-		animation: to-open-icon 1s forwards;
+		animation: to-open-icon var(--timing) forwards;
 	}
 }
 
 #main-menu-toggle[aria-expanded='true'] {
 	.menu .line {
-		animation: to-close-icon 1s forwards;
+		animation: to-close-icon var(--timing) forwards;
 		&.middle {
 			stroke-dashoffset: 0;
 			opacity: 0;
@@ -130,21 +130,27 @@
 		max-height: 0dvh;
 		width: 100%;
 		align-self: flex-end;
-		//TODO: standardize transitions, setup prefers-reduced motion
-		transition: max-height 350ms ease-in-out;
+		@include transition(0s, max-height, var(--timing), ease-in);
 		padding-inline: $space-s;
 		overflow: hidden;
 
 		&[data-visible='false'] {
 			max-height: 0dvh;
-			display: none;
+			.nav-item {
+				max-height: 0;
+				margin: 0;
+				visibility: collapse;
+			}
 		}
 		&[data-visible='true'] {
 			max-height: 120dvh;
 			height: 100dvh;
 			padding-block: $space-l;
 			border-top: 2px solid var(--brand);
-			display: unset;
+			.nav-item {
+				max-height: 200px;
+				visibility: visible;
+			}
 		}
 	}
 	@media (width > 768px) {
@@ -177,7 +183,6 @@
 
 	@media (width < 768px) {
 		align-items: flex-start;
-		//overflow: hidden;
 		&:has(.dropdown-toggle[aria-expanded='false']) {
 			gap: 0;
 		}
@@ -212,6 +217,13 @@
 			mask-size: max-content;
 			mask-image: url('/icons/carrot-open.svg');
 			display: inline-block;
+			@include transition(0s, transform, var(--timing), ease);
+		}
+		&[aria-expanded='true']::after {
+			transform: rotate(0.5turn);
+		}
+		&[aria-hidden='false']::after {
+			transform: rotate(-0.5turn);
 		}
 	}
 }
@@ -224,9 +236,8 @@
 	border-radius: $space-3xs;
 	padding: 0;
 	margin: 0;
-	//TODO: standardize transitions, setup prefers-reduced motion
-	transition: max-height 350ms ease-in-out;
 	overflow: hidden;
+	@include transition(0s, max-height, var(--timing), ease-in-out);
 
 	@media (width < 768px) {
 		top: 1em;
@@ -240,6 +251,7 @@
 	.nav-item {
 		margin: 0;
 		padding: 0;
+
 		&:hover,
 		&:focus-within {
 			background-color: var(--color-on-dark-shade);
@@ -279,11 +291,14 @@
 	rotate: 180deg;
 }
 
-// .dropdown-menu .nav-item.active,
-// .dropdown-menu .nav-item:hover:has(.active) {
-// 	background-color: var(--color-dark-tint);
-// 	a,
-// 	a:hover {
-// 		color: var(--color-on-dark-tint);
-// 	}
-// }
+.dropdown .nav-item:has(a.active),
+.dropdown .nav-item:hover:has(a.active) {
+	background-color: var(--color-dark-tint);
+	a.active,
+	a.active:hover {
+		font-weight: bolder;
+		color: var(--color-on-dark-tint);
+		filter: none;
+		mix-blend-mode: normal;
+	}
+}
