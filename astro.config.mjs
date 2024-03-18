@@ -70,6 +70,7 @@ export default defineConfig({
 			},
 		}),
 		purgecss({
+			fontFace: false,
 			variables: true,
 			safelist: ['active', 'error', 'mt-s', 'mb-0', 'd-flex', 'flex-row', 'align-items-center'],
 			content: process.env.VITE_ENVIRONMENT === 'preview' ? [process.cwd() + '/src/**/*.astro'] : [],
