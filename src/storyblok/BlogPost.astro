@@ -1,16 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroContent from '../components/HeroContent.astro';
+import Hero from '../components/Hero.astro';
 import { storyblokEditable, renderRichText } from '@storyblok/astro';
 const { blok } = Astro.props;
 const content = renderRichText(blok.content);
 ---
 
-<BaseLayout pageTitle="">
+<BaseLayout>
 	<main
 		class="wrapper"
 		id="main-content">
-		<HeroContent props={blok} />
+		<Hero blok={blok} />
 		<section
 			class="wrapper py-xl pSlide-m-l"
 			{...storyblokEditable(blok)}>
