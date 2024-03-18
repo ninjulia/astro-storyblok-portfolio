@@ -3,7 +3,6 @@
 
 import { OGImageRoute } from 'astro-og-canvas';
 import { useStoryblokApi } from '@storyblok/astro';
-import {SITE_TITLE, LOGO} from '../../consts';
 
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get(`cdn/stories`, {

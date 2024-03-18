@@ -22,9 +22,7 @@ const link = refactoredArticle.Teaser.link_text;
 				class="standard-feature-image"
 				src={image.filename}
 				alt={image.alt}
-				width="1440"
-				height="720"
-				densities={[1, 2]}
+				inferSize={true}
 				widths={[300, 1065, 1470, 1780]}
 				sizes={`(min-width: 1520px) 1065px, (min-width: 1480px) calc(1465vw - 20910px), (min-width: 780px) calc(94.41vw - 331px), (min-width: 420px) 100vw, (min-width: 340px) 28.33vw, calc(-1050vw + 3450px)`}
 			/>
@@ -33,9 +31,9 @@ const link = refactoredArticle.Teaser.link_text;
 			<h3 class="display-3">{headline}</h3>
 			<Fragment set:html={preview} />
 			<a
-				class="btn standard m-0 align-self-start"
+				class="btn standard m-0 align-self-start d-flex align-items-center"
 				href={article.slug}>
-				{link}
+				{link}{' '}
 				<Icon
 					name={'feather:chevrons-right'}
 					width={24}
@@ -45,7 +43,7 @@ const link = refactoredArticle.Teaser.link_text;
 	</figure>
 </article>
 
-<script>
+<!-- <script>
 	//don't lazy load images within initial viewport
 	let image = document.querySelector('.standard-feature-image');
 	const observer = new IntersectionObserver((entries) => {
@@ -58,4 +56,4 @@ const link = refactoredArticle.Teaser.link_text;
 		});
 	});
 	observer.observe(image);
-</script>
+</script> -->
