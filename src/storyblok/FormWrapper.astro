@@ -45,8 +45,8 @@ const formAction = blok.navigationSuccess.cached_url;
 				</label>
 			</div>
 
-			<!-- TOD0: ADD CUSTOM CAPATCHA
-			<div
+			<!-- TODO: ADD CUSTOM CAPATCHA -->
+			<!--<div
 				data-netlify-recaptcha="true"
 				id="netlify-recaptcha">
 			</div>-->
@@ -65,8 +65,6 @@ const formAction = blok.navigationSuccess.cached_url;
 				alt=""
 				width="300"
 				height="150"
-				densities={[1, 2]}
-				quality={'low'}
 				widths={[300, 1040, 1440, 1770]}
 				sizes={`(min-width: 1520px) 1440px, calc(95vw + 15px)`}
 			/>
@@ -113,45 +111,6 @@ const formAction = blok.navigationSuccess.cached_url;
 	}
 </style>
 
-<!-- <script>
-	import '../scripts/form.js';
-</script> -->
-
 <script>
-	import { handleValidation, handleFormSubmit } from '../scripts/form.js';
-	const form = document.querySelector('form');
-	if (form) {
-		const dialog = document.querySelector('dialog');
-
-		form.addEventListener('submit', (e) => {
-			e.preventDefault();
-			let errorList = [...form.querySelectorAll('[required]')].filter((input) => !input.validity.valid);
-			if (errorList.length > 0) {
-				errorList.forEach((input) => handleValidation(input));
-				//handleRecaptcha();
-			} else {
-				handleFormSubmit(e);
-			}
-
-			// set up input validation
-			const inputFields = [...form.querySelectorAll('[required]')];
-			inputFields.forEach((input) =>
-				input.addEventListener('input', (e) => {
-					handleValidation(input);
-				})
-			);
-		});
-		// "Close" button closes the dialog
-		const closeButton = document.querySelector('dialog button');
-		closeButton?.addEventListener('click', () => {
-			dialog?.close();
-		});
-
-		// Escape key closes the dialog
-		document.addEventListener('keydown', (e) => {
-			if (e.key === 'Escape') {
-				dialog?.close();
-			}
-		});
-	}
+	import '../scripts/form.js';
 </script>

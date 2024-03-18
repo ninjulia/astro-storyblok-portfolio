@@ -13,13 +13,22 @@ const { data } = await storyblokApi.get(`cdn/stories/${slug === undefined ? 'hom
 });
 
 const pageTitle = data.story.name;
+let title;
+if (Astro.url.pathname === '/') {
+	title = SITE_TITLE;
+} else if (Astro.url.pathname !== '/' && pageTitle === 'Home') {
+	//handles 404 page
+	title = `Page Not Found | ${SITE_TITLE}`;
+} else {
+	title = `${pageTitle} | ${SITE_TITLE}`;
+}
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead
-			title={Astro.url.pathname === '/' ? `${SITE_TITLE}` : `${pageTitle} | ${SITE_TITLE}`}
+			title={title}
 			description={SITE_DESCRIPTION}
 			image={`/open-graph/${data.story.slug}.png`}
 		/>
