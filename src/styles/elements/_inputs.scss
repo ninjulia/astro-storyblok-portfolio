@@ -170,6 +170,7 @@ label:has(textarea) {
 
 	&::before {
 		content: $content;
+		//keep this color-light as it doesn't change between light/dark
 		color: var(--color-light);
 		font-size: $size;
 		grid-area: stack;
@@ -190,12 +191,11 @@ label:has(textarea) {
 	}
 
 	&:checked {
+		//keep this brand as it doesn't change between light/dark
 		background-color: var(--brand);
-
 		&::before {
 			visibility: visible;
 		}
-
 		&:hover {
 			background-color: var(--brand-shade);
 		}
@@ -213,7 +213,14 @@ input[type='checkbox'] {
 }
 
 input[type='radio'] {
-	@include controls(999px, '⬤', $step--2);
+	@include controls(999px, '', $step--2);
+
+	&::before {
+		background-color: var(--color-light);
+		width: 1em;
+		height: 1em;
+		border-radius: 50%;
+	}
 }
 
 div:has(input[type='checkbox'], input[type='radio']) {
@@ -252,8 +259,6 @@ fieldset {
 	.error {
 		gap: $step-0;
 		transition: max-height 0.3s ease-in-out;
-		// position: absolute;
-		// bottom: 0;
 
 		&[aria-hidden='false']::before {
 			mask-image: url('/icons/failure.svg');
@@ -338,4 +343,31 @@ div:has(.g-recaptcha) {
 		outline: 2px solid var(--color-surface-negative);
 		outline-offset: 3px;
 	}
+}
+
+//Style optional form confirmation dialog
+dialog {
+	border: none;
+	isolation: isolate;
+	overflow: hidden;
+	button {
+		background-color: transparent;
+		border: none;
+		padding: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: translateX(-25%) translateY(25%);
+	}
+	p {
+		transform: translateY(100%);
+	}
+}
+
+.hidden {
+	visibility: hidden;
+	padding: 0;
+	margin: 0;
+	height: 1px;
+	width: 1px;
 }

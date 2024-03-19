@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -7,11 +8,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		<h1 class="accent">404</h1>
 		<h2 class="accent">Page Not Found</h2>
 		<p class="mb-xl">We couldn't find the page you were looking for.</p>
-		<!-- TODO: style 'arrow' buttons -->
 		<a
 			href="/"
-			class="btn standard"
-			>Go to the homepage</a
-		>
+			class="btn standard">
+			Go to the homepage
+			<Icon
+				name={'feather:arrow-right'}
+				width={24}
+			/>
+		</a>
 	</section>
 </BaseLayout>

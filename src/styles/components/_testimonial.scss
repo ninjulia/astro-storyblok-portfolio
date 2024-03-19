@@ -3,12 +3,18 @@
 .testimonial {
 	display: grid;
 	place-content: center;
+	@media (max-width: 768px) {
+		padding: $space-l $space-m;
+	}
+	@media (min-width: 768px) {
+		padding: $space-xl;
+	}
 
 	p {
 		max-width: 70ch;
 		position: relative;
 		isolation: isolate;
-		word-break: break-all;
+		word-break: break-word;
 
 		&::before,
 		&::after {
@@ -23,6 +29,7 @@
 			@media (min-width: 768px) {
 				@include blockquote-quotes('“', $step-5, end, 0.25em);
 				top: 0;
+				top: $step--2;
 				left: calc($step-3 * -1);
 			}
 		}
@@ -36,7 +43,7 @@
 
 	cite {
 		width: 100%;
-		word-break: break-all;
+		word-break: break-word;
 		text-align: end !important;
 		color: var(--brand);
 	}
