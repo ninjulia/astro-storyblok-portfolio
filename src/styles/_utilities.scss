@@ -150,3 +150,23 @@ $subgrid: (columns, rows);
 		grid-template-#{$direction}: subgrid;
 	}
 }
+
+//* Animation Timings
+@media (prefers-reduced-motion: no-preference) {
+	:root {
+		--timing: 0.3s;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--timing: 0.6s;
+	}
+}
+
+@mixin transition($delay, $prop, $dur, $function) {
+	transition-delay: $delay;
+	transition-duration: $dur;
+	transition-property: $prop;
+	transition-timing-function: $function;
+}

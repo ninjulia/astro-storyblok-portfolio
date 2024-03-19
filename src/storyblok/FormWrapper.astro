@@ -45,8 +45,8 @@ const formAction = blok.navigationSuccess.cached_url;
 				</label>
 			</div>
 
-			<!-- TODO: ADD CUSTOM CAPATCHA -->
-			<!--<div
+			<!-- TODO: ADD CUSTOM CAPATCHA 
+			<div
 				data-netlify-recaptcha="true"
 				id="netlify-recaptcha">
 			</div>-->
@@ -84,33 +84,3 @@ const formAction = blok.navigationSuccess.cached_url;
 	</button>
 	<p>Your message has been sent!</p>
 </dialog>
-<style>
-	dialog {
-		border: none;
-		isolation: isolate;
-		overflow: hidden;
-	}
-	dialog button {
-		background-color: transparent;
-		border: none;
-		padding: 0;
-		position: absolute;
-		right: 0;
-		top: 0;
-		transform: translateX(-25%) translateY(25%);
-	}
-	dialog p {
-		transform: translateY(100%);
-	}
-	.hidden {
-		visibility: hidden;
-		padding: 0;
-		margin: 0;
-		height: 1px;
-		width: 1px;
-	}
-</style>
-
-<script>
-	import '../scripts/form.js';
-</script>

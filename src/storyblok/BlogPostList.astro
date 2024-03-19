@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import { storyblokEditable } from '@storyblok/astro';
 import { useStoryblokApi } from '@storyblok/astro';
 
@@ -29,7 +30,11 @@ const articles = data.stories;
 									<a
 										class="blog-roll-link btn ghost"
 										href={`/blog/${article.content.slug}`}>
-										Read More &raquo;
+										Read More{' '}
+										<Icon
+											name={'feather:chevron-right'}
+											width={24}
+										/>
 									</a>
 								</li>
 							);

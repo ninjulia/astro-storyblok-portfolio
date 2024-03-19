@@ -106,7 +106,7 @@ details {
 	@include bodyText;
 	font-size: $step-0;
 	font-weight: 400;
-	line-height: 1.2;
+	line-height: 1.25;
 	letter-spacing: -0.01em;
 }
 
@@ -166,7 +166,7 @@ blockquote {
 	}
 }
 //* Storyblok wraps each list item in a p tag
-ul li:not([class]) p {
+li:not([class]) p {
 	margin: 0;
 	padding: 0;
 }

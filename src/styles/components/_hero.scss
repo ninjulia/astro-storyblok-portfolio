@@ -1,0 +1,8 @@
+#hero {
+	@media (width > 992px) {
+		aspect-ratio: 16/5;
+	}
+	p {
+		color: var(--color-light);
+	}
+}

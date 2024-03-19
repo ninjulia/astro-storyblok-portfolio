@@ -7,7 +7,7 @@ input[type='button'],
 	padding: $space-xs-s $space-s-m;
 	text-align: center;
 	cursor: pointer;
-	transition: background-color 0.3s ease;
+	@include transition(0s, background-color, var(--timing), ease);
 
 	display: flex;
 	flex-direction: row;
@@ -16,203 +16,43 @@ input[type='button'],
 
 	min-width: 44px;
 	max-width: fit-content;
+	text-decoration: none;
 }
 
 //* Used to Generate "Border-Top" Effect on :active states
 //* This Method Avoids "Jump" on Ghost Buttons, so Use it Everywhere
 @mixin active-styles($main, $accent) {
-	background-image: linear-gradient(to bottom, $accent 1%, $accent 5%, $main 5%, $main 5%, $main 100%);
+	background-image: linear-gradient(to bottom, $accent 0%, $accent 8%, $main 8%, $main 8%, $main 100%);
 }
 
-//TODO: Split these into unique classes ie: .secondary.ghost that can be applied to .bg-dark-1
-//* Create Standard Buttons
-// @mixin standard-button($main, $color) {
-// 	@include headlines;
-// 	background-color: $main;
-// 	color: $color;
-// 	border: none;
-// 	&:disabled {
-// 		color: var(--color-primary-shade);
-// 		background-color: var(--color-primary-tint);
-// 	}
-// 	&:focus-within {
-// 		background-color: $main;
-// 		color: $color;
-// 	}
-// }
-
-// .primary-standard-light {
-// 	@include standard-button(var(--color-primary), var(--color-primary-tint));
-// 	&:hover:not(:disabled) {
-// 		background-color: var(--standard-btn-hover-bg);
-// 		color: var(--standard-btn-txt);
-// 	}
-// 	&:active:not(:disabled) {
-// 		color: var(--standard-btn-txt);
-// 		@include active-styles(var(--standard-btn-bg), var(--standard-btn-active-line));
-// 	}
-// }
-
-// .primary-standard-dark {
-// 	--standard-btn-bg: var(--text-subtle);
-// 	--standard-btn-txt: var(--brand);
-// 	--standard-btn-hover-bg: var(--brand-tint);
-// 	--standard-btn-active-line: var(--brand);
-// 	--standard-btn-disabled-bg: var(--color-light-tint);
-// 	--standard-btn-disabled-text: var(--color-dark);
-
-// 	@include standard-button(var(--brand-tint), var(--brand));
-// 	&:hover:not(:disabled) {
-// 		background-color: var(--brand-tint);
-// 		color: var(--brand-shade);
-// 	}
-// 	&:active:not(:disabled) {
-// 		color: var(--brand);
-// 		@include active-styles(var(--brand-light), $brand-tint);
-// 	}
-// }
-
-// .secondary-standard-light {
-// 	@include standard-button($brand-secondary, $brand-light);
-// 	&:hover:not(:disabled) {
-// 		background-color: $brand-secondary-shade;
-// 		color: $brand-light;
-// 	}
-// 	&:active:not(:disabled) {
-// 		color: $brand-light;
-// 		@include active-styles($brand-secondary, $brand-secondary-shade);
-// 	}
-// }
-
-// .secondary-standard-dark {
-// 	@include standard-button($brand-light, $brand-secondary);
-// 	&:hover:not(:disabled) {
-// 		background-color: $brand-secondary-tint;
-// 		color: $brand-secondary-shade;
-// 	}
-// 	&:active:not(:disabled) {
-// 		@include active-styles($brand-light, $brand-secondary-tint);
-// 	}
-// }
-
-// //* Create Ghost Buttons
-// @mixin ghost-button($main) {
-// 	border-width: 3px;
-// 	border-style: solid;
-// 	border-color: $main;
-// 	background-color: transparent;
-// 	color: $main;
-
-// 	&:focus-within {
-// 		background-color: transparent;
-// 		color: $main;
-// 	}
-// }
-
-// .primary-ghost-light {
-// 	@include ghost-button($brand);
-// 	&:disabled {
-// 		color: $brand-dark-tint;
-// 		border-color: $brand-dark-shade;
-// 		background-color: transparent;
-// 	}
-// 	&:hover:not(:disabled) {
-// 		background-color: $brand-tint;
-// 		color: $brand-shade;
-// 	}
-// 	&:active:not(:disabled) {
-// 		border-color: $brand-shade;
-// 		background-color: transparent;
-// 		color: $brand;
-// 		@include active-styles(transparent, $brand-shade);
-// 	}
-// }
-
-// .primary-ghost-dark {
-// 	@include ghost-button($brand-light);
-// 	&:disabled {
-// 		color: $brand-light-tint;
-// 		border-color: $brand-light-shade;
-// 		background-color: transparent;
-// 	}
-// 	&:hover:not(:disabled) {
-// 		background-color: $brand-shade;
-// 		color: $brand-light;
-// 	}
-// 	&:active:not(:disabled) {
-// 		border-color: $brand-tint;
-// 		background-color: transparent;
-// 		color: $brand-light;
-// 		@include active-styles(transparent, $brand-tint);
-// 	}
-// }
-
-// .secondary-ghost-light {
-// 	@include ghost-button($brand-secondary);
-// 	&:disabled {
-// 		color: $brand-dark-tint;
-// 		border-color: $brand-dark-shade;
-// 		background-color: transparent;
-// 	}
-// 	&:hover:not(:disabled) {
-// 		background-color: $brand-secondary-tint;
-// 		color: $brand-secondary-shade;
-// 	}
-// 	&:active:not(:disabled) {
-// 		border-color: $brand-secondary-shade;
-// 		background-color: transparent;
-// 		color: $brand;
-// 		@include active-styles(transparent, $brand-secondary-shade);
-// 	}
-// }
-
-// .secondary-ghost-dark {
-// 	@include ghost-button($brand-light);
-// 	&:disabled {
-// 		color: $brand-light-tint;
-// 		border-color: $brand-light-shade;
-// 		background-color: transparent;
-// 	}
-// 	&:hover:not(:disabled) {
-// 		background-color: $brand-secondary-shade;
-// 		color: $brand-light;
-// 	}
-// 	&:active:not(:disabled) {
-// 		border-color: $brand-secondary-tint;
-// 		background-color: transparent;
-// 		color: $brand-light;
-// 		@include active-styles(transparent, $brand-secondary-tint);
-// 	}
-// }
-
-//TODO: sort these out for surface 2 and 4
-//TODO: figure out why ghost button hover text on light is weird
 .standard {
 	@include headlines;
 	background-color: var(--standard-btn-bg);
 	color: var(--standard-btn-txt);
-	border: none;
+	border: transparent;
+
 	&:disabled {
 		color: var(--standard-btn-disabled-txt);
 		background-color: var(--standard-btn-disabled-bg);
 	}
 	&:hover:not(:disabled) {
 		background-color: var(--standard-btn-hover-bg);
-		color: var(--standard-btn-txt);
+		color: var(--standard-btn-hover-txt);
 	}
 	&:focus-within {
-		background-color: var(--standard-btn-bg);
-		color: var(--standard-btn-hover-txt);
+		background-color: var(--standard-btn-focus-bg);
+		color: var(--standard-btn-focus-txt);
 		@include focus-ring;
 	}
 	&:active:not(:disabled) {
 		color: var(--standard-btn-txt);
+		background-color: var(--standard-btn-bg);
 		@include active-styles(var(--standard-btn-bg), var(--standard-btn-active-line));
 	}
 }
 
 .ghost {
-	border-width: 3px;
+	border-width: 2px;
 	border-style: solid;
 	border-color: var(--ghost-btn-border);
 	background-color: transparent;
@@ -232,9 +72,9 @@ input[type='button'],
 		@include focus-ring;
 	}
 	&:active:not(:disabled) {
-		border-color: var(--ghost-btn-hover-txt);
+		border-color: var(--ghost-btn-active-line);
 		background-color: transparent;
-		color: var(--ghost-btn-border);
+		color: var(--ghost-btn-txt);
 		@include active-styles(transparent, var(--ghost-btn-active-line));
 	}
 }
