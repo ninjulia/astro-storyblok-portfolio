@@ -1,25 +1,63 @@
+// article {
+// 	--main-min-width: 45ch;
+// 	--photo-size: 250px;
+// 	--gap: clamp(2.25rem, 2.181rem + 0.3448vi, 2.5rem);
+// 	container-type: inline-size;
+// 	container-name: about;
+
+// 	.about-photo {
+// 		width: min(320px, 100%);
+// 		width: min(100%, max(320px, calc(var(--photo-size) - var(--gap))));
+// 		height: min(100%, max(320px, calc(var(--photo-size) - var(--gap))));
+// 		flex-grow: 1;
+// 		flex-basis: var(--photo-size);
+// 		aspect-ratio: 1;
+// 		overflow: hidden;
+
+// 		outline: 1px solid red;
+
+// 		img {
+// 			object-fit: contain;
+// 			object-position: top center;
+// 		}
+// 	}
+
+// 	.about-copy {
+// 		//flex-grow: 999;
+// 		//flex-basis: calc(((var(--main-min-width) - (100% - var(--photo-size) - var(--gap))) * 9999));
+// 		flex: 1 1 auto;
+// 		outline: 1px solid red;
+// 	}
+// }
+
 article {
-	--main-min-width: 45ch;
+	--main-min-width: 60ch;
 	--photo-size: 250px;
-	--gap: clamp(2.25rem, 2.181rem + 0.3448vi, 2.5rem);
+	--gap: $space-l;
+	container-type: inline-size;
+	container-name: about;
 
 	.about-photo {
-		width: min(320px, 100%);
-		width: min(100%, max(320px, calc(var(--photo-size) - var(--gap))));
-		height: min(100%, max(320px, calc(var(--photo-size) - var(--gap))));
-		flex-grow: 1;
-		flex-basis: var(--photo-size);
-		aspect-ratio: 1;
+		max-width: var(--photo-size);
 		overflow: hidden;
+		flex-grow: 1;
+		height: auto;
 
 		img {
-			object-fit: contain;
-			object-position: top center;
+			aspect-ratio: 1;
+			height: auto;
 		}
 	}
 
 	.about-copy {
 		flex-grow: 999;
 		flex-basis: calc(((var(--main-min-width) - (100% - var(--photo-size) - var(--gap))) * 9999));
+	}
+}
+
+@container about (width >= calc(var(--gap) + var(--main-min-width) + 100px)) {
+	.about-photo {
+		flex-shrink: 999;
+		flex-basis: calc(100% - (var(--main-min-width) + var(--gap)));
 	}
 }

@@ -31,12 +31,14 @@
 				top: 0;
 				top: $step--2;
 				left: calc($step-3 * -1);
+				color: color-mix(in hsl, var(--brand) 75%, var(--text));
 			}
 		}
 		&::after {
 			@media (min-width: 768px) {
 				@include blockquote-quotes('”', $step-5, start, 0.25em);
 				bottom: 0;
+				color: color-mix(in hsl, var(--brand) 75%, var(--text));
 			}
 		}
 	}
@@ -44,7 +46,6 @@
 	cite {
 		width: 100%;
 		word-break: break-word;
-		text-align: end !important;
-		color: var(--brand);
+		color: color-mix(in hsl, var(--brand) 75%, var(--text));
 	}
 }

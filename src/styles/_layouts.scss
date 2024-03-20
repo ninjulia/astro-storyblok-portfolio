@@ -59,11 +59,3 @@ body {
 		height: 100%;
 	}
 }
-
-// Allow space for header, exact px is updated via javascript
-:root {
-	--header-height: 58px;
-}
-.scroll-margin {
-	scroll-margin-block-start: var(--header-height);
-}

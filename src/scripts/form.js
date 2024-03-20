@@ -32,11 +32,13 @@ function handleValidation(input) {
 		//ok to submit
 		errorDisplay.textContent = '';
 		errorDisplay.setAttribute('aria-hidden', true);
+		errorDisplay.removeAttribute('aria-live');
 		input.setAttribute('aria-invalid', false);
 	} else {
 		errorDisplay.setAttribute('aria-hidden', false);
-		input.setAttribute('aria-invalid', true);
 		errorDisplay.textContent = input.validationMessage;
+		errorDisplay.setAttribute('aria-live', 'polite');
+		input.setAttribute('aria-invalid', true);
 	}
 }
 

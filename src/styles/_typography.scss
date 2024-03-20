@@ -105,7 +105,7 @@ option,
 details {
 	@include bodyText;
 	font-size: $step-0;
-	font-weight: 400;
+	font-weight: 500;
 	line-height: 1.25;
 	letter-spacing: -0.01em;
 }
@@ -129,6 +129,7 @@ em {
 	font-style: italic;
 }
 
+b,
 strong,
 dt,
 th,
