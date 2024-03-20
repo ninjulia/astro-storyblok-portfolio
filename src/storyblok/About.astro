@@ -11,8 +11,9 @@ const content = renderRichText(blok.content);
 	<article
 		class="d-flex wrap gap-l"
 		{...storyblokEditable(blok)}>
-		<div class="about-photo mb-l border-radius-2xs">
+		<div class="about-photo mb-l">
 			<Image
+				class="border-radius-2xs"
 				src={blok.image.filename}
 				alt={blok.image.alt}
 				width="334"

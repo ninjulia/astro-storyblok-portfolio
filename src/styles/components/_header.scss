@@ -1,6 +1,14 @@
 //* Header Styles
 @use '../../../_theme/color-tokens' as *;
 
+// Allow space for header, exact px is updated via javascript
+:root {
+	--header-height: 58px;
+}
+.scroll-margin {
+	scroll-margin-block-start: var(--header-height);
+}
+
 #site-header {
 	width: 100%;
 	position: sticky;

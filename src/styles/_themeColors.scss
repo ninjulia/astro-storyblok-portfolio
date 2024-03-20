@@ -10,7 +10,7 @@
 
 	//* Sets defaults to 'light' theme
 	--background: var(--color-surface-light);
-	--text: var(--color-on-surface-light);
+	--text: color-mix(in hsl, var(--color-on-surface-light) 40%, hsl(0, 0%, 0%));
 
 	--brand: var(--color-primary);
 	--brand-tint: var(--color-primary-tint);
@@ -37,29 +37,7 @@
 	:root {
 		color-scheme: light;
 
-		--background: var(--color-surface-light);
-		--text: var(--color-on-surface-light);
-
-		--brand: var(--color-primary);
-		--brand-tint: var(--color-primary-tint);
-		--brand-shade: var(--color-primary-shade);
-
-		--secondary: var(--color-secondary);
-		--secondary-light: var(--color-secondary-tint);
-		--secondary-shade: var(--color-secondary-shade);
-
-		--text-subtle: var(--color-dark-tint);
-		--text-emphasis: var(--color-dark-shade);
-
-		--accent: var(--brand);
-
-		--link-color: var(--brand);
-		--link-color-hover: var(--brand-shade);
-
-		--border-color: var(--text);
-		--border-color-subtle: var(--text-subtle);
-
-		--standard-btn-bg: var(--brand);
+		--standard-btn-bg: color-mix(in hsl, var(--brand) 50%, var(--text));
 		--standard-btn-txt: var(--color-light);
 		--standard-btn-hover-bg: var(--brand-shade);
 		--standard-btn-hover-txt: var(--color-light);
@@ -69,11 +47,11 @@
 		--standard-btn-disabled-bg: var(--color-light);
 		--standard-btn-disabled-txt: var(--color-dark);
 
-		--ghost-btn-border: var(--brand);
-		--ghost-btn-txt: var(--brand);
+		--ghost-btn-border: var(--brand-shade);
+		--ghost-btn-txt: var(--brand-shade);
 		--ghost-btn-hover-bg: var(--brand-tint);
-		--ghost-btn-hover-txt: var(--brand-shade);
-		--ghost-btn-active-line: var(--brand-shade);
+		--ghost-btn-hover-txt: var(--brand);
+		--ghost-btn-active-line: var(--brand);
 		--ghost-btn-disabled-txt: var(--color-dark-tint);
 	}
 }
@@ -84,7 +62,7 @@
 		color-scheme: dark;
 
 		--background: var(--color-surface-dark);
-		--text: var(--color-on-surface-dark);
+		--text: color-mix(in hsl, var(--color-on-surface-light) 40%, hsl(0, 0%, 100%));
 
 		--brand: var(--color-primary);
 		--brand-tint: var(--color-primary-tint);
@@ -106,7 +84,7 @@
 		--border-color-subtle: var(--text-subtle);
 
 		--standard-btn-bg: var(--color-light);
-		--standard-btn-txt: var(--brand);
+		--standard-btn-txt: color-mix(in hsl, var(--brand-shade) 80%, var(--background));
 		--standard-btn-hover-bg: var(--brand-tint);
 		--standard-btn-hover-txt: var(--brand-shade);
 		--standard-btn-focus-bg: var(--brand);
@@ -161,7 +139,7 @@ html {
 
 body {
 	background-color: var(--background);
-	color: var(--color);
+	color: var(--text);
 }
 
 #site-header,
@@ -176,7 +154,7 @@ body {
 			--text-subtle: var(--color-on-#{$mode});
 			background-color: var(--color-#{$mode});
 			.accent {
-				color: var(--brand);
+				color: color-mix(in hsl, var(--brand) 75%, var(--text));
 			}
 			.text-light {
 				color: var(--text-subtle);
