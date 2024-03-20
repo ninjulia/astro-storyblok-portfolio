@@ -4,7 +4,6 @@ a:not([class]) {
 	cursor: pointer;
 	&:link {
 		text-decoration: underline;
-		text-underline-offset: $space-3xs;
 		padding: $space-3xs;
 	}
 }

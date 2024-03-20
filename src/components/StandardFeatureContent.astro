@@ -19,30 +19,6 @@ const { props, content } = Astro.props;
 		<figcaption class="portfolio-display-content surface-1">
 			<h3 class="display-3">{props.title}</h3>
 			<Fragment set:html={content} />
-			{
-				props.link_text !== '' && (
-					<a
-						class="btn standard m-0 align-self-start"
-						href={props.url}>
-						{props.link_text}
-					</a>
-				)
-			}
 		</figcaption>
 	</figure>
 </article>
-
-<!-- <script>
-	//don't lazy load images within initial viewport
-	let image = document.querySelector('.standard-feature-image');
-	let observer = new IntersectionObserver((entries) => {
-		entries.forEach((entry) => {
-			if (entry.isIntersecting) {
-				image = entry.target;
-				image.setAttribute('loading', 'eager');
-				image.setAttribute('decoding', 'auto');
-			}
-		});
-	});
-	observer.observe(image);
-</script> -->

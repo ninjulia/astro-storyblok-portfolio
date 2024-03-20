@@ -1,4 +1,5 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import { SITE_TITLE, LOGO } from '../consts';
 import { LINKS } from '../menu';
 import DropdownLink from '../components/elements/DropdownLink.astro';
@@ -32,9 +33,13 @@ const articles = data.stories;
 					href="/"
 					title="home page"
 					class="m-0 p-0">
-					<img
+					<Image
 						src={LOGO}
 						alt={SITE_TITLE}
+						inferSize
+						format="svg"
+						loading="eager"
+						decoding="auto"
 					/>
 				</a>
 			</div>
