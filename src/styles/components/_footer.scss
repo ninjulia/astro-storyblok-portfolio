@@ -29,6 +29,9 @@
 		--flex-basis: ((100% - ($space-s + 239px)) * 999);
 		flex: 1 1 var(--flex-basis);
 		width: min(max-content, 420px);
+		@media screen and (width < 576px) {
+			justify-content: flex-start;
+		}
 		a {
 			margin-bottom: 0;
 			padding-bottom: 0;
@@ -62,6 +65,11 @@
 				}
 			}
 		}
+	}
+
+	nav {
+		flex-basis: 100%;
+		gap: $space-s-l $space-s-m;
 	}
 
 	.colophon {
