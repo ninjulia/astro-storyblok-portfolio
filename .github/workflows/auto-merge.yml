@@ -1,4 +1,4 @@
-# merge main branch into previews branch
+# merge master branch into previews branch
 
 name: Auto merge
 on:
@@ -12,10 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Merge master into previews
         run: |
+          git config user.email "60198903+ninjulia@users.noreply.github.com"
+          git config user.name "ninjulia"
           git fetch --unshallow
           git checkout previews
           git pull
-          git merge --no-ff master -m "Auto merge from main into previews"
+          git merge --no-ff master -m "Auto merge from master into previews"
           git push
