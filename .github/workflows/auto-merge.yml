@@ -22,4 +22,4 @@ jobs:
           git checkout previews
           git pull
           git merge --no-ff master -m "Auto merge from master into previews"
-          git push https://${{ secrets.ASTRO_STORYBLOK_AUTO_MERGE }}@github.com/${{ github.repository }}.git HEAD:main
+          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
