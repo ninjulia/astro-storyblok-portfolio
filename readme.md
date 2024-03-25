@@ -1,14 +1,15 @@
 # Astro / Storyblok Portfolio Starter Template
 
-> Currently in Proof-of-Concept Phase; Project set-up instructions to follow.
+## QuickStart Guide
 
-This project is an exercise to create a portfolio site leveraging the Astro framework and Storyblok for a CMS. The project was split into 3 parts: design, coding and implementation.
+### Prerequisites: Netlify and Storyblok accounts.
 
-**Design** The responsive design was built utilizing [utopia.fyi](https://utopia.fyi/) grids and sizing as a starting point. The design was built out in Figma leveraging [Utopian project kickstarter](https://www.figma.com/community/file/1122903924123950023/utopian-project-kickstarter). You can [review the design here](https://www.figma.com/file/LVrJnn0kRlSpLVjNqACWny/Portfolio-Template---2024?type=design&node-id=4096-169&mode=design&t=wgZjKxGTdW7JJnt1-0).
-
-**Code** I began the code portion of the project by porting the Figma variables into SCSS files. I added Stephanie Eckles's [a11y-color-tokens](https://github.com/5t3ph/a11y-color-tokens) to expand upon the color theme used in the Figma starter file and later allow users to quickly generate themes with accessible color combos. I first set up light and dark modes based on user preferences, styled up all typography, and set up links, buttons, and form input styles before building out components to combine into pages. I then ported the HTML into a new Astro project, leveraging their framework as much as possible to dynamically build pages.
-
-**Implementation** Currently working through the push to Netlify, hooking up a web form, and implementing Storyblok CMS
+- Clone this repo && install dep
+- Set up Netlify space with previews branch
+- Obtain storyblok user tokens, space id
+- Set up environment variables in Netlify as shown in env.example file
+- Run ${storyblok build command} to copy all storyblok files from `\_theme` into your storyblok space
+- Customize your storyblok website!
 
 ## Table of contents
 
@@ -28,7 +29,7 @@ This project is an exercise to create a portfolio site leveraging the Astro fram
 
 ### The challenge
 
-Create a layout using HTML, CSS, and JS. Additionally:
+Create a simple portfolio template for a Graphic Designer utilizing Astro and Storyblok. Additionally:
 
 - Project Plan & Wireframe
 - Use Git & GitHub for vs control
@@ -54,18 +55,36 @@ Create a layout using HTML, CSS, and JS. Additionally:
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS variable properties
-- Vanilla Javascript
-- CSS Grid
-- Flexbox
-- Mobile-first workflow
-- Accessibility / Color Contrast
-- Astro
-- Storyblok
+#### Design Resources
+
+- [utopia.fyi](https://utopia.fyi/)
+- [Google Fonts: Bebas Neue & Nunito Sans](https://fonts.google.com/)
+- [Icons from Feather](https://feathericons.com/)
+- [Astro Icon](astro-og-canvas)
+
+#### Framework, CMS, and Hosting
+
+- [Astro](https://astro.build/)
+- [Storyblok](https://www.storyblok.com/)
+- [Netlify](https://www.netlify.com/)
+
+#### Tech and Tooling
+
 - SCSS
+- [Lightning CSS via Vite plugin](https://lightningcss.dev/docs.html#with-vite)
+- [PurgeCSS (remove unused classes in production only)]()
+- [SSL for Localhost](https://www.npmjs.com/package/@vitejs/plugin-basic-ssl)
+
+#### SEO Focus
+
+- [Astro RSS](https://www.npmjs.com/package/@astrojs/rss)
+- [Astro Sitemap](https://www.npmjs.com/package/@astrojs/sitemap)
+- [Dynamically Generated Robots.txt](https://docs.astro.build/en/guides/integrations-guide/sitemap/#usage)
+- [Astro-OG-Canvas to generate OpenGraph images](https://www.npmjs.com/package/astro-og-canvas)
 
 ### What I learned
+
+This project was initialized as a way for me to familiarize myself with the Astro framework. I chose to incorporate Storyblok as a CMS because I liked the idea of a visual-focused editing experience which is especially fitting for a Graphic Designer's portfolio. It helped that Astro has a write up on integrating with Storyblok as well. I started with the Astro blog template which provides support for rss and sitemaps out of the box. I then layered on Storyblok by converting the Astro components I had built into something Storyblok could work with.
 
 ### Continued development
 
@@ -82,9 +101,4 @@ Create a layout using HTML, CSS, and JS. Additionally:
 
 Below is a list of assets and articles that I leveraged in the production of this project:
 
-- [The A11Y Project Checklist](https://www.a11yproject.com/checklist/)
-- [A CSS Approach to Trap Focus Inside of an Element](https://css-tricks.com/a-css-approach-to-trap-focus-inside-of-an-element/)
-- [Accessible Modal Dialog](https://scottaohara.github.io/accessible_modal_window/)
-- [utopia.fyi](https://utopia.fyi/)
-- [Google Fonts: Bebas Neue & Heebo](https://fonts.google.com/)
-- icons from Feather
+- [Getting the Visual Editor to work for Storyblok + Astro](https://dev.to/sandrarodgers/getting-the-visual-editor-to-work-for-storyblok-astro-2gja/)
