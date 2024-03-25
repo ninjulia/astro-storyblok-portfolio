@@ -8,7 +8,7 @@
 - Set up Netlify space with previews branch
 - Obtain storyblok user tokens, space id
 - Set up environment variables in Netlify as shown in env.example file
-- Run ${storyblok build command} to copy all storyblok files from `\_theme` into your storyblok space
+- Run `npx storyblok push-components --space <DEST_SPACE_ID> _theme/components.json` to copy all storyblok files from `\_theme` into your storyblok space
 - Customize your storyblok website!
 
 ## Table of contents
