@@ -1,0 +1,108 @@
+{
+	"datasource_entries": [
+		{
+			"id": 99231,
+			"name": "SITE_TITLE",
+			"value": "Stevee Rogers",
+			"dimension_value": null
+		},
+		{
+			"id": 99300,
+			"name": "Dribbble",
+			"value": "https://www.dribbble.com/",
+			"dimension_value": null
+		},
+		{
+			"id": 99302,
+			"name": "Primary",
+			"value": "hsla(158, 100%, 43.3%, 1)",
+			"dimension_value": null
+		},
+		{ "id": 99341, "name": "Work", "value": "/#work", "dimension_value": null },
+		{
+			"id": 99338,
+			"name": "About",
+			"value": "/#about",
+			"dimension_value": null
+		},
+		{
+			"id": 99303,
+			"name": "Secondary",
+			"value": "hsla(278, 100%, 43.3%, 1)",
+			"dimension_value": null
+		},
+		{
+			"id": 99294,
+			"name": "Facebook",
+			"value": "https://www.facebook.com/",
+			"dimension_value": null
+		},
+		{
+			"id": 99232,
+			"name": "SITE_DESCRIPTION",
+			"value": "Graphic Designer",
+			"dimension_value": null
+		},
+		{
+			"id": 99342,
+			"name": "LOGO",
+			"value": "https://a-us.storyblok.com/f/1019181/239x49/de77e23874/logo.svg",
+			"dimension_value": null
+		},
+		{
+			"id": 99339,
+			"name": "Contact",
+			"value": "/#contact",
+			"dimension_value": null
+		},
+		{
+			"id": 99296,
+			"name": "GitHub",
+			"value": "https://www.github.com/",
+			"dimension_value": null
+		},
+		{
+			"id": 99304,
+			"name": "Light",
+			"value": "hsla(160, 81.8%, 97.8%, 1)",
+			"dimension_value": null
+		},
+		{ "id": 99340, "name": "Blog", "value": "/blog/", "dimension_value": null },
+		{
+			"id": 99298,
+			"name": "Instagram",
+			"value": "https://www.instagram.com/",
+			"dimension_value": null
+		},
+		{
+			"id": 99305,
+			"name": "Dark",
+			"value": "hsla(159, 100%, 6.1%, 1)",
+			"dimension_value": null
+		},
+		{
+			"id": 99343,
+			"name": "FOOTER_TEXT",
+			"value": "Template example for<a href=\"https://github.com/astro-storyblok-portfolio\">Astro + Storyblok Portfolio Starter Template</a>. Built by <a href=\"https://github.com/ninjulia\">Julia.</a>",
+			"dimension_value": null
+		},
+		{
+			"id": 99299,
+			"name": "LinkedIn",
+			"value": "https://www.linkedin.com/",
+			"dimension_value": null
+		},
+		{
+			"id": 99295,
+			"name": "Twitter",
+			"value": "https://www.twitter.com/",
+			"dimension_value": null
+		},
+		{
+			"id": 99297,
+			"name": "YouTube",
+			"value": "https://www.youtube.com/",
+			"dimension_value": null
+		}
+	]
+}

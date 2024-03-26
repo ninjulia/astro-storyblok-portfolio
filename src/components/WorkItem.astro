@@ -42,18 +42,3 @@ const link = refactoredArticle.Teaser.link_text;
 		</figcaption>
 	</figure>
 </article>
-
-<!-- <script>
-	//don't lazy load images within initial viewport
-	let image = document.querySelector('.standard-feature-image');
-	const observer = new IntersectionObserver((entries) => {
-		entries.forEach((entry) => {
-			if (entry.isIntersecting) {
-				image = entry.target;
-				image.setAttribute('loading', 'eager');
-				image.setAttribute('decoding', 'auto');
-			}
-		});
-	});
-	observer.observe(image);
-</script> -->
