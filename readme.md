@@ -1,8 +1,8 @@
 # Astro / Storyblok Portfolio Starter Template
 
-## QuickStart Guide
+QuickStart Guide
 
-### Prerequisites: Netlify and Storyblok accounts.
+**Prerequisites: Netlify and Storyblok accounts.**
 
 - Clone this repo && install dep
 - Set up Netlify space with previews branch
@@ -10,6 +10,8 @@
 - Set up environment variables in Netlify as shown in env.example file
 - Run `npx storyblok push-components --space <DEST_SPACE_ID> _theme/components.json` to copy all storyblok files from `\_theme` into your storyblok space
 - Customize your storyblok website!
+
+**Coming SOON** [See a full walk-through]()
 
 ## Table of contents
 
@@ -35,7 +37,7 @@ Create a simple portfolio template for a Graphic Designer utilizing Astro and St
 - Use Git & GitHub for vs control
 - Projects include photo, summary, and tech used
 - Contact section includes fields for name, email, and message
-- Include links to social
+- Include links to social media
 - Page must be responsive
 - Optimize for accessibility
 
@@ -53,6 +55,8 @@ Create a simple portfolio template for a Graphic Designer utilizing Astro and St
 
 ## My process
 
+This project was initialized as a way for me to familiarize myself with the Astro framework. I chose to incorporate Storyblok as a CMS because I liked the idea of a visual-focused editing experience which is especially fitting for a Graphic Designer's portfolio. It helped that Astro has a write up on integrating with Storyblok as well. I started with the Astro blog template which provides support for RSS and sitemaps out of the box. I then layered on Storyblok by converting the Astro components I had built into something Storyblok could work with. Once that logic was completed, I added support for auto-generating OpenGraph images.
+
 ### Built with
 
 #### Design Resources
@@ -61,6 +65,7 @@ Create a simple portfolio template for a Graphic Designer utilizing Astro and St
 - [Google Fonts: Bebas Neue & Nunito Sans](https://fonts.google.com/)
 - [Icons from Feather](https://feathericons.com/)
 - [Astro Icon](astro-og-canvas)
+- [Stephanie Eckles' a11y-color-tokens](https://github.com/5t3ph/a11y-color-tokens)
 
 #### Framework, CMS, and Hosting
 
@@ -72,7 +77,7 @@ Create a simple portfolio template for a Graphic Designer utilizing Astro and St
 
 - SCSS
 - [Lightning CSS via Vite plugin](https://lightningcss.dev/docs.html#with-vite)
-- [PurgeCSS (remove unused classes in production only)]()
+- [PurgeCSS (remove unused classes in production only)](https://www.npmjs.com/package/purgecss)
 - [SSL for Localhost](https://www.npmjs.com/package/@vitejs/plugin-basic-ssl)
 
 #### SEO Focus
@@ -84,14 +89,13 @@ Create a simple portfolio template for a Graphic Designer utilizing Astro and St
 
 ### What I learned
 
-This project was initialized as a way for me to familiarize myself with the Astro framework. I chose to incorporate Storyblok as a CMS because I liked the idea of a visual-focused editing experience which is especially fitting for a Graphic Designer's portfolio. It helped that Astro has a write up on integrating with Storyblok as well. I started with the Astro blog template which provides support for rss and sitemaps out of the box. I then layered on Storyblok by converting the Astro components I had built into something Storyblok could work with.
-
 ### Continued development
 
 - Astro Page Transitions
 - Use Custom Captcha instead of Netlify's for custom styling
 - Add Javascript slider for Testimonials section
 - Allow users to specify google fonts choices
+- Update brand colors via the Storyblok interface
 
 ## Author
 
