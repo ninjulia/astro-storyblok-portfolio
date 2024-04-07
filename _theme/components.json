@@ -1,0 +1,954 @@
+{
+  "components": [
+    {
+      "name": "About",
+      "display_name": "About Section",
+      "created_at": "2024-03-03T00:00:54.165Z",
+      "updated_at": "2024-03-03T13:40:13.014Z",
+      "id": 143332,
+      "schema": {
+        "title": {
+          "type": "text",
+          "required": true,
+          "pos": 0,
+          "key": "title"
+        },
+        "bold_text": {
+          "type": "text",
+          "pos": 1,
+          "key": "bold_text"
+        },
+        "content": {
+          "type": "richtext",
+          "required": true,
+          "pos": 2,
+          "display_name": "content",
+          "key": "Copy"
+        },
+        "image": {
+          "type": "asset",
+          "required": true,
+          "filetypes": [
+            "images"
+          ],
+          "pos": 3,
+          "key": "image"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "About Section",
+      "component_group_uuid": "d0ee2bbd-671f-4a40-96ca-f8e341d7c4af",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Components"
+    },
+    {
+      "name": "BlogPost",
+      "display_name": null,
+      "created_at": "2024-03-02T20:53:27.493Z",
+      "updated_at": "2024-03-18T00:54:13.778Z",
+      "id": 143330,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0,
+          "key": "title"
+        },
+        "description": {
+          "type": "text",
+          "pos": 1,
+          "key": "description"
+        },
+        "content": {
+          "type": "richtext",
+          "pos": 2,
+          "key": "content"
+        },
+        "hero_image": {
+          "type": "asset",
+          "filetypes": [
+            "images",
+            "videos"
+          ],
+          "pos": 3,
+          "display_name": "Hero Image",
+          "key": "image"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "BlogPost",
+      "component_group_uuid": "f01a4891-5874-42c2-8e45-4e1dc5c5c729",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Blog"
+    },
+    {
+      "name": "BlogPostList",
+      "display_name": null,
+      "created_at": "2024-03-02T22:46:54.819Z",
+      "updated_at": "2024-03-17T22:56:58.988Z",
+      "id": 143331,
+      "schema": {},
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "BlogPostList",
+      "component_group_uuid": "f01a4891-5874-42c2-8e45-4e1dc5c5c729",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Blog"
+    },
+    {
+      "name": "breadcrumb",
+      "display_name": null,
+      "created_at": "2024-03-03T22:30:56.929Z",
+      "updated_at": "2024-03-03T22:30:56.929Z",
+      "id": 143410,
+      "schema": {},
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "breadcrumb",
+      "component_group_uuid": "bcca4f70-f47a-48e8-a5f0-86a6c78b144b",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Config"
+    },
+    {
+      "name": "Button",
+      "display_name": null,
+      "created_at": "2024-03-03T00:09:10.326Z",
+      "updated_at": "2024-03-03T00:21:08.019Z",
+      "id": 143336,
+      "schema": {
+        "text": {
+          "type": "text",
+          "required": true
+        },
+        "link": {
+          "type": "multilink",
+          "required": true
+        },
+        "arrow": {
+          "type": "boolean",
+          "default_value": false,
+          "inline_label": false
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Button",
+      "component_group_uuid": "bcca4f70-f47a-48e8-a5f0-86a6c78b144b",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Config"
+    },
+    {
+      "name": "Content",
+      "display_name": null,
+      "created_at": "2024-03-03T14:11:06.188Z",
+      "updated_at": "2024-03-18T00:23:18.658Z",
+      "id": 143368,
+      "schema": {
+        "title": {
+          "type": "text"
+        },
+        "content": {
+          "type": "richtext"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Content",
+      "component_group_uuid": "d0ee2bbd-671f-4a40-96ca-f8e341d7c4af",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Components"
+    },
+    {
+      "name": "dark_color",
+      "display_name": null,
+      "created_at": "2024-03-04T21:49:24.875Z",
+      "updated_at": "2024-03-06T17:14:12.485Z",
+      "id": 143843,
+      "schema": {
+        "dark_color": {
+          "type": "text",
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "147e2faa-0ae2-4041-b808-a581dd22f6c6",
+              "name": "color code",
+              "value": ""
+            }
+          ],
+          "key": "secondary_color",
+          "pos": 0,
+          "required": true
+        },
+        "color_set": {
+          "type": "custom",
+          "field_type": "storyblok-palette",
+          "options": [
+            {
+              "name": "size",
+              "value": ""
+            },
+            {
+              "name": "defaultValue",
+              "value": ""
+            },
+            {
+              "name": "colors",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "dark_color",
+      "component_group_uuid": "bcca4f70-f47a-48e8-a5f0-86a6c78b144b",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Config"
+    },
+    {
+      "name": "FormCheckbox",
+      "display_name": null,
+      "created_at": "2024-03-03T19:07:10.020Z",
+      "updated_at": "2024-03-09T15:31:02.843Z",
+      "id": 143404,
+      "schema": {
+        "option": {
+          "type": "text",
+          "key": "name",
+          "pos": 0,
+          "display_name": "option",
+          "required": true
+        },
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "FormCheckbox",
+      "component_group_uuid": "aa6840f5-d784-422f-8faf-0fd68cabd054",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Form"
+    },
+    {
+      "name": "FormFieldset",
+      "display_name": null,
+      "created_at": "2024-03-04T22:01:26.626Z",
+      "updated_at": "2024-03-05T23:48:29.094Z",
+      "id": 143853,
+      "schema": {
+        "legend": {
+          "type": "text"
+        },
+        "inputs": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "FormCheckbox",
+            "FormRadioButton"
+          ]
+        },
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "FormFieldset",
+      "component_group_uuid": "aa6840f5-d784-422f-8faf-0fd68cabd054",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Form"
+    },
+    {
+      "name": "FormInput",
+      "display_name": null,
+      "created_at": "2024-03-03T19:02:11.216Z",
+      "updated_at": "2024-03-03T21:54:32.345Z",
+      "id": 143402,
+      "schema": {
+        "type": {
+          "type": "option",
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "51900836-16f0-43a4-9a1d-e2a193197e17",
+              "name": "email",
+              "value": "email"
+            },
+            {
+              "_uid": "2fcce1a7-d2d6-4317-a80f-b79a18adff1b",
+              "value": "number",
+              "name": "number"
+            },
+            {
+              "_uid": "5ec1d9fe-62f1-4442-af6d-824b3b153eeb",
+              "value": "text",
+              "name": "text"
+            }
+          ],
+          "display_name": "type",
+          "key": "Self",
+          "pos": 0
+        },
+        "label": {
+          "type": "text",
+          "pos": 1
+        },
+        "name": {
+          "type": "text",
+          "pos": 2
+        },
+        "placeholder": {
+          "type": "text",
+          "pos": 3
+        },
+        "min_size": {
+          "type": "number",
+          "pos": 4
+        },
+        "max_size": {
+          "type": "number",
+          "pos": 5
+        },
+        "required": {
+          "type": "boolean",
+          "pos": 6
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "FormInput",
+      "component_group_uuid": "aa6840f5-d784-422f-8faf-0fd68cabd054",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Form"
+    },
+    {
+      "name": "FormRadioButton",
+      "display_name": null,
+      "created_at": "2024-03-04T22:02:48.410Z",
+      "updated_at": "2024-03-09T15:26:45.036Z",
+      "id": 143854,
+      "schema": {
+        "option": {
+          "type": "text",
+          "key": "name",
+          "pos": 0,
+          "display_name": "option",
+          "required": true
+        },
+        "checked": {
+          "type": "boolean"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "FormRadioButton",
+      "component_group_uuid": "aa6840f5-d784-422f-8faf-0fd68cabd054",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Form"
+    },
+    {
+      "name": "FormTextarea",
+      "display_name": null,
+      "created_at": "2024-03-03T19:05:34.817Z",
+      "updated_at": "2024-03-03T21:56:20.406Z",
+      "id": 143403,
+      "schema": {
+        "label": {
+          "type": "text",
+          "pos": 0
+        },
+        "name": {
+          "type": "text",
+          "pos": 1
+        },
+        "placeholder": {
+          "type": "text",
+          "pos": 2
+        },
+        "required": {
+          "type": "boolean",
+          "pos": 3
+        },
+        "rows": {
+          "type": "number",
+          "pos": 4
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "FormTextarea",
+      "component_group_uuid": "aa6840f5-d784-422f-8faf-0fd68cabd054",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Form"
+    },
+    {
+      "name": "FormWrapper",
+      "display_name": null,
+      "created_at": "2024-03-03T00:03:34.292Z",
+      "updated_at": "2024-03-09T18:49:51.415Z",
+      "id": 143333,
+      "schema": {
+        "form_name": {
+          "type": "text",
+          "pos": 0,
+          "required": true
+        },
+        "forms": {
+          "type": "bloks",
+          "pos": 1,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "FormInput",
+            "FormTextarea",
+            "FormFieldset"
+          ]
+        },
+        "navigationSuccess": {
+          "type": "multilink",
+          "pos": 2,
+          "required": false
+        },
+        "background_image": {
+          "type": "asset",
+          "filetypes": [
+            "images",
+            "videos"
+          ],
+          "allow_external_url": true,
+          "pos": 3
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "FormWrapper",
+      "component_group_uuid": "aa6840f5-d784-422f-8faf-0fd68cabd054",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Form"
+    },
+    {
+      "name": "FullWidthFeature",
+      "display_name": null,
+      "created_at": "2024-03-03T00:05:44.932Z",
+      "updated_at": "2024-03-03T14:04:37.307Z",
+      "id": 143334,
+      "schema": {
+        "title": {
+          "type": "text",
+          "required": true,
+          "pos": 0,
+          "display_name": "title",
+          "key": "Title"
+        },
+        "content": {
+          "type": "richtext",
+          "pos": 1,
+          "key": "content"
+        },
+        "image": {
+          "type": "asset",
+          "required": true,
+          "filetypes": [
+            "images",
+            "videos"
+          ],
+          "pos": 2,
+          "allow_external_url": true,
+          "key": "image"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "FullWidthFeature",
+      "component_group_uuid": "d0ee2bbd-671f-4a40-96ca-f8e341d7c4af",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Components"
+    },
+    {
+      "name": "light_color",
+      "display_name": null,
+      "created_at": "2024-03-04T21:50:58.241Z",
+      "updated_at": "2024-03-04T21:56:37.127Z",
+      "id": 143844,
+      "schema": {
+        "light_color": {
+          "type": "text",
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "147e2faa-0ae2-4041-b808-a581dd22f6c6",
+              "name": "color code",
+              "value": ""
+            }
+          ],
+          "key": "dark_color",
+          "pos": 0,
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "light_color",
+      "component_group_uuid": "bcca4f70-f47a-48e8-a5f0-86a6c78b144b",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Config"
+    },
+    {
+      "name": "menu_link",
+      "display_name": null,
+      "created_at": "2024-03-03T14:25:23.498Z",
+      "updated_at": "2024-03-03T14:52:23.381Z",
+      "id": 143370,
+      "schema": {
+        "link": {
+          "type": "multilink",
+          "show_anchor": true,
+          "allow_custom_attributes": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "menu_link",
+      "component_group_uuid": "bcca4f70-f47a-48e8-a5f0-86a6c78b144b",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Config"
+    },
+    {
+      "name": "Page",
+      "display_name": null,
+      "created_at": "2024-03-02T20:41:40.218Z",
+      "updated_at": "2024-03-17T22:55:39.530Z",
+      "id": 143326,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0
+        },
+        "hero_image": {
+          "type": "asset",
+          "pos": 1
+        },
+        "body": {
+          "type": "bloks",
+          "pos": 2
+        },
+        "seo_description": {
+          "type": "textarea",
+          "required": false,
+          "pos": 3
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Page",
+      "component_group_uuid": "bcca4f70-f47a-48e8-a5f0-86a6c78b144b",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Config"
+    },
+    {
+      "name": "primary_color",
+      "display_name": null,
+      "created_at": "2024-03-04T21:43:06.797Z",
+      "updated_at": "2024-03-04T21:54:19.451Z",
+      "id": 143832,
+      "schema": {
+        "primary_color": {
+          "type": "text",
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "147e2faa-0ae2-4041-b808-a581dd22f6c6",
+              "name": "color code",
+              "value": ""
+            }
+          ],
+          "key": "brand_color",
+          "pos": 0,
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "primary_color",
+      "component_group_uuid": "bcca4f70-f47a-48e8-a5f0-86a6c78b144b",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Config"
+    },
+    {
+      "name": "secondary_color",
+      "display_name": null,
+      "created_at": "2024-03-04T21:48:36.627Z",
+      "updated_at": "2024-03-04T21:55:53.498Z",
+      "id": 143842,
+      "schema": {
+        "secondary_color": {
+          "type": "text",
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "147e2faa-0ae2-4041-b808-a581dd22f6c6",
+              "name": "color code",
+              "value": ""
+            }
+          ],
+          "key": "brand_color",
+          "pos": 0,
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "secondary_color",
+      "component_group_uuid": "bcca4f70-f47a-48e8-a5f0-86a6c78b144b",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Config"
+    },
+    {
+      "name": "social_link",
+      "display_name": null,
+      "created_at": "2024-03-03T17:57:44.791Z",
+      "updated_at": "2024-03-03T18:15:30.513Z",
+      "id": 143399,
+      "schema": {
+        "platform": {
+          "type": "text",
+          "pos": 0
+        },
+        "social_media": {
+          "type": "multilink",
+          "options": [
+            {
+              "_uid": "d63a93b1-a3da-4a1d-9537-c3ae0f6b43cd",
+              "name": "Facebook",
+              "value": ""
+            },
+            {
+              "_uid": "b409ce09-cd80-4a75-8255-3a28fef712e7",
+              "value": "",
+              "name": "Twitter"
+            },
+            {
+              "_uid": "322f869f-9a82-4235-853f-69f4f96f033a",
+              "value": "",
+              "name": "GitHub"
+            },
+            {
+              "_uid": "fe660840-f761-406f-bc01-73b4f6b95933",
+              "value": "",
+              "name": "YouTube"
+            },
+            {
+              "_uid": "d5bd4a4c-48ba-4aa3-af45-cbde7a0f870a",
+              "value": "",
+              "name": "Instagram"
+            },
+            {
+              "_uid": "3233b9c0-1ef0-4d20-8c68-c60cb526c7d9",
+              "value": "",
+              "name": "LinkedIn"
+            },
+            {
+              "_uid": "7be89492-dd85-43c4-b128-1138f22f8f74",
+              "value": "",
+              "name": "Dribbble"
+            }
+          ],
+          "exclude_empty_option": false,
+          "use_uuid": true,
+          "allow_target_blank": false,
+          "allow_custom_attributes": false,
+          "pos": 2,
+          "display_name": "url",
+          "restrict_content_types": false,
+          "component_whitelist": []
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "social_link",
+      "component_group_uuid": "bcca4f70-f47a-48e8-a5f0-86a6c78b144b",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Config"
+    },
+    {
+      "name": "StandardFeature",
+      "display_name": null,
+      "created_at": "2024-03-03T00:06:41.063Z",
+      "updated_at": "2024-03-20T16:43:03.654Z",
+      "id": 143335,
+      "schema": {
+        "title": {
+          "type": "text",
+          "required": true,
+          "display_name": "title",
+          "pos": 0
+        },
+        "content": {
+          "type": "richtext",
+          "required": true,
+          "display_name": "content",
+          "pos": 1
+        },
+        "image": {
+          "type": "asset",
+          "filetypes": [
+            "images",
+            "videos"
+          ],
+          "required": true,
+          "display_name": "image",
+          "allow_external_url": true,
+          "pos": 2
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "StandardFeature",
+      "component_group_uuid": "d0ee2bbd-671f-4a40-96ca-f8e341d7c4af",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Components"
+    },
+    {
+      "name": "Teaser",
+      "display_name": null,
+      "created_at": "2024-03-13T17:07:32.347Z",
+      "updated_at": "2024-03-17T22:57:53.578Z",
+      "id": 147035,
+      "schema": {
+        "teaser": {
+          "type": "textarea"
+        },
+        "link_text": {
+          "type": "text"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Teaser",
+      "component_group_uuid": "d0ee2bbd-671f-4a40-96ca-f8e341d7c4af",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Components"
+    },
+    {
+      "name": "Testimonial",
+      "display_name": null,
+      "created_at": "2024-03-03T00:12:41.855Z",
+      "updated_at": "2024-03-18T19:18:54.879Z",
+      "id": 143337,
+      "schema": {
+        "quote": {
+          "type": "textarea",
+          "required": true
+        },
+        "attribution": {
+          "type": "text",
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Testimonial",
+      "component_group_uuid": "d0ee2bbd-671f-4a40-96ca-f8e341d7c4af",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Components"
+    },
+    {
+      "name": "WorkRollup",
+      "display_name": null,
+      "created_at": "2024-03-12T21:03:21.691Z",
+      "updated_at": "2024-03-13T16:51:08.935Z",
+      "id": 146733,
+      "schema": {
+        "title": {
+          "type": "text"
+        },
+        "portfolio_items": {
+          "type": "options",
+          "source": "internal_stories",
+          "folder_slug": "work/",
+          "filter_content_type": [
+            "page"
+          ],
+          "max_options": ""
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "WorkRollup",
+      "component_group_uuid": "d0ee2bbd-671f-4a40-96ca-f8e341d7c4af",
+      "color": null,
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Components"
+    }
+  ]
+}

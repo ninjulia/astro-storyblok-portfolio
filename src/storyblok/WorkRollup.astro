@@ -1,0 +1,19 @@
+---
+import WorkItem from '../components/WorkItem.astro';
+import { storyblokEditable } from '@storyblok/astro';
+const { blok } = Astro.props;
+let portfolios = blok.portfolio_items;
+---
+
+<section
+	id="work"
+	class="wrapper scroll-margin"
+	{...storyblokEditable(blok)}>
+	{
+		portfolios?.length &&
+			portfolios.map((article) => {
+				article.content.slug = article.full_slug;
+				return <WorkItem article={article.content} />;
+			})
+	}
+</section>

@@ -1,0 +1,41 @@
+---
+import BaseHead from '../components/elements/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+//Get name of current page
+import { useStoryblokApi } from '@storyblok/astro';
+const { slug } = Astro.params;
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get(`cdn/stories/${slug === undefined ? 'home' : slug}`, {
+	version: process.env.VITE_ENVIRONMENT === 'preview' ? 'draft' : 'published',
+});
+
+const pageTitle = data.story.name;
+let title;
+if (Astro.url.pathname === '/') {
+	title = SITE_TITLE;
+} else if (Astro.url.pathname !== '/' && pageTitle === 'Home') {
+	//handles 404 page
+	title = `Page Not Found | ${SITE_TITLE}`;
+} else {
+	title = `${pageTitle} | ${SITE_TITLE}`;
+}
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={title}
+			description={SITE_DESCRIPTION}
+			image={`/open-graph/${data.story.slug}.png`}
+		/>
+	</head>
+	<body>
+		<Header />
+		<slot />
+		<Footer />
+	</body>
+</html>

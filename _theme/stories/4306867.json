@@ -1,0 +1,222 @@
+{
+	"name": "Web Design",
+	"created_at": "2024-03-03T19:33:06.692Z",
+	"published_at": "2024-03-20T17:21:29.000Z",
+	"id": 4306867,
+	"uuid": "0aa8808d-90a6-4c07-8256-8b567df65f93",
+	"content": {
+		"_uid": "acbf865e-edb6-442d-9eca-bbf04f5d12c7",
+		"body": [
+			{
+				"_uid": "e58f23d3-e9be-48ff-99f0-b70455abb93f",
+				"teaser": "A nonprofit organization that promotes environmental awareness and action. They needed a new website that would increase their online presence and reach, showcase their projects, campaigns, and impact, encourage visitors to join, donate, or volunteer, and reflect their mission, vision, and values.",
+				"component": "Teaser",
+				"link_text": "See the Project"
+			},
+			{
+				"_uid": "57a77693-c216-4960-ba3e-92f612d17d32",
+				"title": "Overview",
+				"content": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "Earth Matters is a nonprofit organization that promotes environmental awareness and action. They needed a new website that would increase their online presence and reach, showcase their projects, campaigns, and impact, encourage visitors to join, donate, or volunteer, and reflect their mission, vision, and values.",
+									"type": "text"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "I designed a responsive and adaptive website that works across different devices and browsers, using a clear and simple navigation, a consistent and appealing visual identity and branding, and a user-friendly and intuitive layout. I also developed and deployed the website using WordPress as a content management system.",
+									"type": "text"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "The website received positive feedback from the client, the users, and the industry, and achieved the project goals and objectives.",
+									"type": "text"
+								}
+							]
+						}
+					]
+				},
+				"component": "Content"
+			},
+			{
+				"_uid": "d4521a25-d515-4be1-85a2-8ddeacd0fdbe",
+				"image": {
+					"id": 579623,
+					"alt": "meeting room after brainstorm meeting to develop wireframes for customer journey workflow on website. Walls are covered in sticky notes and large paper drawings with sketches of web screens.",
+					"name": "",
+					"focus": "",
+					"title": "meeting room after brainstorm meeting to develop wireframes for customer journey workflow on website. Walls are covered in sticky notes and large paper drawings with sketches of web screens.",
+					"source": "Image generated with Adobe Firefly",
+					"filename": "https://a-us.storyblok.com/f/1019181/1440x720/5e75e5cf64/web_ideation.png",
+					"copyright": "Image generated with Adobe Firefly",
+					"fieldtype": "asset",
+					"meta_data": {
+						"alt": "meeting room after brainstorm meeting to develop wireframes for customer journey workflow on website. Walls are covered in sticky notes and large paper drawings with sketches of web screens.",
+						"title": "meeting room after brainstorm meeting to develop wireframes for customer journey workflow on website. Walls are covered in sticky notes and large paper drawings with sketches of web screens.",
+						"source": "Image generated with Adobe Firefly",
+						"copyright": "Image generated with Adobe Firefly"
+					},
+					"is_private": false,
+					"is_external_url": false
+				},
+				"title": "Research",
+				"content": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "I conducted a kick-off meeting and a stakeholder interview with the client to understand their needs and expectations. ",
+									"type": "text"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "I also reviewed their existing website, logo, and other materials. I conducted a user research and analysis to understand the target audience and their needs. ",
+									"type": "text"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "I used methods such as user personas and scenarios, user surveys and interviews, user journey maps and flows, and competitor analysis and benchmarking.",
+									"type": "text"
+								}
+							]
+						},
+						{ "type": "paragraph", "content": [{ "text": "   ", "type": "text" }] }
+					]
+				},
+				"component": "StandardFeature"
+			},
+			{
+				"_uid": "af23e6c2-e462-4f5b-94ff-1ab20d492b89",
+				"image": {
+					"id": 579619,
+					"alt": "top-down view of web designer's desk with ipad, cellphones, computer and laptop. no people, show sketchbooks with wireframes for web page sketched in them. Show sticky-notes arranged on large paper to show tasks to be done. show ipad, cellphone, computer. Show pens and pencils, show plant and coffee.",
+					"name": "",
+					"focus": "",
+					"title": "top-down view of web designer's desk with ipad, cellphones, computer and laptop. no people, show sketchbooks with wireframes for web page sketched in them. Show sticky-notes arranged on large paper to show tasks to be done. show ipad, cellphone, computer. Show pens and pencils, show plant and coffee.",
+					"source": "Image generated with Adobe Firefly",
+					"filename": "https://a-us.storyblok.com/f/1019181/1440x720/8b5ca39bac/web_research.png",
+					"copyright": "Image generated with Adobe Firefly",
+					"fieldtype": "asset",
+					"meta_data": {
+						"alt": "top-down view of web designer's desk with ipad, cellphones, computer and laptop. no people, show sketchbooks with wireframes for web page sketched in them. Show sticky-notes arranged on large paper to show tasks to be done. show ipad, cellphone, computer. Show pens and pencils, show plant and coffee.",
+						"title": "top-down view of web designer's desk with ipad, cellphones, computer and laptop. no people, show sketchbooks with wireframes for web page sketched in them. Show sticky-notes arranged on large paper to show tasks to be done. show ipad, cellphone, computer. Show pens and pencils, show plant and coffee.",
+						"source": "Image generated with Adobe Firefly",
+						"copyright": "Image generated with Adobe Firefly"
+					},
+					"is_private": false,
+					"is_external_url": false
+				},
+				"title": "Ideation",
+				"content": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "I generated ideas and concepts for the website design, using methods such as mood boards and style tiles, sketches and wireframes, prototypes and mockups, and user testing and feedback.",
+									"type": "text"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": " I explored different options for the website's information architecture and content strategy, navigation and layout, color scheme and typography, images and icons, interactions and animations.",
+									"type": "text"
+								}
+							]
+						}
+					]
+				},
+				"component": "StandardFeature"
+			},
+			{
+				"_uid": "c68a04b4-3bb2-444b-9492-47e235688e97",
+				"image": {
+					"id": 579622,
+					"alt": "collection of monitor, phone and ipad displaying same website at different sizes. The website has a large banner showing the planet earth from deep space. The devices are on a desk near an open window. The room is open and airy with a slight breeze.",
+					"name": "",
+					"focus": "",
+					"title": "collection of monitor, phone and ipad displaying same website at different sizes. The website has a large banner showing the planet earth from deep space. The devices are on a desk near an open window. The room is open and airy with a slight breeze.",
+					"source": "Image generated with Adobe Firefly",
+					"filename": "https://a-us.storyblok.com/f/1019181/1440x720/07db26d4c7/web_final.png",
+					"copyright": "Image generated with Adobe Firefly",
+					"fieldtype": "asset",
+					"meta_data": {
+						"alt": "collection of monitor, phone and ipad displaying same website at different sizes. The website has a large banner showing the planet earth from deep space. The devices are on a desk near an open window. The room is open and airy with a slight breeze.",
+						"title": "collection of monitor, phone and ipad displaying same website at different sizes. The website has a large banner showing the planet earth from deep space. The devices are on a desk near an open window. The room is open and airy with a slight breeze.",
+						"source": "Image generated with Adobe Firefly",
+						"copyright": "Image generated with Adobe Firefly"
+					},
+					"is_private": false,
+					"is_external_url": false
+				},
+				"title": "Final Reveal",
+				"content": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "The new website for Earth Matters was launched in January 2024, after three months of design and development.",
+									"type": "text"
+								}
+							]
+						},
+						{ "type": "paragraph", "content": [{ "text": "    ", "type": "text" }] }
+					]
+				},
+				"component": "FullWidthFeature"
+			}
+		],
+		"title": "Web Design for Earth Matters",
+		"component": "Page",
+		"hero_image": {
+			"id": 579620,
+			"alt": "sketches for website user flow on a desk with a computer",
+			"name": "",
+			"focus": "",
+			"title": "sketches for website user flow on a desk with a computer",
+			"source": "Image generated with Adobe Firefly",
+			"filename": "https://a-us.storyblok.com/f/1019181/1440x720/366eedf7c8/web_hero.png",
+			"copyright": "Image generated with Adobe Firefly",
+			"fieldtype": "asset",
+			"meta_data": {
+				"alt": "sketches for website user flow on a desk with a computer",
+				"title": "sketches for website user flow on a desk with a computer",
+				"source": "Image generated with Adobe Firefly",
+				"copyright": "Image generated with Adobe Firefly"
+			},
+			"is_private": false,
+			"is_external_url": false
+		},
+		"seo_description": ""
+	},
+	"slug": "web-design",
+	"full_slug": "work/web-design"
+}

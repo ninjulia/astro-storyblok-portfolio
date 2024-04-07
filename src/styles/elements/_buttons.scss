@@ -1,0 +1,80 @@
+//* Buttons
+button,
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+.btn {
+	padding: $space-xs-s $space-s-m;
+	text-align: center;
+	cursor: pointer;
+	@include transition(0s, background-color, var(--timing), ease);
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: $space-xs-s;
+
+	min-width: 44px;
+	max-width: fit-content;
+	text-decoration: none;
+}
+
+//* Used to Generate "Border-Top" Effect on :active states
+//* This Method Avoids "Jump" on Ghost Buttons, so Use it Everywhere
+@mixin active-styles($main, $accent) {
+	background-image: linear-gradient(to bottom, $accent 0%, $accent 8%, $main 8%, $main 8%, $main 100%);
+}
+
+.standard {
+	@include headlines;
+	background-color: var(--standard-btn-bg);
+	color: var(--standard-btn-txt);
+	border: transparent;
+
+	&:disabled {
+		color: var(--standard-btn-disabled-txt);
+		background-color: var(--standard-btn-disabled-bg);
+	}
+	&:hover:not(:disabled) {
+		background-color: var(--standard-btn-hover-bg);
+		color: var(--standard-btn-hover-txt);
+	}
+	&:focus-within {
+		background-color: var(--standard-btn-focus-bg);
+		color: var(--standard-btn-focus-txt);
+		@include focus-ring;
+	}
+	&:active:not(:disabled) {
+		color: var(--standard-btn-txt);
+		background-color: var(--standard-btn-bg);
+		@include active-styles(var(--standard-btn-bg), var(--standard-btn-active-line));
+	}
+}
+
+.ghost {
+	border-width: 2px;
+	border-style: solid;
+	border-color: var(--ghost-btn-border);
+	background-color: transparent;
+	color: var(--ghost-btn-txt);
+	&:disabled {
+		color: var(--ghost-btn-disabled-txt);
+		border-color: var(--ghost-btn-disabled-txt);
+		background-color: transparent;
+	}
+	&:hover:not(:disabled) {
+		background-color: var(--ghost-btn-hover-bg);
+		color: var(--ghost-btn-hover-txt);
+	}
+	&:focus-within {
+		background-color: transparent;
+		color: var(--ghost-btn-txt);
+		@include focus-ring;
+	}
+	&:active:not(:disabled) {
+		border-color: var(--ghost-btn-active-line);
+		background-color: transparent;
+		color: var(--ghost-btn-txt);
+		@include active-styles(transparent, var(--ghost-btn-active-line));
+	}
+}

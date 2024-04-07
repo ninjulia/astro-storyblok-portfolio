@@ -1,0 +1,143 @@
+//* SPACING UNITS
+//* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1480,20,1.2,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+//* $space-s is base unit
+$space-3xs: clamp(0.3125rem, 0.3125rem + 0vi, 0.3125rem);
+$space-2xs: clamp(0.5625rem, 0.5453rem + 0.0862vi, 0.625rem);
+$space-xs: clamp(0.875rem, 0.8578rem + 0.0862vi, 0.9375rem);
+$space-s: clamp(1.125rem, 1.0905rem + 0.1724vi, 1.25rem);
+$space-m: clamp(1.6875rem, 1.6358rem + 0.2586vi, 1.875rem);
+$space-l: clamp(2.25rem, 2.181rem + 0.3448vi, 2.5rem);
+$space-xl: clamp(3.375rem, 3.2716rem + 0.5172vi, 3.75rem);
+$space-2xl: clamp(4.5rem, 4.3621rem + 0.6897vi, 5rem);
+$space-3xl: clamp(6.75rem, 6.5431rem + 1.0345vi, 7.5rem);
+
+//* One-up pairs
+$space-3xs-2xs: clamp(0.3125rem, 0.2263rem + 0.431vi, 0.625rem);
+$space-2xs-xs: clamp(0.5625rem, 0.4591rem + 0.5172vi, 0.9375rem);
+$space-xs-s: clamp(0.875rem, 0.7716rem + 0.5172vi, 1.25rem);
+$space-s-m: clamp(1.125rem, 0.9181rem + 1.0345vi, 1.875rem);
+$space-m-l: clamp(1.6875rem, 1.4634rem + 1.1207vi, 2.5rem);
+$space-l-xl: clamp(2.25rem, 1.8362rem + 2.069vi, 3.75rem);
+$space-xl-2xl: clamp(3.375rem, 2.9267rem + 2.2414vi, 5rem);
+$space-2xl-3xl: clamp(4.5rem, 3.6724rem + 4.1379vi, 7.5rem);
+
+.pSlide-2xl-3xl {
+	padding-inline: $space-2xl-3xl;
+}
+.pSlide-xl-2xl {
+	padding-inline: $space-xl-2xl;
+}
+.pSlide-l-xl {
+	padding-inline: $space-l-xl;
+}
+.pSlide-m-l {
+	padding-inline: $space-m-l;
+}
+
+//* Custom pairs
+$space-s-l: clamp(1.125rem, 0.7457rem + 1.8966vi, 2.5rem);
+
+//* Generate Margin / Padding / Gap
+//* Based on Bootstrap Naming Convention
+//* Updated t/b to 'block-start' && 'block-end' for semantics
+//* https://getbootstrap.com/docs/5.3/utilities/spacing/#margin-and-padding
+
+$sizes: (
+	0: 0,
+	3xs: $space-3xs,
+	2xs: $space-2xs,
+	xs: $space-xs,
+	s: $space-s,
+	m: $space-m,
+	l: $space-l,
+	xl: $space-xl,
+	2xl: $space-2xl,
+	3xl: $space-3xl,
+);
+
+$sides: (
+	t: 'block-start',
+	b: 'block-end',
+	s: 'inline-start',
+	e: 'inline-end',
+	x: 'inline',
+	y: 'block',
+	all: null,
+);
+
+$types: (
+	m: 'margin',
+	p: 'padding',
+);
+
+$gaps: (
+	gap: 'gap',
+	column-gap: 'column-gap',
+	row-gap: 'row-gap',
+);
+
+//* Generate Margin / Padding
+@each $letter, $type in $types {
+	@each $size, $value in $sizes {
+		@each $side, $direction in $sides {
+			$dash: '-';
+			@if $side == all {
+				$side: '';
+				$direction: '';
+				$dash: '';
+			}
+			.#{$letter}#{$side}-#{$size} {
+				#{$type}#{$dash}#{$direction}: $value;
+			}
+		}
+	}
+}
+
+//* Generate Margin-Auto classes
+@each $name, $direction in $sides {
+	@if $name == x or $name == y {
+		.m#{$name}-auto {
+			margin-#{$direction}: auto;
+		}
+	} @else if $name == all {
+		.m-auto {
+			margin: 0 auto;
+		}
+	}
+}
+
+//* Generate Negative Margins
+@each $size, $value in $sizes {
+	@if $size == 0 {
+	} @else {
+		@each $name, $direction in $sides {
+			@if $name == x or $name == y or $name == all {
+			} @else {
+				.m#{$name}-n#{$size} {
+					margin-#{$direction}: calc($value * -1);
+				}
+			}
+		}
+	}
+}
+
+//* Generate Gap
+@each $gap, $gap-direction in $gaps {
+	@each $size, $value in $sizes {
+		//* gap:auto is same as gap: 0
+		@if $value == 'auto' {
+		} @else {
+			.#{$gap-direction}-#{$size} {
+				#{$gap-direction}: $value;
+			}
+		}
+	}
+}
+
+//* Generate Border Radius
+@each $size, $value in $sizes {
+	.border-radius-#{$size} {
+		border-radius: $value;
+	}
+}

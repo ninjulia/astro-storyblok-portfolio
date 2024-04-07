@@ -1,0 +1,55 @@
+{
+	"name": "blog",
+	"created_at": "2024-03-13T16:05:18.248Z",
+	"published_at": "2024-03-20T17:21:29.000Z",
+	"id": 4634264,
+	"uuid": "c23b28e4-d28d-4846-bd96-63c27fa6a1b4",
+	"content": {
+		"_uid": "b7cbb9ee-9017-447b-97b1-61e84095b2c3",
+		"body": [
+			{
+				"_uid": "9efd5a46-4db7-4d5c-94f2-d81fedbdd7de",
+				"image": {
+					"id": 374847,
+					"alt": "top down view of desk with design books, sketchbooks, pens and paper",
+					"name": "",
+					"focus": "",
+					"title": "",
+					"source": "Image created with Adobe Firefly generative AI",
+					"filename": "https://a-us.storyblok.com/f/1019181/4048x2025/3893446662/home_hero.png",
+					"copyright": "Image created with Adobe Firefly generative AI",
+					"fieldtype": "asset",
+					"meta_data": {},
+					"is_private": false,
+					"is_external_url": false
+				},
+				"title": "Blog",
+				"component": "BlogPostList"
+			}
+		],
+		"title": "Latest Blog Posts",
+		"component": "Page",
+		"hero_image": {
+			"id": 579623,
+			"alt": "meeting room after brainstorm meeting to develop wireframes for customer journey workflow on website. Walls are covered in sticky notes and large paper drawings with sketches of web screens.",
+			"name": "",
+			"focus": "",
+			"title": "meeting room after brainstorm meeting to develop wireframes for customer journey workflow on website. Walls are covered in sticky notes and large paper drawings with sketches of web screens.",
+			"source": "Image generated with Adobe Firefly",
+			"filename": "https://a-us.storyblok.com/f/1019181/1440x720/5e75e5cf64/web_ideation.png",
+			"copyright": "Image generated with Adobe Firefly",
+			"fieldtype": "asset",
+			"meta_data": {
+				"alt": "meeting room after brainstorm meeting to develop wireframes for customer journey workflow on website. Walls are covered in sticky notes and large paper drawings with sketches of web screens.",
+				"title": "meeting room after brainstorm meeting to develop wireframes for customer journey workflow on website. Walls are covered in sticky notes and large paper drawings with sketches of web screens.",
+				"source": "Image generated with Adobe Firefly",
+				"copyright": "Image generated with Adobe Firefly"
+			},
+			"is_private": false,
+			"is_external_url": false
+		},
+		"seo_description": "Blog SEO Description"
+	},
+	"slug": "blog",
+	"full_slug": "blog/"
+}

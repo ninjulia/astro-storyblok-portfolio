@@ -1,0 +1,229 @@
+{
+	"name": "Poster Design",
+	"created_at": "2024-03-03T13:54:51.846Z",
+	"published_at": "2024-03-20T17:21:29.000Z",
+	"id": 4306846,
+	"uuid": "e1596ab1-3586-43c2-968a-aa9b4af13fac",
+	"content": {
+		"_uid": "acbf865e-edb6-442d-9eca-bbf04f5d12c7",
+		"body": [
+			{
+				"_uid": "66026fbf-703c-4928-9dab-58de5f9a310e",
+				"teaser": "A music festival that features various genres and artists. They needed a poster design that would attract and inform potential attendees, as well as create a memorable and distinctive brand identity for the festival.",
+				"component": "Teaser",
+				"link_text": "Read More"
+			},
+			{
+				"_uid": "57a77693-c216-4960-ba3e-92f612d17d32",
+				"title": "Overview",
+				"content": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "Music Fest is a music festival that features various genres and artists. They needed a poster design that would attract and inform potential attendees, as well as create a memorable and distinctive brand identity for the festival.",
+									"type": "text"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "I designed a striking and eye-catching poster that communicates the theme, date, and lineup of the festival, using color, typography and imagery. I also created a logo and a slogan for the festival, as well as a mockup of how the poster would look like in different contexts.",
+									"type": "text"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "The poster design received positive feedback from the client, the artists, and the audience, and achieved the project goals and objectives.",
+									"type": "text"
+								}
+							]
+						}
+					]
+				},
+				"component": "Content"
+			},
+			{
+				"_uid": "d4521a25-d515-4be1-85a2-8ddeacd0fdbe",
+				"image": {
+					"id": 579617,
+					"alt": "modern music festival at night.",
+					"name": "",
+					"focus": "",
+					"title": "modern music festival at night.",
+					"source": "Image generated with Adobe Firefly",
+					"filename": "https://a-us.storyblok.com/f/1019181/1440x720/ffb1753aab/poster_research.png",
+					"copyright": "Image generated with Adobe Firefly",
+					"fieldtype": "asset",
+					"meta_data": {
+						"alt": "modern music festival at night.",
+						"title": "modern music festival at night.",
+						"source": "Image generated with Adobe Firefly",
+						"copyright": "Image generated with Adobe Firefly"
+					},
+					"is_private": false,
+					"is_external_url": false
+				},
+				"title": "Research",
+				"content": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "I conducted a brief and a client interview with the festival organizers to understand their needs and expectations. I also reviewed their previous posters, website, and social media.",
+									"type": "text"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "I conducted a market research and analysis to understand the target audience and their preferences. I used methods such as online surveys, focus groups, and trend reports.",
+									"type": "text"
+								}
+							]
+						}
+					]
+				},
+				"component": "StandardFeature"
+			},
+			{
+				"_uid": "af23e6c2-e462-4f5b-94ff-1ab20d492b89",
+				"image": {
+					"id": 579614,
+					"alt": "variations of a poster design for a modern music festival.",
+					"name": "",
+					"focus": "",
+					"title": "variations of a poster design for a modern music festival.",
+					"source": "Image generated with Adobe Firefly",
+					"filename": "https://a-us.storyblok.com/f/1019181/1440x720/330fa926ea/poster_ideation.png",
+					"copyright": "Image generated with Adobe Firefly",
+					"fieldtype": "asset",
+					"meta_data": {
+						"alt": "variations of a poster design for a modern music festival.",
+						"title": "variations of a poster design for a modern music festival.",
+						"source": "Image generated with Adobe Firefly",
+						"copyright": "Image generated with Adobe Firefly"
+					},
+					"is_private": false,
+					"is_external_url": false
+				},
+				"title": "Ideation",
+				"content": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "I generated ideas and concepts for the poster design, using methods such as brainstorming, sketching, mood boards, and style tiles.",
+									"type": "text"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "I explored different options for the poster’s theme, color scheme, typography, imagery, logo, and slogan.",
+									"type": "text"
+								}
+							]
+						}
+					]
+				},
+				"component": "StandardFeature"
+			},
+			{
+				"_uid": "e7ed7c2e-d6e3-41d2-8043-c9c691b41550",
+				"image": {
+					"id": 579612,
+					"alt": "collection of tickets, vip passes, t-shirts, poster and flyer materials in a flat lay on a white background showing an abstract design for a modern music festival",
+					"name": "",
+					"focus": "",
+					"title": "collection of tickets, vip passes, t-shirts, poster and flyer materials in a flat lay on a white background showing an abstract design for a modern music festival",
+					"source": "Image generated with Adobe Firefly",
+					"filename": "https://a-us.storyblok.com/f/1019181/1440x720/99e58d6d2b/poster_collection.png",
+					"copyright": "Image generated with Adobe Firefly",
+					"fieldtype": "asset",
+					"meta_data": {
+						"alt": "collection of tickets, vip passes, t-shirts, poster and flyer materials in a flat lay on a white background showing an abstract design for a modern music festival",
+						"title": "collection of tickets, vip passes, t-shirts, poster and flyer materials in a flat lay on a white background showing an abstract design for a modern music festival",
+						"source": "Image generated with Adobe Firefly",
+						"copyright": "Image generated with Adobe Firefly"
+					},
+					"is_private": false,
+					"is_external_url": false
+				},
+				"title": "Development",
+				"content": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "I developed the final design solution for the poster, using tools such as Adobe Illustrator, Photoshop, and InDesign.",
+									"type": "text"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "I iterated and refined the design solution based on the client’s feedback, user testing results, and best practices.",
+									"type": "text"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "I created a mockup of how the poster would look like in different contexts, such as on a billboard, a bus stop, a magazine, and a website.",
+									"type": "text"
+								}
+							]
+						}
+					]
+				},
+				"component": "StandardFeature"
+			}
+		],
+		"title": "Poster Design for Music Fest",
+		"component": "Page",
+		"hero_image": {
+			"id": 579621,
+			"alt": "wall in city plastered with a poster featuring an abstract design for a modern music festival. There are at least four overlapping copies of the poster stuck to bricks. Wall is in a back alley behind a theater in an arts district of a city",
+			"name": "",
+			"focus": "",
+			"title": "wall in city plastered with a poster featuring an abstract design for a modern music festival. There are at least four overlapping copies of the poster stuck to bricks. Wall is in a back alley behind a theater in an arts district of a city",
+			"source": "Image generated with Adobe Firefly",
+			"filename": "https://a-us.storyblok.com/f/1019181/1440x720/6b85852e16/poster_hero.png",
+			"copyright": "Image generated with Adobe Firefly",
+			"fieldtype": "asset",
+			"meta_data": {
+				"alt": "wall in city plastered with a poster featuring an abstract design for a modern music festival. There are at least four overlapping copies of the poster stuck to bricks. Wall is in a back alley behind a theater in an arts district of a city",
+				"title": "wall in city plastered with a poster featuring an abstract design for a modern music festival. There are at least four overlapping copies of the poster stuck to bricks. Wall is in a back alley behind a theater in an arts district of a city",
+				"source": "Image generated with Adobe Firefly",
+				"copyright": "Image generated with Adobe Firefly"
+			},
+			"is_private": false,
+			"is_external_url": false
+		},
+		"seo_description": ""
+	},
+	"slug": "poster-design",
+	"full_slug": "work/poster-design"
+}

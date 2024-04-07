@@ -1,0 +1,108 @@
+//* Site Footer Styles
+@use '../../../_theme/color-tokens' as *;
+#site-footer {
+	// width: min(100%, 1440px);
+	//	display: flex;
+	width: 100%;
+	.wrapper {
+		@media screen and (max-width: 767px) {
+			//flex-direction: column;
+			gap: $space-s;
+			gap: $space-l;
+			padding: $space-2xl $space-l $space-l $space-l;
+		}
+		@media screen and (min-width: 768px) {
+			padding: $space-2xl $space-m $space-l;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			gap: $space-l;
+		}
+	}
+
+	.logo {
+		filter: opacity(50%);
+		width: min(239px, 80%);
+	}
+
+	.social-links {
+		--flex-basis: ((100% - ($space-s + 239px)) * 999);
+		flex: 1 1 var(--flex-basis);
+		width: min(max-content, 420px);
+		@media screen and (width < 576px) {
+			justify-content: flex-start;
+		}
+		a {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+
+	.nav-links {
+		@media screen and (width < 576px) {
+			margin-inline-end: $space-s;
+		}
+		@media screen and (width >= 576px) {
+			display: flex;
+			flex-direction: row;
+			gap: $space-xl;
+		}
+		.nav-item {
+			margin: 0;
+			padding: 0;
+			@media screen and (width < 576px) {
+				margin-inline-end: $space-xl;
+			}
+			a {
+				@include headlines;
+				text-decoration: none;
+				color: var(--brand);
+				&:is(:hover, :focus) {
+					text-decoration: underline;
+				}
+				@media screen and (width < 576px) {
+					padding-block: $space-s;
+				}
+			}
+		}
+	}
+
+	nav {
+		flex-basis: 100%;
+		gap: $space-s-l $space-s-m;
+	}
+
+	.colophon {
+		p,
+		a:link {
+			color: var(--brand-light-shade);
+			font-size: $step--1;
+		}
+	}
+}
+
+.social-link {
+	text-decoration: none;
+	color: var(--text);
+	fill: currentColor;
+	@extend .grid-stack;
+	@extend .border-radius-3xs;
+	width: 44px;
+	height: 44px;
+	background-color: var(--background);
+	&:visited {
+		color: var(--text-subtle);
+	}
+	&:hover {
+		background-color: var(--text-subtle);
+		color: var(--text-emphasis);
+	}
+	&:focus-visible {
+		background-color: var(--link-color-hover);
+		@include focus-ring;
+	}
+	&:active {
+		color: var(--background);
+		background-color: var(--text);
+	}
+}

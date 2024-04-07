@@ -1,0 +1,60 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+const { blok } = Astro.props;
+let autoComplete;
+if (blok.type === 'number' || blok.type === 'password') {
+	autoComplete = 'off';
+} else if (blok.type === 'text') {
+	autoComplete = 'on';
+} else {
+	autoComplete = blok.type;
+}
+---
+
+<div {...storyblokEditable(blok)}>
+	<label for={blok._uid}>
+		{
+			blok.required ? (
+				<span
+					class="input-title accent text-left"
+					aria-label="required">
+					{blok.label} *
+				</span>
+			) : (
+				<span class="input-title accent text-left">{blok.label}</span>
+			)
+		}
+		{
+			blok.type === 'tel' ? (
+				<input
+					type={blok.type}
+					id={blok._uid}
+					required={blok.required}
+					minlength={blok.min_size ? Number(blok.min_size) : ''}
+					maxlength={blok.max_size ? Number(blok.max_size) : ''}
+					class="py-xs px-s"
+					placeholder={blok.placeholder}
+					autocomplete={autoComplete}
+					name={blok.name}
+				/>
+			) : (
+				<input
+					type={blok.type}
+					id={blok._uid}
+					required={blok.required}
+					minlength={blok.min_size ? Number(blok.min_size) : ''}
+					maxlength={blok.max_size ? Number(blok.max_size) : ''}
+					class="py-xs px-s"
+					placeholder={blok.placeholder}
+					autocomplete={autoComplete}
+					autocorrect={blok.type === 'text' ? 'on' : 'off'}
+					name={blok.name}
+				/>
+			)
+		}
+		<span
+			aria-hidden="true"
+			class="error ps-xs pt-xs m-0"
+		></span></label
+	>
+</div>

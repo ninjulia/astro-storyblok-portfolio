@@ -1,0 +1,61 @@
+//* General Layouts
+
+//* Keeps footer at bottom, even on low content pages
+body {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr auto;
+}
+
+//* Limit Page size to 1440px
+.wrapper {
+	width: min(1400px, 100%);
+	margin-inline: auto;
+}
+
+// Center Content
+.grid-stack {
+	display: grid;
+	grid-template-areas: 'stack';
+	place-content: center;
+	> * {
+		grid-area: stack;
+	}
+}
+
+//* Place Image Behind Content
+.img-bg {
+	@extend .grid-stack;
+
+	background-color: var(--color-surface-dark);
+	position: relative;
+
+	isolation: isolate;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+
+	.content {
+		z-index: 2;
+		width: 100%;
+		object-fit: cover;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		h1,
+		h2 {
+			margin-block-start: 0;
+			color: var(--brand);
+		}
+	}
+	img {
+		z-index: -1;
+		object-fit: cover;
+		object-position: center center;
+		filter: grayscale(100%) blur(15%);
+		opacity: 0.1;
+		width: min(1440px, 100vw);
+		height: 100%;
+	}
+}

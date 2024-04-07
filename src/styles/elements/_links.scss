@@ -1,0 +1,35 @@
+//* Links
+
+a:not([class]) {
+	cursor: pointer;
+	&:link {
+		text-decoration: underline;
+		padding: $space-3xs;
+	}
+}
+
+a.standalone {
+	text-decoration: none;
+	display: inline-flex;
+	flex-direction: row;
+	gap: $space-xs;
+	align-items: center;
+
+	&::before {
+		aspect-ratio: 1;
+		content: '';
+		height: $space-m;
+		mask-image: url('/icons/arrow.svg');
+	}
+}
+
+// Breadcrumb Link Styling
+.breadcrumb {
+	margin-bottom: 0;
+	text-transform: capitalize;
+	flex: 0 0 auto;
+	a {
+		display: flex;
+		align-items: center;
+	}
+}

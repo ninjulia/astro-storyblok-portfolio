@@ -1,0 +1,185 @@
+{
+	"name": "Logo Design",
+	"created_at": "2024-03-03T19:36:59.723Z",
+	"published_at": "2024-03-20T18:05:59.040Z",
+	"id": 4306868,
+	"uuid": "a22533f6-7f04-4dc2-adf1-814624e4506e",
+	"content": {
+		"_uid": "acbf865e-edb6-442d-9eca-bbf04f5d12c7",
+		"body": [
+			{
+				"_uid": "0260217b-72fc-44a0-a576-507ef2c76168",
+				"teaser": "A new online platform that connects freelancers and clients across various fields and industries. The platform aims to provide a simple, secure, and efficient way for freelancers to find and manage projects, and for clients to find and hire quality talent.",
+				"component": "Teaser",
+				"link_text": "Get the Details"
+			},
+			{
+				"_uid": "57a77693-c216-4960-ba3e-92f612d17d32",
+				"title": "Overview",
+				"content": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "After conducting some research and brainstorming, I came up with the concept of using a stylized letter F as the main element of the logo. The letter F is composed of two curved lines that connect at the top and bottom, forming a loop. The loop symbolizes the connection and collaboration between freelancers and clients, as well as the continuous flow of work and opportunities. The loop also creates a negative space that resembles an arrow, pointing upwards and forwards, suggesting growth and progress.",
+									"type": "text"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "The letter F is also a common abbreviation for freelance or freelancer, making it relevant and recognizable for the target audience. The letter F is also easy to adapt and apply to various branding materials, such as business cards, website, and social media.",
+									"type": "text"
+								}
+							]
+						}
+					]
+				},
+				"component": "Content"
+			},
+			{
+				"_uid": "d4521a25-d515-4be1-85a2-8ddeacd0fdbe",
+				"image": {
+					"id": 579615,
+					"alt": "overhead view of designer's workstation with several sketchbooks open showing sketches of logos. some are cirlced with arrows and notes. There are pens and pencils scattered across the desk. There is a computer, there is a plant. The image is warm and inviting",
+					"name": "",
+					"focus": "",
+					"title": "overhead view of designer's workstation with several sketchbooks open showing sketches of logos. some are cirlced with arrows and notes. There are pens and pencils scattered across the desk. There is a computer, there is a plant. The image is warm and inviting",
+					"source": "Image generated with Adobe Firefly",
+					"filename": "https://a-us.storyblok.com/f/1019181/1440x720/ef4ffb567f/logo_ideation.png",
+					"copyright": "Image generated with Adobe Firefly",
+					"fieldtype": "asset",
+					"meta_data": {
+						"alt": "overhead view of designer's workstation with several sketchbooks open showing sketches of logos. some are cirlced with arrows and notes. There are pens and pencils scattered across the desk. There is a computer, there is a plant. The image is warm and inviting",
+						"title": "overhead view of designer's workstation with several sketchbooks open showing sketches of logos. some are cirlced with arrows and notes. There are pens and pencils scattered across the desk. There is a computer, there is a plant. The image is warm and inviting",
+						"source": "Image generated with Adobe Firefly",
+						"copyright": "Image generated with Adobe Firefly"
+					},
+					"is_private": false,
+					"is_external_url": false
+				},
+				"title": "Research",
+				"content": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "Freelance Connect is a new online platform that connects freelancers and clients across various fields and industries. The platform aims to provide a simple, secure, and efficient way for freelancers to find and manage projects, and for clients to find and hire quality talent. The platform needed a logo that would represent its mission and values, and appeal to both freelancers and clients. The logo should be memorable, distinctive, and versatile, and convey a sense of connection, collaboration, and professionalism.",
+									"type": "text"
+								}
+							]
+						},
+						{ "type": "paragraph", "content": [{ "text": "   ", "type": "text" }] }
+					]
+				},
+				"component": "StandardFeature"
+			},
+			{
+				"_uid": "af23e6c2-e462-4f5b-94ff-1ab20d492b89",
+				"image": {
+					"id": 579610,
+					"alt": "sketchbook open on a desk with three variations of a logo",
+					"name": "",
+					"focus": "",
+					"title": "sketchbook open on a desk with three variations of a logo",
+					"source": "Image generated with Adobe Firefly",
+					"filename": "https://a-us.storyblok.com/f/1019181/1440x720/b8e0fb5f7b/logo_sketches.png",
+					"copyright": "Image generated with Adobe Firefly",
+					"fieldtype": "asset",
+					"meta_data": {
+						"alt": "sketchbook open on a desk with three variations of a logo",
+						"title": "sketchbook open on a desk with three variations of a logo",
+						"source": "Image generated with Adobe Firefly",
+						"copyright": "Image generated with Adobe Firefly"
+					},
+					"is_private": false,
+					"is_external_url": false
+				},
+				"title": "Ideation",
+				"content": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "Here are some sketches of the logo concept, showing different variations and styles of the letter F:",
+									"type": "text"
+								}
+							]
+						}
+					]
+				},
+				"component": "StandardFeature"
+			},
+			{
+				"_uid": "8efe32d0-25a6-4867-bd67-1b7e3fd83b1a",
+				"image": {
+					"id": 579616,
+					"alt": "computer generated logo with art nouveau influences",
+					"name": "",
+					"focus": "",
+					"title": "computer generated logo with art nouveau influences",
+					"source": "Image Generated with Adobe Firefly",
+					"filename": "https://a-us.storyblok.com/f/1019181/1440x720/9d9cb55539/logo_final.png",
+					"copyright": "Image Generated with Adobe Firefly",
+					"fieldtype": "asset",
+					"meta_data": {
+						"alt": "computer generated logo with art nouveau influences",
+						"title": "computer generated logo with art nouveau influences",
+						"source": "Image Generated with Adobe Firefly",
+						"copyright": "Image Generated with Adobe Firefly"
+					},
+					"is_private": false,
+					"is_external_url": false
+				},
+				"title": "Final Logo",
+				"content": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"content": [
+								{
+									"text": "After selecting the best sketch, I refined the logo design using Adobe Illustrator. I experimented with different fonts, colors, and shapes to create a logo that is simple, elegant, and modern. Here are some drafts of the logo design, showing different options and variations",
+									"type": "text"
+								}
+							]
+						}
+					]
+				},
+				"component": "FullWidthFeature"
+			}
+		],
+		"title": "Logo Design for Freelance Connect",
+		"component": "Page",
+		"hero_image": {
+			"id": 579618,
+			"alt": "flat lay of corporate branding campaign showing letterhead",
+			"name": "",
+			"focus": "",
+			"title": "flat lay of corporate branding campaign showing letterhead",
+			"source": "Image Generated with Adobe Firefly",
+			"filename": "https://a-us.storyblok.com/f/1019181/1440x720/a8b7709469/logo_hero.png",
+			"copyright": "Image Generated with Adobe Firefly",
+			"fieldtype": "asset",
+			"meta_data": {
+				"alt": "flat lay of corporate branding campaign showing letterhead",
+				"title": "flat lay of corporate branding campaign showing letterhead",
+				"source": "Image Generated with Adobe Firefly",
+				"copyright": "Image Generated with Adobe Firefly"
+			},
+			"is_private": false,
+			"is_external_url": false
+		},
+		"seo_description": ""
+	},
+	"slug": "work",
+	"full_slug": "work/"
+}

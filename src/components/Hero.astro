@@ -1,0 +1,48 @@
+---
+import Breadcrumbs from './elements/Breadcrumbs.astro';
+import { SITE_DESCRIPTION } from '../consts';
+import { useStoryblokApi } from '@storyblok/astro';
+import { Image, getImage } from 'astro:assets';
+const { blok, teaser = '' } = Astro.props;
+
+//test for home page
+const { slug } = Astro.params;
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get(`cdn/stories/${slug === undefined ? 'home' : slug}`, {
+	version: process.env.VITE_ENVIRONMENT === 'preview' ? 'draft' : 'published',
+});
+const pageTitle = data.story.name;
+---
+
+<section
+	id="hero"
+	class="wrapper img-bg">
+	<div class="content p-l text-center">
+		<h1 class="accent">{blok.title}</h1>
+
+		{
+			pageTitle === 'Home' && (
+				<>
+					<h2 class="accent">{SITE_DESCRIPTION}</h2>
+					<p class="prose-1 text-light m-auto reading-length">{teaser.teaser}</p>
+				</>
+			)
+		}
+	</div>
+	{
+		blok.hero_image && (
+			<Image
+				src={blok.hero_image.filename}
+				alt=""
+				widths={[300, 1065, 1440, 2880]}
+				sizes={`(min-width: 1500px) 1440px, (min-width: 1460px) 80vw, (min-width: 1180px) 100vw, (min-width: 1060px) calc(83vw - 125px), (min-width: 440px) 100vw, (min-width: 340px) 244px, calc(-240vw + 1020px)`}
+				loading="eager"
+				decoding="auto"
+				width="300"
+				height="150"
+			/>
+		)
+	}
+</section>
+
+{pageTitle !== 'Home' && <Breadcrumbs current={data.story} />}

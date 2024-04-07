@@ -1,0 +1,51 @@
+//* Testimonial Styling
+
+.testimonial {
+	display: grid;
+	place-content: center;
+	@media (max-width: 768px) {
+		padding: $space-l $space-m;
+	}
+	@media (min-width: 768px) {
+		padding: $space-xl;
+	}
+
+	p {
+		max-width: 70ch;
+		position: relative;
+		isolation: isolate;
+		word-break: break-word;
+
+		&::before,
+		&::after {
+			display: inline-block;
+
+			@media (min-width: 768px) {
+				position: absolute;
+				line-height: 0;
+			}
+		}
+		&::before {
+			@media (min-width: 768px) {
+				@include blockquote-quotes('“', $step-5, end, 0.25em);
+				top: 0;
+				top: $step--2;
+				left: calc($step-3 * -1);
+				color: color-mix(in hsl, var(--brand) 75%, var(--text));
+			}
+		}
+		&::after {
+			@media (min-width: 768px) {
+				@include blockquote-quotes('”', $step-5, start, 0.25em);
+				bottom: 0;
+				color: color-mix(in hsl, var(--brand) 75%, var(--text));
+			}
+		}
+	}
+
+	cite {
+		width: 100%;
+		word-break: break-word;
+		color: color-mix(in hsl, var(--brand) 75%, var(--text));
+	}
+}

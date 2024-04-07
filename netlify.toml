@@ -1,0 +1,24 @@
+[build]
+    command = "npm run build"
+    publish = "dist"
+
+[dev]
+    command = "astro dev"
+    targetPort = 4321
+
+[images]
+    remote_images = ["https://a-us.storyblok.com/*"]
+
+[context.previews]
+    [[headers]]
+        for = "/*"
+        [headers.values]
+            X-Robots-Tag = "noindex"
+
+[context.production]
+    [[headers]]
+        for = "rss.xml"
+        [headers.values]
+            Content-Type = "application/xml"
+            charset = "utf-8"
+            x-content-type-options = "nosniff" 

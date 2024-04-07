@@ -1,0 +1,76 @@
+//* Portfolio Display
+
+.portfolio-display {
+	margin-block: $space-xs;
+	margin-inline: 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	@media (min-width: 768px) {
+		flex-direction: row;
+		align-items: stretch;
+	}
+
+	.portfolio-display-image {
+		flex-grow: 2;
+		flex-shrink: 2;
+		flex-basis: auto;
+		width: max(min(calc(100vw - 375px), 70vw), 100%);
+
+		img {
+			object-fit: cover;
+			object-position: center center;
+			height: 100%;
+		}
+	}
+}
+.portfolio-display-content {
+	padding: $space-l;
+	flex: 1 0 375px;
+
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+
+	a {
+		align-self: flex-start;
+		margin-block-start: $space-m;
+	}
+}
+
+article:has(.full-width) {
+	@extend .p-xl;
+	@media (max-width: 768px) {
+		padding: 0;
+	}
+}
+
+.full-width {
+	@media (min-width: 768px) {
+		flex-direction: column;
+	}
+	.portfolio-display-image {
+		max-width: 100%;
+		flex: 0 0 auto;
+	}
+	img {
+		width: 100%;
+	}
+}
+
+//create nice border effect
+article:not(:last-child) .portfolio-display,
+article:not(:last-child) .portfolio-display.full-width {
+	padding-block-end: $space-xs;
+	margin-block-end: $space-xs;
+	border-bottom: 1px solid var(--border-color);
+}
+
+article:nth-child(even) .portfolio-display:not(.full-width) {
+	@media (min-width: 768px) {
+		flex-direction: row-reverse;
+	}
+}

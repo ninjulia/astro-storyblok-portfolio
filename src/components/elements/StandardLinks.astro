@@ -1,0 +1,37 @@
+---
+//* Returns link url and text based on page.url or anchor
+
+import { useStoryblokApi } from '@storyblok/astro';
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get('cdn/stories/config', {
+	version: process.env.VITE_ENVIRONMENT === 'preview' ? 'draft' : 'published',
+	resolve_links: 'url',
+});
+
+const headerMenu = data?.story?.content?.header_menu;
+let regex = '[a-z][/]';
+let standardLinks = headerMenu.filter((menu) => !menu.link.cached_url.match(regex));
+---
+
+{
+	standardLinks &&
+		standardLinks.map((menu) => (
+			<li class="nav-item">
+				{menu.link.anchor ? (
+					<a
+						class="nav-link"
+						href={`/#${menu.link.anchor}`}>
+						{menu.link.title}
+					</a>
+				) : (
+					<a
+						class="nav-link"
+						href={`/${menu.link.cached_url}`}>
+						{menu.link.story.name}
+					</a>
+				)}
+			</li>
+		))
+}

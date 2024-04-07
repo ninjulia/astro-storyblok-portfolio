@@ -1,0 +1,68 @@
+---
+const today = new Date();
+import { Image, getImage } from 'astro:assets';
+import { SITE_TITLE, LOGO, FOOTER_TEXT } from '../consts';
+import { SOCIALS } from '../socials';
+import { LINKS } from '../menu';
+import Social from '../components/elements/Social.astro';
+import { Icon } from 'astro-icon/components';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<footer id="site-footer">
+	<div class="wrapper d-flex wrap justify-content-space-between gap-s pt-2xl px-s pb-l">
+		<Image
+			src={LOGO}
+			alt={SITE_TITLE}
+			class="logo"
+			inferSize
+			format="svg"
+		/>
+
+		<div class="social-links d-flex wrap justify-content-space-between align-items-center gap-s">
+			{
+				SOCIALS.map((site) => (
+					<Social
+						platform={site.name}
+						href={site.value}
+					/>
+				))
+			}
+			<a
+				href=`${canonicalURL}rss.xml`
+				class="social-link"
+				title="RSS Feed"
+				target="_blank"
+				aria-label="RSS Feed">
+				<Icon
+					name=`feather:rss`
+					width={44}
+				/>
+			</a>
+		</div>
+		<nav class="d-flex my-s-l">
+			<ul class="nav-links m-0 p-0">
+				{
+					LINKS &&
+						LINKS.map((menu) => (
+							<li class="nav-item">
+								<a
+									class="nav-link"
+									href={`${menu.value}`}>
+									{menu.name}
+								</a>
+							</li>
+						))
+				}
+			</ul>
+		</nav>
+		<div class="colophon">
+			<p>&copy; {today.getFullYear()} {SITE_TITLE}. All Rights Reserved.</p>
+			<p><Fragment set:html={FOOTER_TEXT} /></p>
+		</div>
+	</div>
+</footer>
+<script>
+	import '../scripts/nav.js';
+	import '../scripts/form.js';
+</script>

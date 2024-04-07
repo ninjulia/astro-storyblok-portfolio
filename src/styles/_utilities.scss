@@ -1,0 +1,172 @@
+//* Utilities for Flexbox and Grid
+
+//* Flexbox & Grid Display Values
+$display: (flex, inline-flex, grid, inline-grid, contents);
+$flex-direction: (row, row-reverse, column, column-reverse);
+$flex-wrap: (nowrap, wrap, wrap-reverse);
+$justify-content: (
+	center,
+	end,
+	flex-end,
+	flex-start,
+	inherit,
+	initial,
+	left,
+	normal,
+	revert,
+	revert-layer,
+	right,
+	space-around,
+	space-between,
+	space-evenly,
+	start,
+	stretch,
+	unset
+);
+$justify-items: (
+	baseline,
+	center,
+	end,
+	flex-end,
+	flex-start,
+	inherit,
+	initial,
+	left,
+	normal,
+	revert,
+	revert-layer,
+	right,
+	self-end,
+	self-start,
+	start,
+	stretch,
+	unset
+);
+$align-items: (
+	baseline,
+	center,
+	end,
+	flex-end,
+	flex-start,
+	inherit,
+	initial,
+	normal,
+	revert,
+	revert-layer,
+	self-end,
+	self-start,
+	start,
+	stretch,
+	unset
+);
+$align-content: (
+	baseline,
+	center,
+	end,
+	flex-end,
+	flex-start,
+	inherit,
+	initial,
+	normal,
+	revert,
+	revert-layer,
+	space-around,
+	space-between,
+	space-evenly,
+	start,
+	stretch,
+	unset
+);
+
+$justify-self: (
+	start,
+	end,
+	center,
+	stretch,
+	self-start,
+	self-end,
+	left,
+	right,
+	inherit,
+	initial,
+	revert,
+	revert-layer,
+	unset
+);
+$align-self: (
+	start,
+	end,
+	center,
+	stretch,
+	self-start,
+	self-end,
+	left,
+	right,
+	inherit,
+	initial,
+	revert,
+	revert-layer,
+	unset
+);
+
+@each $type in $display {
+	.d-#{$type} {
+		display: $type;
+	}
+}
+
+@each $direction in $flex-direction {
+	.flex-#{$direction} {
+		flex-direction: $direction;
+	}
+}
+
+@each $wrap-style in $flex-wrap {
+	.#{$wrap-style} {
+		flex-wrap: $wrap-style;
+	}
+}
+
+@mixin generate-utils($property, $list) {
+	@each $item in $list {
+		.#{$property}-#{$item} {
+			#{$property}: $item;
+		}
+	}
+}
+
+@include generate-utils(justify-content, $justify-content);
+@include generate-utils(justify-items, $justify-items);
+@include generate-utils(align-content, $align-content);
+@include generate-utils(align-items, $align-items);
+@include generate-utils(justify-self, $justify-self);
+@include generate-utils(align-self, $align-self);
+
+//* Subgrid
+$subgrid: (columns, rows);
+
+@each $direction in $subgrid {
+	.subgrid-#{$direction} {
+		grid-template-#{$direction}: subgrid;
+	}
+}
+
+//* Animation Timings
+@media (prefers-reduced-motion: no-preference) {
+	:root {
+		--timing: 0.3s;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--timing: 0.6s;
+	}
+}
+
+@mixin transition($delay, $prop, $dur, $function) {
+	transition-delay: $delay;
+	transition-duration: $dur;
+	transition-property: $prop;
+	transition-timing-function: $function;
+}

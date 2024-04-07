@@ -1,0 +1,287 @@
+//* Typography
+
+//* Text-size styles
+//* @link https://utopia.fyi/type/calculator/?c=320,18,1.2,1480,20,1.2,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
+//* base unit 18-20px $step-0
+
+$step--2: clamp(0.7813rem, 0.7573rem + 0.1197vi, 0.8681rem);
+$step--1: clamp(0.9375rem, 0.9088rem + 0.1437vi, 1.0417rem);
+$step-0: clamp(1.125rem, 1.0905rem + 0.1724vi, 1.25rem);
+$step-1: clamp(1.35rem, 1.3086rem + 0.2069vi, 1.5rem);
+$step-2: clamp(1.62rem, 1.5703rem + 0.2483vi, 1.8rem);
+$step-3: clamp(1.944rem, 1.8844rem + 0.2979vi, 2.16rem);
+$step-4: clamp(2.3328rem, 2.2613rem + 0.3575vi, 2.592rem);
+$step-5: clamp(2.7994rem, 2.7136rem + 0.429vi, 3.1104rem);
+
+$font-sizes: (
+	8: $step--2,
+	7: $step--1,
+	6: $step-0,
+	5: $step-1,
+	4: $step-2,
+	3: $step-3,
+	2: $step-4,
+	1: $step-5,
+);
+
+@each $unit, $font-size in $font-sizes {
+	//* handle "prose" styling
+	@if $unit < 8 and $unit > 3 {
+		$size: 6 - $unit;
+		.prose-#{$size} {
+			font-size: #{$font-size};
+			font-weight: 700;
+			line-height: 1.5;
+			margin-block-end: #{$font-size};
+		}
+	}
+
+	//* handle standard text sizing (-1 through +1)
+	@if $unit < 8 and $unit > 4 {
+		$size: 6 - $unit;
+		.fs-#{$size} {
+			font-size: #{$font-size};
+			font-weight: 400;
+			margin-block-end: #{$font-size};
+		}
+	}
+}
+
+//* Typography Customizations
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+@mixin headlines {
+	font-family: 'Bebas Neue', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+@mixin bodyText {
+	font-family: 'Nunito Sans', sans-serif;
+	font-optical-sizing: auto;
+	font-variation-settings: 'wdth' 100, 'YTLC' 500;
+	font-style: normal;
+}
+
+//* create headings h{n=1-6} and define .display-{n} for styling without semantic meaning
+@each $unit, $font-size in $font-sizes {
+	@if $unit < 7 {
+		h#{$unit},
+		.display-#{$unit} {
+			font-size: #{$font-size};
+			margin-block-end: #{$font-size};
+			@include headlines;
+			line-height: 1.1;
+			letter-spacing: -0.02em;
+		}
+	}
+}
+
+dt,
+th,
+summary {
+	@include headlines;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+}
+
+p,
+a,
+li,
+dd,
+em,
+small,
+span,
+blockquote,
+cite,
+button,
+input,
+figcaption,
+legend,
+select,
+label,
+textarea,
+option,
+details {
+	@include bodyText;
+	font-size: $step-0;
+	font-weight: 500;
+	line-height: 1.25;
+	letter-spacing: -0.01em;
+}
+
+p,
+a,
+li,
+dd,
+span,
+blockquote,
+input[type='submit'] {
+	margin-block-end: $step-0;
+
+	//* Removes extra margin from last children
+	:is(:last-child) {
+		margin-block-end: 0;
+	}
+}
+
+em {
+	font-style: italic;
+}
+
+b,
+strong,
+dt,
+th,
+summary,
+ol li::before {
+	font-weight: 700;
+}
+
+small {
+	font-size: $step-0;
+}
+
+ul,
+ol,
+details,
+blockquote {
+	margin-inline-start: $space-s;
+	padding-inline-start: 0;
+
+	li,
+	li.checked-list-item,
+	summary:not([class]) {
+		list-style-type: '';
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		//* Allows space for 'markers', font-based
+		gap: $step-0;
+
+		&::marker,
+		&::-webkit-details-marker {
+			visibility: none;
+		}
+	}
+}
+//* Storyblok wraps each list item in a p tag
+li:not([class]) p {
+	margin: 0;
+	padding: 0;
+}
+
+//* Style 'Markers'
+@mixin list-marker-styles($color, $application, $content) {
+	@if $application == color {
+		color: $color;
+	} @else {
+		background-color: $color;
+		mask-repeat: no-repeat;
+		mask-origin: fill-box;
+		mask-position: center;
+		mask-size: contain;
+	}
+	@if $content == '' {
+		content: '';
+	} @else {
+		content: $content;
+	}
+
+	object-fit: scale-down;
+	font-size: 1em;
+	line-height: 0;
+	display: grid;
+	place-content: center center;
+
+	height: 1em;
+	width: 1em;
+}
+
+ul li:not([class])::before {
+	@include list-marker-styles(var(--brand), 'background', '');
+	mask-image: url('/icons/bullet.svg');
+	//* Trim content
+	margin-inline: -0.25em;
+}
+ol {
+	counter-reset: count;
+	li {
+		counter-increment: count;
+		&::before {
+			@include list-marker-styles(var(--brand), 'color', counter(count));
+			width: 1ch;
+		}
+	}
+}
+
+li.checked-list-item::before {
+	@include list-marker-styles(var(--brand), 'background', '');
+	mask-image: url('/icons/check.svg');
+	//* Trim content
+	margin-inline-start: -0.05em;
+}
+
+summary {
+	font-size: 1.5em;
+	&::before {
+		@include list-marker-styles(var(--brand), 'background', '');
+		mask-image: url('/icons/carrot-open.svg');
+		//* Trim content
+		margin-inline: -0.25em;
+	}
+}
+
+//* Styling for INLINE quotes, NOT Testimonials
+blockquote:not([class]) {
+	border-inline-start: 3px solid var(--brand);
+	padding-inline: $step-0;
+	footer {
+		font-size: 0.75em;
+		cite {
+			font-style: italic;
+			font-size: 1em;
+		}
+	}
+}
+
+@mixin blockquote-quotes($content, $size, $direction, $ammt) {
+	content: $content;
+	font-weight: bold;
+	font-size: $size;
+	margin-inline-#{$direction}: $ammt;
+	color: var(--brand);
+}
+
+blockquote p:not(:last-of-type)::before {
+	@include blockquote-quotes('“', 1.25em, end, 0.25em);
+}
+
+blockquote p:not(:last-of-type)::after {
+	@include blockquote-quotes('”', 1.25em, start, 0.25em);
+}
+
+.italic {
+	font-style: italic;
+}
+.bold {
+	font-weight: 700;
+}
+.light {
+	font-weight: 400;
+}
+.text-start {
+	text-align: start;
+}
+
+.text-end {
+	text-align: end;
+}
+.text-center {
+	text-align: center;
+}
+
+.reading-length {
+	max-width: 70ch;
+}

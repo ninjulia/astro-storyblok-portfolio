@@ -1,0 +1,32 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+const { blok } = Astro.props;
+---
+
+<div {...storyblokEditable(blok)}>
+	<label for={blok._uid}>
+		{
+			blok.required ? (
+				<span
+					class="input-title accent text-left"
+					aria-label="required">
+					{blok.label} *
+				</span>
+			) : (
+				<span class="input-title accent text-left">{blok.label}</span>
+			)
+		}
+		<textarea
+			name={blok.name}
+			id={blok._uid}
+			placeholder={blok.placeholder}
+			required={blok.required}
+			rows={Number(blok.rows)}
+			autocorrect="on"
+		></textarea>
+		<span
+			aria-hidden="true"
+			class="error ps-xs mt-xs"
+		></span>
+	</label>
+</div>

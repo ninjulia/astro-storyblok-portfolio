@@ -1,0 +1,26 @@
+#about {
+	article {
+		--main-min-width: 45ch;
+		--photo-size: 250px;
+		//--gap: $space-l;
+		container-type: inline-size;
+		container-name: about;
+
+		.about-photo {
+			max-width: var(--photo-size);
+			overflow: hidden;
+			flex-grow: 1;
+			height: auto;
+
+			img {
+				aspect-ratio: 1;
+				height: auto;
+			}
+		}
+
+		.about-copy {
+			flex-grow: 999;
+			flex-basis: calc(((var(--main-min-width) - (100% - var(--photo-size) - $space-l)) * 9999));
+		}
+	}
+}

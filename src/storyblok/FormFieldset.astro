@@ -1,0 +1,39 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+const { blok } = Astro.props;
+const name = blok.legend;
+const required = blok.required;
+---
+
+<div {...storyblokEditable(blok)}>
+	<fieldset>
+		{
+			blok.required ? (
+				<legend
+					aria-label="required"
+					class="accent input-title">
+					{blok.legend}*
+				</legend>
+			) : (
+				<legend class="accent input-title">{blok.legend}</legend>
+			)
+		}
+
+		{
+			blok.inputs?.map((blok) => {
+				return (
+					<StoryblokComponent
+						blok={blok}
+						name={name}
+						required={required}
+					/>
+				);
+			})
+		}
+		<span
+			aria-hidden="true"
+			class="error mt-s mb-0 d-flex flex-row align-items-center"
+		></span>
+	</fieldset>
+</div>

@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import { storyblokEditable } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+const { blok } = Astro.props;
+
+const content = blok.body;
+const refactoredArticle = content.reduce((acc, obj) => {
+	acc[obj.component] = { ...obj, component: undefined };
+	return acc;
+}, {});
+---
+
+<BaseLayout>
+	<main
+		class="wrapper"
+		id="main-content"
+		{...storyblokEditable(blok)}>
+		<Hero
+			blok={blok}
+			teaser={refactoredArticle.Teaser}
+		/>
+
+		{
+			blok.body?.map((blok) => {
+				return <StoryblokComponent blok={blok} />;
+			})
+		}
+	</main>
+</BaseLayout>

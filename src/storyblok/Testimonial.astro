@@ -1,0 +1,15 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+const { blok } = Astro.props;
+---
+
+<section>
+	<blockquote
+		class="testimonial wrapper surface-3"
+		{...storyblokEditable(blok)}>
+		<p class="italic prose-1">
+			{blok.quote}
+		</p>
+		<cite class="prose-1 text-end">&mdash; {blok.attribution}</cite>
+	</blockquote>
+</section>

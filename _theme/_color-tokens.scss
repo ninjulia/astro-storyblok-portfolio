@@ -1,0 +1,121 @@
+/* 🛑 STOP!
+  Do not change this file directly.
+  Modify colors in _theme/color-tokens.js
+ */
+
+$color-primary: hsla(158, 100%, 43.3%, 1) !default;
+$color-on-primary: hsl(333.4, 81.4%, 33.7%) !default;
+$color-secondary: hsla(278, 100%, 43.3%, 1) !default;
+$color-on-secondary: hsl(282.9, 100%, 89%) !default;
+$color-light: hsla(160, 81.8%, 97.8%, 1) !default;
+$color-on-light: hsl(160, 6.7%, 44.1%) !default;
+$color-dark: hsla(159, 100%, 6.1%, 1) !default;
+$color-on-dark: hsl(158.29999999999995, 20.3%, 45.3%) !default;
+$color-primary-tint: hsla(159, 75.9%, 73.9%, 1) !default;
+$color-on-primary-tint: hsl(159.70000000000005, 40.3%, 30.2%) !default;
+$color-primary-shade: hsla(158, 100%, 30.8%, 1) !default;
+$color-on-primary-shade: hsl(347.79999999999995, 71.1%, 16.3%) !default;
+$color-secondary-tint: hsla(278, 75.9%, 73.9%, 1) !default;
+$color-on-secondary-tint: hsl(277.9, 39.9%, 28%) !default;
+$color-secondary-shade: hsla(278, 100%, 30.8%, 1) !default;
+$color-on-secondary-shade: hsl(277.9, 66.7%, 75.3%) !default;
+$color-light-tint: hsla(160, 3.8%, 69.4%, 1) !default;
+$color-on-light-tint: hsl(160, 2.2%, 26.9%) !default;
+$color-light-shade: hsla(156, 100%, 99%, 1) !default;
+$color-on-light-shade: hsl(160, 3.9%, 45.3%) !default;
+$color-dark-tint: hsla(159, 6.4%, 56.9%, 1) !default;
+$color-on-dark-tint: hsl(157.5, 9.1%, 17.3%) !default;
+$color-dark-shade: hsla(158, 100%, 4.3%, 1) !default;
+$color-on-dark-shade: hsl(158.29999999999995, 15.8%, 44.7%) !default;
+$color-surface-light: hsla(180, 100%, 99.8%, 1) !default;
+$color-on-surface-light: hsl(180, 0.9%, 45.9%) !default;
+$color-surface-dark: hsla(157, 100%, 2.5%, 1) !default;
+$color-on-surface-dark: hsl(156.5, 10%, 44.9%) !default;
+$color-surface-info: hsla(188, 100%, 30.8%, 1) !default;
+$color-on-surface-info: hsl(132.89999999999998, 53.8%, 5.1%) !default;
+$color-surface-positive: hsla(172, 100%, 30.8%, 1) !default;
+$color-on-surface-positive: hsl(324, 71.4%, 16.5%) !default;
+$color-surface-caution: hsla(52, 100%, 30.8%, 1) !default;
+$color-on-surface-caution: hsl(46, 100%, 8.4%) !default;
+$color-surface-negative: hsla(338, 100%, 30.8%, 1) !default;
+$color-on-surface-negative: hsl(337.9, 68%, 80.4%) !default;
+
+$base-color-tokens: ("primary", "secondary", "light", "dark", "primary-tint", "primary-shade", "secondary-tint", "secondary-shade", "light-tint", "light-shade", "dark-tint", "dark-shade", "surface-light", "surface-dark", "surface-info", "surface-positive", "surface-caution", "surface-negative");
+
+$color-tokens: (
+  "color-primary": $color-primary,
+  "color-on-primary": $color-on-primary,
+  "color-secondary": $color-secondary,
+  "color-on-secondary": $color-on-secondary,
+  "color-light": $color-light,
+  "color-on-light": $color-on-light,
+  "color-dark": $color-dark,
+  "color-on-dark": $color-on-dark,
+  "color-primary-tint": $color-primary-tint,
+  "color-on-primary-tint": $color-on-primary-tint,
+  "color-primary-shade": $color-primary-shade,
+  "color-on-primary-shade": $color-on-primary-shade,
+  "color-secondary-tint": $color-secondary-tint,
+  "color-on-secondary-tint": $color-on-secondary-tint,
+  "color-secondary-shade": $color-secondary-shade,
+  "color-on-secondary-shade": $color-on-secondary-shade,
+  "color-light-tint": $color-light-tint,
+  "color-on-light-tint": $color-on-light-tint,
+  "color-light-shade": $color-light-shade,
+  "color-on-light-shade": $color-on-light-shade,
+  "color-dark-tint": $color-dark-tint,
+  "color-on-dark-tint": $color-on-dark-tint,
+  "color-dark-shade": $color-dark-shade,
+  "color-on-dark-shade": $color-on-dark-shade,
+  "color-surface-light": $color-surface-light,
+  "color-on-surface-light": $color-on-surface-light,
+  "color-surface-dark": $color-surface-dark,
+  "color-on-surface-dark": $color-on-surface-dark,
+  "color-surface-info": $color-surface-info,
+  "color-on-surface-info": $color-on-surface-info,
+  "color-surface-positive": $color-surface-positive,
+  "color-on-surface-positive": $color-on-surface-positive,
+  "color-surface-caution": $color-surface-caution,
+  "color-on-surface-caution": $color-on-surface-caution,
+  "color-surface-negative": $color-surface-negative,
+  "color-on-surface-negative": $color-on-surface-negative
+) !default;
+
+@mixin color-tokens() {
+  --color-primary: #{$color-primary};
+  --color-on-primary: #{$color-on-primary};
+  --color-secondary: #{$color-secondary};
+  --color-on-secondary: #{$color-on-secondary};
+  --color-light: #{$color-light};
+  --color-on-light: #{$color-on-light};
+  --color-dark: #{$color-dark};
+  --color-on-dark: #{$color-on-dark};
+  --color-primary-tint: #{$color-primary-tint};
+  --color-on-primary-tint: #{$color-on-primary-tint};
+  --color-primary-shade: #{$color-primary-shade};
+  --color-on-primary-shade: #{$color-on-primary-shade};
+  --color-secondary-tint: #{$color-secondary-tint};
+  --color-on-secondary-tint: #{$color-on-secondary-tint};
+  --color-secondary-shade: #{$color-secondary-shade};
+  --color-on-secondary-shade: #{$color-on-secondary-shade};
+  --color-light-tint: #{$color-light-tint};
+  --color-on-light-tint: #{$color-on-light-tint};
+  --color-light-shade: #{$color-light-shade};
+  --color-on-light-shade: #{$color-on-light-shade};
+  --color-dark-tint: #{$color-dark-tint};
+  --color-on-dark-tint: #{$color-on-dark-tint};
+  --color-dark-shade: #{$color-dark-shade};
+  --color-on-dark-shade: #{$color-on-dark-shade};
+  --color-surface-light: #{$color-surface-light};
+  --color-on-surface-light: #{$color-on-surface-light};
+  --color-surface-dark: #{$color-surface-dark};
+  --color-on-surface-dark: #{$color-on-surface-dark};
+  --color-surface-info: #{$color-surface-info};
+  --color-on-surface-info: #{$color-on-surface-info};
+  --color-surface-positive: #{$color-surface-positive};
+  --color-on-surface-positive: #{$color-on-surface-positive};
+  --color-surface-caution: #{$color-surface-caution};
+  --color-on-surface-caution: #{$color-on-surface-caution};
+  --color-surface-negative: #{$color-surface-negative};
+  --color-on-surface-negative: #{$color-on-surface-negative};
+}

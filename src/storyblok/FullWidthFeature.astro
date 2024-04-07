@@ -1,0 +1,24 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import { Image, getImage } from 'astro:assets';
+const { blok } = Astro.props;
+const content = renderRichText(blok.content);
+---
+
+<article class="m-auto">
+	<figure
+		class="portfolio-display full-width"
+		{...storyblokEditable(blok)}>
+		<div class="portfolio-display-image">
+			<Image
+				src={blok.image.filename}
+				alt={blok.image.alt}
+				inferSize={true}
+			/>
+		</div>
+		<figcaption class="portfolio-display-content surface-1">
+			<h4 class="display-4">{blok.title}</h4>
+			<Fragment set:html={content} />
+		</figcaption>
+	</figure>
+</article>

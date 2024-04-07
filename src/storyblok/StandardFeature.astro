@@ -1,0 +1,13 @@
+---
+import StandardFeatureContent from '../components/StandardFeatureContent.astro';
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+
+const { blok } = Astro.props;
+const content = renderRichText(blok.content);
+---
+
+<StandardFeatureContent
+	props={blok}
+	content={content}
+	{...storyblokEditable(blok)}
+/>

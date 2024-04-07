@@ -1,0 +1,46 @@
+---
+import { Icon } from 'astro-icon/components';
+import { storyblokEditable } from '@storyblok/astro';
+import { useStoryblokApi } from '@storyblok/astro';
+
+const { blok } = Astro.props;
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get(`cdn/stories`, {
+	version: process.env.VITE_ENVIRONMENT === 'preview' ? 'draft' : 'published',
+	starts_with: 'blog/',
+	is_startpage: false,
+});
+
+const articles = data.stories;
+---
+
+<section class="wrapper">
+	<article {...storyblokEditable(blok)}>
+		<div class="py-xl pSlide-m-l">
+			<ul class="blog-roll d-flex wrap m-0">
+				{
+					articles?.length &&
+						articles.map((article) => {
+							article.content.slug = article.slug;
+							return (
+								<li class="blog-roll-item mb-0">
+									<span class="accent mb-0">{article.content.title}</span>
+									<p>{article.content.description}</p>
+									<a
+										class="blog-roll-link btn ghost"
+										href={`/blog/${article.content.slug}`}>
+										Read More{' '}
+										<Icon
+											name={'feather:chevron-right'}
+											width={24}
+										/>
+									</a>
+								</li>
+							);
+						})
+				}
+			</ul>
+		</div>
+	</article>
+</section>

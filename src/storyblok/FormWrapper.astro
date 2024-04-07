@@ -1,0 +1,86 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Image, getImage } from 'astro:assets';
+import { storyblokEditable } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+const { blok } = Astro.props;
+let requiredFields = blok.forms.filter((item) => item.required === true);
+//action={`/${blok.navigationSuccess.cached_url}`}
+const formId = blok._uid;
+const formAction = blok.navigationSuccess.cached_url;
+---
+
+<section
+	id="contact"
+	class="wrapper img-bg text-left px-2xl py-l m-auto surface-3 align-content-start scroll-margin">
+	<div class="content">
+		<form
+			novalidate
+			name={blok.form_name}
+			method="POST"
+			netlify-honeypot="bot-field"
+			data-netlify-recaptcha="true"
+			data-netlify="true"
+			action={formAction === '' ? '#' : formAction}
+			id={blok._uid}
+			class="p-l d-flex flex-column gap-2xs m-auto my-0"
+			{...storyblokEditable(blok)}>
+			<h2 class="accent mb-m text-center">{blok.form_name}</h2>
+			{
+				requiredFields.length > 0 && (
+					<p>
+						Required fields are followed by <span aria-label="required">*</span>
+					</p>
+				)
+			}
+			{
+				blok.forms?.map((blok) => {
+					return <StoryblokComponent blok={blok} />;
+				})
+			}
+			<div class="hidden">
+				<label>
+					Don't fill this out if you're human: <input name="bot-field" />
+				</label>
+			</div>
+
+			<!-- TODO: ADD CUSTOM CAPATCHA 
+			<div
+				data-netlify-recaptcha="true"
+				id="netlify-recaptcha">
+			</div>-->
+
+			<button
+				type="submit"
+				class="btn standard align-self-center m-auto"
+				>Send</button
+			>
+		</form>
+	</div>
+	{
+		blok.background_image && (
+			<Image
+				src={blok.background_image.filename}
+				alt=""
+				width="300"
+				height="150"
+				widths={[300, 1040, 1440, 1770]}
+				sizes={`(min-width: 1520px) 1440px, calc(95vw + 15px)`}
+			/>
+		)
+	}
+</section>
+<dialog class="p-l">
+	<button
+		autofocus
+		class="mb-l">
+		<span class="sr-only">Close</span>
+		<Icon
+			name=`feather:x-square`
+			width={44}
+			height={44}
+		/>
+	</button>
+	<p>Your message has been sent!</p>
+</dialog>

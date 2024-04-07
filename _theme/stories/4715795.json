@@ -1,0 +1,75 @@
+{
+	"name": "Shapes and Shades",
+	"created_at": "2024-03-16T14:46:32.394Z",
+	"published_at": "2024-03-20T17:21:29.000Z",
+	"id": 4715795,
+	"uuid": "62766e5b-0b7b-41bc-94ea-2113aa912c4b",
+	"content": {
+		"_uid": "76699611-724e-495d-9f9d-a3463c44a377",
+		"title": "The Symphony of Shapes and Shades: A Designer’s Perspective",
+		"content": {
+			"type": "doc",
+			"content": [
+				{
+					"type": "paragraph",
+					"content": [
+						{
+							"text": "Every graphic designer has a unique symphony they compose with shapes and shades, a visual melody that resonates with the audience. My design process is like conducting an orchestra, where each element plays its part in harmony. It starts with a concept, a single note that forms the basis of the composition.",
+							"type": "text"
+						}
+					]
+				},
+				{
+					"type": "paragraph",
+					"content": [
+						{
+							"text": "The concept then evolves, taking shape through sketches and drafts. I play with geometric forms and organic shapes, finding the right balance to convey the intended message. The shades come next, with colors setting the mood and tone of the design. I carefully select each hue, ensuring it aligns with the brand’s voice and evokes the desired emotional response.",
+							"type": "text"
+						}
+					]
+				},
+				{
+					"type": "paragraph",
+					"content": [
+						{
+							"text": "Typography is the rhythm that guides the viewer’s eye across the design. I choose fonts that complement the visuals and reinforce the message, creating a seamless flow from one element to the next. The interplay of text and imagery is crucial, and I ensure that they dance together in perfect sync.",
+							"type": "text"
+						}
+					]
+				},
+				{
+					"type": "paragraph",
+					"content": [
+						{
+							"text": "As the design nears completion, I refine and adjust, much like a maestro fine-tuning the performance before the final show. The result is a cohesive piece that not only captures attention but also tells a story, leaving a memorable imprint on the viewer’s mind.",
+							"type": "text"
+						}
+					]
+				}
+			]
+		},
+		"component": "BlogPost",
+		"hero_image": {
+			"id": 579617,
+			"alt": "modern music festival at night.",
+			"name": "",
+			"focus": "",
+			"title": "modern music festival at night.",
+			"source": "Image generated with Adobe Firefly",
+			"filename": "https://a-us.storyblok.com/f/1019181/1440x720/ffb1753aab/poster_research.png",
+			"copyright": "Image generated with Adobe Firefly",
+			"fieldtype": "asset",
+			"meta_data": {
+				"alt": "modern music festival at night.",
+				"title": "modern music festival at night.",
+				"source": "Image generated with Adobe Firefly",
+				"copyright": "Image generated with Adobe Firefly"
+			},
+			"is_private": false,
+			"is_external_url": false
+		},
+		"description": "Join me in the symphony of design, where shapes and shades harmonize to create a visual melody that captivates and tells a story."
+	},
+	"slug": "shapes-and-shades",
+	"full_slug": "blog/shapes-and-shades"
+}

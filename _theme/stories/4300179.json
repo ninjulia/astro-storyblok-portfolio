@@ -1,0 +1,160 @@
+{
+	"name": "Home",
+	"created_at": "2024-03-02T20:41:40.380Z",
+	"published_at": "2024-03-20T17:21:30.081Z",
+	"id": 4300179,
+	"uuid": "f42d265c-702b-46a9-b8ab-b4579212ed3b",
+	"content": {
+		"_uid": "b227c734-af7e-426d-98f1-d9ffe19968ac",
+		"body": [
+			{
+				"_uid": "0e7d12fd-d6c7-47a6-80a5-bedb5d3d7019",
+				"teaser": "Welcome to the vibrant world of creativity where each design is a story waiting to unfold. I can bring your brand’s vision to life with bespoke logos, dynamic web designs, and captivating posters. ",
+				"component": "Teaser",
+				"link_text": ""
+			},
+			{
+				"_uid": "171e4430-73d6-4699-8927-fdf5cd4527e0",
+				"title": "Work Rollup",
+				"component": "WorkRollup",
+				"portfolio_items": [
+					"a22533f6-7f04-4dc2-adf1-814624e4506e",
+					"e1596ab1-3586-43c2-968a-aa9b4af13fac",
+					"0aa8808d-90a6-4c07-8256-8b567df65f93"
+				]
+			},
+			{
+				"_uid": "214ed1fa-7fc7-4f1c-9108-73571f447c5f",
+				"image": {
+					"id": 374906,
+					"alt": "Adobe Firefly generative AI created portrait of Stevee Rogers",
+					"name": "",
+					"focus": "",
+					"title": "",
+					"source": "Image created with Adobe Firefly generative AI",
+					"filename": "https://a-us.storyblok.com/f/1019181/640x640/1a9567f3b9/avatar.png",
+					"copyright": "Image created with Adobe Firefly generative AI",
+					"fieldtype": "asset",
+					"meta_data": {},
+					"is_private": false,
+					"is_external_url": false
+				},
+				"title": "About Stevee Rogers",
+				"content": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"content": [
+								{ "text": "A Designer's Philosophy:", "type": "text", "marks": [{ "type": "bold" }] },
+								{
+									"text": " At the core of Stevee's work is a belief that good design is the intersection of art and purpose. It's not just about making things look pretty; it's about creating a visual language that communicates, persuades, and inspires. With every project, Stevee strives to push boundaries, challenge conventions, and deliver designs that resonate on a deeper level.",
+									"type": "text"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"content": [
+								{ "text": "Your Vision, Amplified:", "type": "text", "marks": [{ "type": "bold" }] },
+								{
+									"text": " Partnering with Stevee means embarking on a collaborative journey towards excellence. They are not just a designer; they are a creative ally, dedicated to bringing your vision to life with precision and flair. Whether you're looking to revamp your brand, launch a new website, or make a bold statement with a poster, Stevee Rogers is the designer who will take your project from concept to reality, ensuring that every pixel tells a part of your story.",
+									"type": "text"
+								}
+							]
+						}
+					]
+				},
+				"bold_text": "Unleashing creativity that connects and captivates, from logos that define brands to websites and posters that tell a story.",
+				"component": "About"
+			},
+			{
+				"_uid": "98d83bc7-a83f-4937-b639-a46c06ec0de5",
+				"quote": "Working with Stevee was a game-changer for our brand. Their innovative approach to logo and web design not only captured the essence of our company but also set us apart in the marketplace. We’ve seen a significant increase in engagement since the launch, and it’s all thanks to their creative genius!",
+				"component": "Testimonial",
+				"attribution": "Person McPersonface, CEO, Company, Inc."
+			},
+			{
+				"_uid": "0d4537d9-ba43-410b-85c0-4d87e14ab07e",
+				"forms": [
+					{
+						"_uid": "e96649b5-c8b7-4000-9d49-6c8bcc8d93d7",
+						"name": "name",
+						"type": "text",
+						"label": "Your Name",
+						"max_size": "",
+						"min_size": "2",
+						"required": true,
+						"component": "FormInput",
+						"placeholder": "please enter your name"
+					},
+					{
+						"_uid": "e54a93e5-3aa2-4bba-afb1-84a9cc847242",
+						"name": "email",
+						"type": "email",
+						"label": "Your Email",
+						"min_size": "8",
+						"required": true,
+						"component": "FormInput",
+						"placeholder": "your email"
+					},
+					{
+						"_uid": "f4f5633a-7054-43fe-91f7-dc571b2f1548",
+						"name": "message",
+						"rows": "4",
+						"label": "Your Message",
+						"required": true,
+						"component": "FormTextarea",
+						"placeholder": "leave your message"
+					}
+				],
+				"component": "FormWrapper",
+				"form_name": "Contact",
+				"background_image": {
+					"id": 579611,
+					"alt": "desk with pens, pencils and sketchbooks spread out. room is warm and inviting. Coffee sits on the desk, waiting for the designer to return to work",
+					"name": "",
+					"focus": "",
+					"title": "desk with pens, pencils and sketchbooks spread out. room is warm and inviting. Coffee sits on the desk, waiting for the designer to return to work",
+					"source": "Image generated with Adobe Firefly",
+					"filename": "https://a-us.storyblok.com/f/1019181/1440x720/ac7d5f4f9d/pictures.png",
+					"copyright": "Image generated with Adobe Firefly",
+					"fieldtype": "asset",
+					"meta_data": {
+						"alt": "desk with pens, pencils and sketchbooks spread out. room is warm and inviting. Coffee sits on the desk, waiting for the designer to return to work",
+						"title": "desk with pens, pencils and sketchbooks spread out. room is warm and inviting. Coffee sits on the desk, waiting for the designer to return to work",
+						"source": "Image generated with Adobe Firefly",
+						"copyright": "Image generated with Adobe Firefly"
+					},
+					"is_private": false,
+					"is_external_url": false
+				},
+				"navigationSuccess": { "id": "", "url": "", "linktype": "story", "fieldtype": "multilink", "cached_url": "" }
+			}
+		],
+		"title": "Stevee Rogers",
+		"component": "Page",
+		"hero_image": {
+			"id": 579613,
+			"alt": "top-down view of desk with open design books",
+			"name": "",
+			"focus": "",
+			"title": "top-down view of desk with open design books",
+			"source": "Image generated with Adobe Firefly",
+			"filename": "https://a-us.storyblok.com/f/1019181/1440x720/9194e9f97b/home_hero.png",
+			"copyright": "Image generated with Adobe Firefly",
+			"fieldtype": "asset",
+			"meta_data": {
+				"alt": "top-down view of desk with open design books",
+				"title": "top-down view of desk with open design books",
+				"source": "Image generated with Adobe Firefly",
+				"copyright": "Image generated with Adobe Firefly"
+			},
+			"is_private": false,
+			"is_external_url": false
+		},
+		"seo_description": "Some Content for OG and Twitter"
+	},
+	"slug": "home",
+	"full_slug": "home"
+}

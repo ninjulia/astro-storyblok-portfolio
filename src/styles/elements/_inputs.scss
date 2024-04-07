@@ -1,0 +1,373 @@
+//* Style text inputs
+@mixin text-inputs {
+	display: block;
+	padding: $space-xs $space-s;
+	font-size: $step-0;
+	color: var(--text-emphasis);
+	background-color: var(--background);
+	border-width: 1px;
+	border-style: solid;
+	border-color: var(--border-color);
+	font-weight: 700;
+	width: 100%;
+
+	&::placeholder {
+		color: var(--text-subtle);
+		font-weight: 400;
+	}
+	&:focus-within:not(:disabled) {
+		@include focus-ring;
+	}
+	&:disabled {
+		color: var(--border-color-subtle);
+		border-color: var(--border-color-subtle);
+		background-color: initial;
+	}
+	&:required {
+		//* "Light" reminder
+		//https://css-tricks.com/snippets/css/form-validation-styling-on-input-focus/
+		&:not(:placeholder-shown):invalid,
+		&:not(:focus)[aria-invalid='true'] {
+			border-color: var(--color-surface-negative);
+		}
+	}
+}
+
+.input-title {
+	@include headlines;
+	@extend .display-5;
+	display: block;
+	margin-block-end: $space-s;
+}
+
+//* Display error message below the input
+.error {
+	font-size: $step--1;
+
+	&::first-letter {
+		text-transform: capitalize;
+	}
+	&[aria-hidden='true'] {
+		margin: 0;
+		grid-area: error;
+		z-index: 1;
+		visibility: hidden;
+	}
+	&[aria-hidden='false'] {
+		max-height: 200px;
+		height: auto;
+		visibility: visible;
+	}
+}
+
+@mixin error-icon($type) {
+	content: '';
+	mask-repeat: no-repeat;
+	mask-origin: fill-box;
+	mask-position: center;
+	mask-size: contain;
+
+	@if $type == 'input' {
+		align-self: center;
+		transform: translateX(-50%);
+	} @else if $type == 'textarea' {
+		align-self: start;
+		transform: translate(-50%, 50%);
+	}
+}
+
+@mixin error-color($input) {
+	&:has(#{$input}:not(:focus):not(:placeholder-shown):valid),
+	&:has(#{$input}:not(:focus)[aria-invalid='false']) {
+		&::after {
+			mask-image: url('/icons/success.svg');
+			background-color: var(--color-surface-positive);
+		}
+	}
+	&:has(#{$input}:not(:focus):not(:placeholder-shown):invalid),
+	&:has(#{$input}:not(:focus)[aria-invalid='true']) {
+		&::after {
+			mask-image: url('/icons/failure.svg');
+			background-color: var(--color-surface-negative);
+		}
+	}
+}
+
+label:has(input:not([type='radio'], [type='checkbox'])) {
+	&::after {
+		@include error-icon('input');
+	}
+	@include error-color('input');
+}
+
+label:has(textarea) {
+	&::after {
+		@include error-icon('textarea');
+	}
+	@include error-color('textarea');
+}
+
+//* Select input styling using CSS only
+//* with much help from https://moderncss.dev/custom-select-styles-with-pure-css/
+.form-field {
+	cursor: pointer;
+	@include text-inputs;
+
+	display: grid;
+	grid-template-areas: 'stack';
+	align-items: center;
+
+	select {
+		appearance: none;
+		background-color: transparent;
+		border: none;
+		outline: none;
+		grid-area: stack;
+		width: 100%;
+
+		option {
+			max-width: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+
+	&:has(select:not([multiple]))::after {
+		content: '';
+		width: 44px;
+		height: 44px;
+		background-color: var(--text-emphasis);
+		mask-repeat: no-repeat;
+		mask-position: center;
+		mask-image: url('/icons/carrot-open.svg');
+		grid-area: stack;
+		justify-self: end;
+	}
+
+	&:focus-within:not(:disabled) {
+		@include focus-ring;
+	}
+	&:has(select:disabled) {
+		color: var(--border-color-subtle);
+		border-color: var(--border-color-subtle);
+		background-color: initial;
+	}
+}
+
+//* For Radio and Checkbox Styling
+@mixin controls($border-radius, $content, $size) {
+	//* Use Font-Based Sizes
+	appearance: none;
+	width: $step-1;
+	height: $step-1;
+	border: 1px solid var(--border-color);
+	border-radius: $border-radius;
+	display: grid;
+	grid-template-areas: 'stack';
+	justify-content: center;
+	align-items: center;
+
+	&::before {
+		content: $content;
+		//keep this color-light as it doesn't change between light/dark
+		color: var(--color-light);
+		font-size: $size;
+		grid-area: stack;
+		line-height: 0;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		visibility: hidden;
+	}
+
+	&:disabled {
+		color: var(--border-color-subtle);
+		border-color: var(--border-color-subtle);
+		background-color: initial;
+		& ~ label {
+			color: var(--border-color-subtle);
+		}
+	}
+
+	&:checked {
+		//keep this brand as it doesn't change between light/dark
+		background-color: var(--brand);
+		&::before {
+			visibility: visible;
+		}
+		&:hover {
+			background-color: var(--brand-shade);
+		}
+		&:disabled {
+			background-color: var(--border-color-subtle);
+		}
+	}
+	&:focus-within:not(:disabled) {
+		@include focus-ring;
+	}
+}
+
+input[type='checkbox'] {
+	@include controls(2px, '✔', $step-0);
+}
+
+input[type='radio'] {
+	@include controls(999px, '', $step--2);
+
+	&::before {
+		background-color: var(--color-light);
+		width: 1em;
+		height: 1em;
+		border-radius: 50%;
+	}
+}
+
+div:has(input[type='checkbox'], input[type='radio']) {
+	display: flex;
+	flex-direction: row;
+	gap: $space-s;
+	align-items: baseline;
+}
+
+div:has(fieldset) {
+	margin-block-end: calc($space-xs + $step--1 + $space-xs);
+}
+
+fieldset {
+	//* Accounts for Legend in padding-block-start
+	padding-block: calc($space-xs + $step--1 + $space-xs);
+	padding-inline: $space-xs;
+	border: none;
+	outline: none;
+	position: relative;
+	display: block;
+	width: 100%;
+
+	legend {
+		@include headlines;
+		@extend .display-5;
+		position: absolute;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+	}
+
+	div:not(:last-of-type) {
+		margin-block-end: $step-0;
+	}
+
+	.error {
+		gap: $step-0;
+		transition: max-height 0.3s ease-in-out;
+
+		&[aria-hidden='false']::before {
+			mask-image: url('/icons/failure.svg');
+			background-color: var(--color-surface-negative);
+			width: $step-1;
+			height: $step-1;
+			@include error-icon('radio');
+		}
+	}
+
+	&:has(.error[aria-hidden='false']) {
+		outline: 1px solid var(--color-surface-negative);
+		outline-offset: $step--1;
+	}
+}
+
+//* Form Styling
+form {
+	width: min(90ch, 90%);
+	color: var(--color-light);
+}
+
+label:has(input:not([type='radio'], [type='checkbox'], [type='submit']), textarea) {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto calc($space-xs + $step--1 + $space-xs);
+	grid-template-areas: 'title' 'input' 'error';
+	position: relative;
+
+	.input-title {
+		grid-area: title;
+	}
+
+	input,
+	textarea {
+		@include text-inputs();
+		grid-area: input;
+		z-index: 2;
+	}
+
+	&:after {
+		width: 1.5em;
+		height: 1.5em;
+		grid-area: input;
+		z-index: 3;
+		justify-self: end;
+	}
+}
+
+//* Style Netlify recaptcha
+div:has(.g-recaptcha) {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto calc($space-xs + $step--1 + $space-xs);
+	grid-template-areas: 'input' 'error';
+	justify-content: center;
+	align-items: center;
+	justify-items: center;
+	position: relative;
+
+	.g-recaptcha {
+		grid-area: input;
+	}
+
+	.error {
+		gap: $step-0;
+		transition: max-height 0.3s ease-in-out;
+		// position: absolute;
+		// bottom: 0;
+
+		&[aria-hidden='false']::before {
+			mask-image: url('/icons/failure.svg');
+			background-color: var(--color-surface-negative);
+			width: $step-1;
+			height: $step-1;
+			@include error-icon('radio');
+		}
+	}
+
+	&:has(.error[aria-hidden='false']) .g-recaptcha {
+		//* match focus ring offsets
+		outline: 2px solid var(--color-surface-negative);
+		outline-offset: 3px;
+	}
+}
+
+//Style optional form confirmation dialog
+dialog {
+	border: none;
+	isolation: isolate;
+	overflow: hidden;
+	button {
+		background-color: transparent;
+		border: none;
+		padding: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: translateX(-25%) translateY(25%);
+	}
+	p {
+		transform: translateY(100%);
+	}
+}
+
+.hidden {
+	visibility: hidden;
+	padding: 0;
+	margin: 0;
+	height: 1px;
+	width: 1px;
+}

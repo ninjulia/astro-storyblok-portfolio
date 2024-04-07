@@ -1,0 +1,144 @@
+---
+import { Image, getImage } from 'astro:assets';
+import { SITE_TITLE, LOGO } from '../consts';
+import { LINKS } from '../menu';
+import DropdownLink from '../components/elements/DropdownLink.astro';
+import { useStoryblokApi } from '@storyblok/astro';
+let notDropdown = LINKS.filter((menu) => menu.name !== 'Work');
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get(`cdn/stories`, {
+	version: process.env.VITE_ENVIRONMENT === 'preview' ? 'draft' : 'published',
+	starts_with: 'work/',
+});
+
+const articles = data.stories;
+---
+
+<header id="site-header">
+	<div class="wrapper">
+		<!-- Skip Links -->
+		<a
+			href="main-content"
+			id="skip-links"
+			class="btn standard"
+			>Skip to Content
+		</a>
+		<!-- Main Navigation -->
+		<nav
+			id="main-site-nav"
+			class="d-flex justify-content-space-between align-items-center wrap">
+			<div class="main-site-nav-logo m-s">
+				<a
+					href="/"
+					title="home page"
+					class="m-0 p-0">
+					<Image
+						src={LOGO}
+						alt={SITE_TITLE}
+						inferSize
+						format="svg"
+						loading="eager"
+						decoding="auto"
+					/>
+				</a>
+			</div>
+
+			<button
+				class="m-s"
+				id="main-menu-toggle"
+				type="button"
+				aria-controls="main-site-nav-links"
+				aria-expanded="false"
+				aria-labelledby="menu-label">
+				<span
+					id="menu-label"
+					class="sr-only"
+					>Menu</span
+				>
+				<svg
+					class="menu"
+					viewBox="0 0 24 24"
+					width="24"
+					height="24">
+					<line
+						class="line top"
+						x1="2"
+						x2="22"
+						y1="2"
+						y2="2"
+						stroke-width="2"
+						stroke-line-cap="round"
+						stroke-dasharray="20 20"
+						stroke-offset="0">
+					</line>
+					<line
+						class="line middle"
+						x1="22"
+						x2="2"
+						y1="12"
+						y2="12"
+						stroke-width="2"
+						stroke-line-cap="round"
+						stroke-dasharray="20 20"
+						stroke-offset="0">
+					</line>
+					<line
+						class="line bottom"
+						x1="2"
+						x2="22"
+						y1="22"
+						y2="22"
+						stroke-width="2"
+						stroke-line-cap="round"
+						stroke-dasharray="20 20"
+						stroke-offset="0">
+					</line>
+				</svg>
+			</button>
+			<ul
+				id="main-site-nav-links"
+				data-visible="false"
+				class="nav-links">
+				<!-- show nested links -->
+				{
+					articles && (
+						<li class="nav-item dropdown">
+							<button
+								class="nav-link dropdown-toggle"
+								role="button"
+								data-toggle="dropdown"
+								aria-expanded="false">
+								Work
+							</button>
+							<ul
+								class="dropdown-menu p-xs m-0"
+								aria-hidden="true">
+								{articles.map((link) => (
+									<DropdownLink
+										class="dropdown-item"
+										href={`/${link.full_slug}`}>
+										{link.name}
+									</DropdownLink>
+								))}
+							</ul>
+						</li>
+					)
+				}
+				<!-- /show nested links -->
+				{
+					notDropdown &&
+						notDropdown.map((menu) => (
+							<li class="nav-item">
+								<a
+									class="nav-link"
+									href={`${menu.value}`}>
+									{menu.name}
+								</a>
+							</li>
+						))
+				}
+			</ul>
+		</nav>
+	</div>
+</header>

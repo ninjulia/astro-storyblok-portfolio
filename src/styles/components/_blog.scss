@@ -1,0 +1,59 @@
+//* Blog Post and Rollup Styling
+.blog-roll {
+	container-type: inline-size;
+	justify-content: space-between;
+	align-items: stretch;
+	row-gap: $space-l;
+	column-gap: $space-m;
+}
+.blog-roll-item {
+	flex-direction: column;
+	flex-grow: 1;
+	flex-shrink: 1;
+	align-items: start;
+
+	span {
+		@include headlines;
+		color: var(--brand);
+		margin-block-end: 0;
+	}
+}
+
+.blog-roll-item:nth-child(-n + 3) {
+	@extend .p-s;
+	@extend .border-radius-xs;
+	@extend .surface-1;
+	border: 1px solid var(--border-color);
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr auto;
+	gap: $space-s;
+
+	span {
+		@extend .display-3;
+		flex: 1 1 100%;
+	}
+	a {
+		align-self: end;
+	}
+}
+
+.blog-roll-item:not(:nth-child(-n + 3)) {
+	padding-block-end: $space-l;
+	border-bottom: 1px solid var(--border-color);
+	justify-content: space-between;
+	span {
+		@extend .display-4;
+	}
+}
+
+@container (width > calc(30ch * 3)) {
+	.blog-roll-item:nth-child(-n + 3) {
+		flex-basis: calc(33.33% - ($space-m * 2));
+		margin-block-end: $space-l;
+	}
+	.blog-roll-item:not(:nth-child(-n + 3)) {
+		flex-basis: calc(50% - $space-xl);
+		margin-inline: $space-s;
+	}
+}

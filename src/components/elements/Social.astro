@@ -1,0 +1,17 @@
+---
+import { Icon } from 'astro-icon/components';
+const { platform, href } = Astro.props;
+---
+
+<a
+	href={href}
+	class="social-link"
+	rel="noopener"
+	title={platform}
+	target="_blank"
+	aria-label={platform}>
+	<Icon
+		name=`feather:${platform.toLowerCase()}`
+		width={44}
+	/>
+</a>

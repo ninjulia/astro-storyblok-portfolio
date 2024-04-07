@@ -1,0 +1,12 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+const { blok } = Astro.props;
+const content = renderRichText(blok.content);
+---
+
+<section class="wrapper py-xl pSlide-m-l">
+	<article {...storyblokEditable(blok)}>
+		<h2>{blok.title}</h2>
+		<Fragment set:html={content} />
+	</article>
+</section>

@@ -1,0 +1,42 @@
+---
+import { Icon } from 'astro-icon/components';
+const { current } = Astro.props;
+let trail = current.full_slug.split('/').filter((url) => url !== current.slug);
+
+---
+
+<section
+	id="breadcrumbs"
+	class="container pt-l px-s pb-m">
+	<nav>
+		<ul class="m-0 p-0 d-flex flex-row wrap gap-s align-content-center">
+			<li class="breadcrumb">
+				<a
+					href="/"
+					title="home">
+					Home
+					<Icon
+						name={'feather:chevrons-right'}
+						width={24}
+					/>
+				</a>
+			</li>
+			{
+				trail[0] !== '' &&
+					trail.map((slug) => (
+						<li class="breadcrumb">
+							<a href={slug === 'work' ? `/#${slug}/` : `/${slug}/`}>
+								{slug}
+								<Icon
+									name={'feather:chevrons-right'}
+									width={24}
+								/>
+							</a>
+						</li>
+					))
+			}
+
+			<li class="breadcrumb">{current.name}</li>
+		</ul>
+	</nav>
+</section>

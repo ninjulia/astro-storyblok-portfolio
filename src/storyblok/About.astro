@@ -1,0 +1,31 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import { Image, getImage } from 'astro:assets';
+const { blok } = Astro.props;
+const content = renderRichText(blok.content);
+---
+
+<section
+	id="about"
+	class="wrapper py-2xl pSlide-m-l surface-1 scroll-margin">
+	<article
+		class="d-flex wrap gap-l"
+		{...storyblokEditable(blok)}>
+		<div class="about-photo mb-l">
+			<Image
+				class="border-radius-2xs"
+				src={blok.image.filename}
+				alt={blok.image.alt}
+				width="334"
+				height="334"
+				widths={[334, 640]}
+				sizes={`(min-width: 1480px) 167px, (min-width: 1060px) calc(4.5vw + 101px), (min-width: 580px) calc(26.3vw - 15px), (min-width: 460px) 320px, calc(91.43vw - 82px)`}
+			/>
+		</div>
+		<div class="about-copy mx-2xs">
+			<h2 class="accent">{blok.title}</h2>
+			<p class="prose-1">{blok.bold_text}</p>
+			<Fragment set:html={content} />
+		</div>
+	</article>
+</section>
