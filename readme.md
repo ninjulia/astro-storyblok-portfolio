@@ -109,7 +109,7 @@ Create a simple portfolio template for a Graphic Designer utilizing Astro and St
 
 - Figma Design File: [Astro-Storyblok-Portfolio-Template](https://www.figma.com/file/LVrJnn0kRlSpLVjNqACWny/Astro-Storyblok-Portfolio-Template?type=design&mode=design&t=xzWLbBLyeURBspv6-1)
 - GitHub Repo URL: [astro-storyblok-portfolio](https://github.com/ninjulia/astro-storyblok-portfolio)
-- Sample Site URL: [https://astro-storyblock-portfolio-template.netlify.app/](astro-storyblock-portfolio-template.netlify.app)
+- Sample Site URL: [https://astro-storyblock-portfolio-template.netlify.app/](https://astro-storyblock-portfolio-template.netlify.app/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0630c295-c268-4eb0-a642-8df3be4e5a7d/deploy-status)](https://app.netlify.com/sites/astro-storyblock-portfolio-template/deploys)
 
