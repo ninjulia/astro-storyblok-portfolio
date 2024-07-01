@@ -15,7 +15,7 @@
 	"dependencies": {
 		"@astrojs/mdx": "^2.1.1",
 		"@astrojs/netlify": "^5.3.2",
-		"@astrojs/rss": "^4.0.5",
+		"@astrojs/rss": "^4.0.7",
 		"@astrojs/sitemap": "^3.1.6",
 		"@storyblok/astro": "^4.0.3",
 		"astro": "^4.4.4",
