@@ -34,7 +34,7 @@
 		"fs": "^0.0.1-security",
 		"lightningcss": "^1.24.0",
 		"storyblok": "^3.32.1",
-		"storyblok-js-client": "^6.8.1"
+		"storyblok-js-client": "^6.9.1"
 	},
 	"browserslist": [
 		"> 0.2%",
