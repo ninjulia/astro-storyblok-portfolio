@@ -17,7 +17,7 @@
 		"@astrojs/netlify": "^5.5.1",
 		"@astrojs/rss": "^4.0.7",
 		"@astrojs/sitemap": "^3.1.6",
-		"@storyblok/astro": "^5.0.0",
+		"@storyblok/astro": "^5.0.2",
 		"astro": "^4.15.9",
 		"astro-og-canvas": "^0.4.2",
 		"astro-purgecss": "^4.1.0",
