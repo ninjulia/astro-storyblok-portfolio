@@ -23,7 +23,7 @@
 		"astro-purgecss": "^4.1.0",
 		"netlify-cli": "^17.36.2",
 		"purgecss": "^5.0.0",
-		"sass": "^1.77.8",
+		"sass": "^1.79.4",
 		"vite": "^5.1.4"
 	},
 	"devDependencies": {
