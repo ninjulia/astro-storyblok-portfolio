@@ -33,7 +33,7 @@
 		"astro-icon": "^1.1.1",
 		"fs": "^0.0.1-security",
 		"lightningcss": "^1.24.0",
-		"storyblok": "^3.33.3",
+		"storyblok": "^3.35.0",
 		"storyblok-js-client": "^6.10.1"
 	},
 	"browserslist": [
