@@ -24,7 +24,7 @@
 		"netlify-cli": "^17.37.1",
 		"purgecss": "^5.0.0",
 		"sass": "^1.79.4",
-		"vite": "^5.1.4"
+		"vite": "^5.4.10"
 	},
 	"devDependencies": {
 		"@iconify-json/feather": "^1.1.8",
