@@ -21,7 +21,7 @@
 		"astro": "^5.16.6",
 		"astro-og-canvas": "^0.4.2",
 		"astro-purgecss": "^4.1.0",
-		"netlify-cli": "^23.13.0",
+		"netlify-cli": "^23.13.3",
 		"purgecss": "^5.0.0",
 		"sass": "^1.79.4",
 		"vite": "^7.3.0"
