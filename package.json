@@ -19,7 +19,7 @@
 		"@astrojs/sitemap": "^3.1.6",
 		"@storyblok/astro": "^5.0.2",
 		"astro": "^5.16.6",
-		"astro-og-canvas": "^0.4.2",
+		"astro-og-canvas": "^0.7.2",
 		"astro-purgecss": "^4.1.0",
 		"netlify-cli": "^23.13.0",
 		"purgecss": "^5.0.0",
