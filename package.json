@@ -28,7 +28,7 @@
 	},
 	"devDependencies": {
 		"@iconify-json/feather": "^1.2.1",
-		"@vitejs/plugin-basic-ssl": "^1.1.0",
+		"@vitejs/plugin-basic-ssl": "^2.1.0",
 		"a11y-color-tokens": "^0.7.0",
 		"astro-icon": "^1.1.1",
 		"fs": "^0.0.1-security",
